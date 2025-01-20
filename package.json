@@ -1,0 +1,22 @@
+{
+  "name": "monorepo",
+  "version": "0.0.1",
+  "description": "fullstack monorepo boilerplate",
+  "author": "YouROCK",
+  "license": "MIT",
+  "main": "dist/server/main.js",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "",
+    "test": "",
+    "serve": "",
+    "start": "",
+    "build:dev": "",
+    "build:prod": "",
+    "backend:dev": "",
+    "frontend:dev": ""
+  }
+}

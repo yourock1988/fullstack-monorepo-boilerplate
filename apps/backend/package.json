@@ -1,0 +1,63 @@
+{
+  "name": "@monorepo/backend",
+  "version": "0.0.1",
+  "description": "backend",
+  "author": "YouROCK",
+  "license": "MIT",
+  "main": "./src/server.js",
+  "scripts": {
+    "dev": "nodemon ./dev.js",
+    "look": "npm run build:dev && nodemon ../../build/server/http.js",
+    "start": "npm run build:prod && node ../../dist/server/http.js",
+    "build:dev": "babel -d ../../build/server ./src --delete-dir-on-start -s",
+    "build:prod": "babel -d ../../dist/server ./src --delete-dir-on-start",
+    "lint:js": "eslint ./src",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": "eslint"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "ignorePatterns": [
+      "node_modules/",
+      "lib/",
+      "dist/",
+      "build/"
+    ],
+    "extends": [
+      "airbnb-base",
+      "prettier"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "5"
+          }
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "@babel/cli": "^7.26.4",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@babel/register": "^7.25.9",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "lint-staged": "^15.2.11",
+    "nodemon": "^3.1.9"
+  }
+}
