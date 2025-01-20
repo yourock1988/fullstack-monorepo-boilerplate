@@ -1,33 +1,11 @@
+const { merge } = require('webpack-merge')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { DefinePlugin } = require('webpack')
-const { VueLoaderPlugin } = require('vue-loader')
+const webpackVueConfig = require('./webpack.vue')
+const PATHS = require('./paths')
 
-const rootPath = path.join(__dirname, '..', '..')
-const frontendPath = path.join(rootPath, 'apps', 'frontend')
-
-const PATHS = {
-  public: path.join(frontendPath, 'public'),
-  build: path.join(frontendPath, 'build'),
-  dist: path.join(frontendPath, 'dist'),
-  src: path.join(frontendPath, 'src'),
-}
-
-module.exports = {
-  resolve: {
-    alias: {
-      vue$: 'vue/dist/vue.esm-bundler.js',
-    },
-  },
-
-  mode: 'development',
-  // mode: 'production',
-
-  devtool: 'inline-source-map',
-  // devtool: 'source-map',
-  // devtool: false,
-
+module.exports = merge(webpackVueConfig, {
   stats: 'minimal',
   infrastructureLogging: { level: 'error' },
 
@@ -37,16 +15,10 @@ module.exports = {
     paths: PATHS,
   },
 
-  devServer: {
-    open: false,
-  },
-
   output: {
-    path: PATHS.dist,
     filename: 'assets/js/[name].js',
     publicPath: '',
     clean: true,
-    // assetModuleFilename: 'assets/img/[hash][ext]',
   },
 
   entry: {
@@ -58,7 +30,7 @@ module.exports = {
       cacheGroups: {
         vendor: {
           test: /node_modules/,
-          name: 'vendor',
+          name: 'vendors',
           chunks: 'all',
           enforce: true,
         },
@@ -101,8 +73,6 @@ module.exports = {
           filename: 'assets/img/[hash][ext]',
         },
       },
-
-      { test: /\.vue$/, loader: 'vue-loader' },
     ],
   },
 
@@ -117,13 +87,5 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: path.join('assets', 'css', '[name].css'),
     }),
-
-    new DefinePlugin({
-      __VUE_PROD_DEVTOOLS__: 'false',
-      __VUE_OPTIONS_API__: 'true',
-      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
-    }),
-
-    new VueLoaderPlugin(),
   ],
-}
+})
