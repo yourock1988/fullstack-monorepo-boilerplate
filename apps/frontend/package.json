@@ -6,9 +6,9 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
-    "build:dev": "webpack --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js"
+    "dev": "webpack-dev-server -c ../../packages/webpack.config/dev.js",
+    "build:dev": "webpack -c ../../packages/webpack.config/dev.js",
+    "build:prod": "webpack -c ../../packages/webpack.config/prod.js"
   },
   "browserslist": [
     "> 0.01%",
@@ -20,20 +20,6 @@
     "Safari < 7",
     "Android 4"
   ],
-  "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "babel-loader": "^9.2.1",
-    "css-loader": "^7.1.2",
-    "cssnano": "^7.0.6",
-    "html-webpack-plugin": "^5.6.3",
-    "mini-css-extract-plugin": "^2.9.2",
-    "postcss-loader": "^8.1.1",
-    "vue-loader": "^17.4.2",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.0",
-    "webpack-merge": "^6.0.1"
-  },
   "dependencies": {
     "vue": "^3.5.13"
   }

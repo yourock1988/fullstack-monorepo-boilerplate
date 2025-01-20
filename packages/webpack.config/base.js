@@ -2,7 +2,7 @@ const { merge } = require('webpack-merge')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const webpackVueConfig = require('./webpack.vue')
+const webpackVueConfig = require('./vue')
 const PATHS = require('./paths')
 
 module.exports = merge(webpackVueConfig, {
