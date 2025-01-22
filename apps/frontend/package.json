@@ -8,7 +8,12 @@
   "scripts": {
     "dev": "webpack-dev-server -c ../../packages/webpack.config/dev.js",
     "build:dev": "webpack -c ../../packages/webpack.config/dev.js",
-    "build:prod": "webpack -c ../../packages/webpack.config/prod.js"
+    "build:prod": "webpack -c ../../packages/webpack.config/prod.js",
+    "lint:js": "eslint ./src",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": "eslint"
   },
   "eslintConfig": {
     "extends": [
