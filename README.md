@@ -4,13 +4,19 @@
 
 ## Backend: Express
 
-### To begin your project with this template, simply clone it:
+### To start your project based on this boilerplate, just clone it:
 
 ```console
 git clone https://github.com/yourock1988/fullstack-monorepo-boilerplate/
 ```
 
-### Then you can start the server:
+### Install all dependencies:
+
+```console
+npm install
+```
+
+### Then you can start the application:
 
 ```console
 npm run start
