@@ -10,6 +10,11 @@
     "build:dev": "webpack -c ../../packages/webpack.config/dev.js",
     "build:prod": "webpack -c ../../packages/webpack.config/prod.js"
   },
+  "eslintConfig": {
+    "extends": [
+      "../../packages/eslint-config/web.json"
+    ]
+  },
   "browserslist": [
     "> 0.01%",
     "last 15 versions",

@@ -1,12 +1,9 @@
-import './js/foo.js'
-// import './js/main.js'
+import './js/foo'
 import './assets/css/style.css'
-
+import * as Vue from 'vue'
 import car from './assets/img/rolls-royce.jpg'
 
-console.log(car)
-
-import * as Vue from 'vue'
+window.console.log(car)
 
 const app = Vue.createApp({ template: '<foo-bar></foo-bar>' })
 

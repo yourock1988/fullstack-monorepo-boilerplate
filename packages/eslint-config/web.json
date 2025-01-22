@@ -1,0 +1,8 @@
+{
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "ignorePatterns": ["node_modules/", "lib/", "dist/", "build/"],
+  "extends": ["airbnb-base", "prettier"]
+}
