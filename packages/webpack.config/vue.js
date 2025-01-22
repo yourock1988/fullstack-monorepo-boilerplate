@@ -2,8 +2,6 @@ const { DefinePlugin } = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
-  target: ['web', 'es5'],
-
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm-bundler.js',

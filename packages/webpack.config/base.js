@@ -11,10 +11,6 @@ module.exports = merge(webpackVueConfig, {
 
   target: ['web', 'es5'],
 
-  externals: {
-    paths: PATHS,
-  },
-
   output: {
     filename: 'assets/js/[name].js',
     publicPath: '',

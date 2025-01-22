@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge')
 const webpackBaseConfig = require('./base')
+const PATHS = require('./paths')
 
 module.exports = merge(webpackBaseConfig, {
   mode: 'development',
@@ -10,6 +11,6 @@ module.exports = merge(webpackBaseConfig, {
   },
 
   output: {
-    path: webpackBaseConfig.externals.paths.build,
+    path: PATHS.build,
   },
 })
