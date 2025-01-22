@@ -1,5 +1,5 @@
 function resolveLocation(pathname) {
-  history.pushState(null, '', pathname)
+  window.history.pushState(null, '', pathname)
   loadPage(pathname)
 }
 
@@ -20,4 +20,4 @@ const routes = {
   contacts: './contacts.html',
 }
 
-resolveLocation(location.pathname)
+resolveLocation(window.location.pathname)
