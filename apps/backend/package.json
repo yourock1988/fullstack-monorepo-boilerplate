@@ -18,19 +18,8 @@
     "*.js": "eslint"
   },
   "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "ignorePatterns": [
-      "node_modules/",
-      "lib/",
-      "dist/",
-      "build/"
-    ],
     "extends": [
-      "airbnb-base",
-      "prettier"
+      "../../packages/eslint-config/node.json"
     ]
   },
   "babel": {
@@ -53,11 +42,6 @@
   },
   "devDependencies": {
     "@babel/register": "^7.25.9",
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.31.0",
-    "lint-staged": "^15.2.11",
     "nodemon": "^3.1.9"
   }
 }

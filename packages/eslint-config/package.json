@@ -1,0 +1,19 @@
+{
+  "name": "@monorepo/eslint-config",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "YouROCK",
+  "license": "MIT",
+  "description": "eslint cofniguration files",
+  "exports": {
+    "./web": "./web.json",
+    "./node": "./node.json"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "lint-staged": "^15.2.11"
+  }
+}
