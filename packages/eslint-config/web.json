@@ -4,5 +4,15 @@
     "browser": true
   },
   "ignorePatterns": ["node_modules/", "lib/", "dist/", "build/"],
-  "extends": ["airbnb-base", "prettier"]
+  "extends": ["airbnb-base", "prettier"],
+  "rules": {
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": true
+      }
+    ]
+  }
 }
