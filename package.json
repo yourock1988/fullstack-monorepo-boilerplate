@@ -10,6 +10,8 @@
     "packages/*"
   ],
   "scripts": {
+    "clean": "rimraf build dist",
+    "clean:all": "rimraf build dist node_modules",
     "start": "npm run build:prod && node ./dist/server/http.js",
     "dev": "run-p backend:dev frontend:dev",
     "build:dev": "run-s backend:build:dev frontend:build:dev",
@@ -22,6 +24,7 @@
     "frontend:build:prod": "npm run build:prod --workspace=@monorepo/frontend"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.0.1"
   }
 }
