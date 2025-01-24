@@ -3,6 +3,10 @@
   "env": {
     "browser": true
   },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
   "ignorePatterns": ["node_modules/", "lib/", "dist/", "build/"],
   "extends": ["airbnb-base", "prettier"],
   "rules": {
