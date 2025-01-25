@@ -14,7 +14,7 @@ module.exports = merge(webpackVueConfig, {
 
   output: {
     filename: 'assets/js/[name].js',
-    publicPath: '',
+    publicPath: '/',
     clean: true,
   },
 
