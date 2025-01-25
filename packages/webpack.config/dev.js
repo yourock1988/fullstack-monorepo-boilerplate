@@ -8,6 +8,7 @@ module.exports = merge(webpackBaseConfig, {
 
   devServer: {
     open: false,
+    historyApiFallback: true,
   },
 
   output: {
