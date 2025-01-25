@@ -1,19 +1,9 @@
-body {
-  background: #234;
+html {
+  font-family: Calibri, sans-serif;
+  font-size: 18px;
+  color: #234;
 }
 
-.test {
-  background: linear-gradient(white, black);
-  display: flex;
-  user-select: none;
-}
-
-h1 {
-  color: green;
-}
-h2 {
-  color: green;
-}
-h3 {
-  color: green;
+span {
+  cursor: pointer;
 }
