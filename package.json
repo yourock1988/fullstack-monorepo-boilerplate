@@ -17,7 +17,7 @@
     "build:dev": "run-s backend:build:dev frontend:build:dev",
     "build:prod": "run-s backend:build:prod frontend:build:prod",
     "backend:dev": "npm run dev --workspace=@monorepo/backend",
-    "frontend:dev": "npm run dev --workspace=@monorepo/frontend",
+    "frontend:dev": "npm run dev:simple --workspace=@monorepo/frontend",
     "backend:build:dev": "npm run build:dev --workspace=@monorepo/backend",
     "frontend:build:dev": "npm run build:dev --workspace=@monorepo/frontend",
     "backend:build:prod": "npm run build:prod --workspace=@monorepo/backend",
