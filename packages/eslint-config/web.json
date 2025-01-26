@@ -10,6 +10,7 @@
   "ignorePatterns": ["node_modules/", "lib/", "dist/", "build/"],
   "extends": ["airbnb-base", "prettier"],
   "rules": {
+    "no-param-reassign": "off",
     "no-use-before-define": [
       "error",
       {
