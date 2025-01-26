@@ -7,12 +7,21 @@ export default {
       n: 42,
     }
   },
+
+  methods: {
+    increment() {
+      this.$store.commit('example/increment')
+      console.log(this.$store.getters['example/getCount'])
+
+      console.log(this.$store.state.example.count)
+    },
+  },
 }
 </script>
 
 <template>
   <div>
-    <h1 @click="n++">App.vue</h1>
+    <h1 @click="increment">App.vue</h1>
     <h2>{{ n }}</h2>
     <foo-bar></foo-bar>
   </div>
