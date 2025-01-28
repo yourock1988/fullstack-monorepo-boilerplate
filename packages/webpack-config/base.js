@@ -42,10 +42,7 @@ module.exports = merge(webpackVueConfig, {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            sourceMaps: true,
-            presets: [['@babel/preset-env', { targets: { ie: '11' } }]],
-          },
+          options: { extends: path.join(PATHS.configBabel, 'base.json') },
         },
       },
 
