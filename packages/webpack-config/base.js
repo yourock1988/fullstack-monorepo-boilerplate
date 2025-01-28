@@ -42,7 +42,7 @@ module.exports = merge(webpackVueConfig, {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: { extends: path.join(PATHS.configBabel, 'base.json') },
+          options: { extends: path.join(PATHS.configBabel, 'web.json') },
         },
       },
 

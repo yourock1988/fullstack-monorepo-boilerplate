@@ -6,7 +6,7 @@
   "license": "MIT",
   "description": "eslint cofniguration files",
   "exports": {
-    "./web": "./web.json",
+    "./vue": "./vue.json",
     "./node": "./node.json"
   },
   "devDependencies": {

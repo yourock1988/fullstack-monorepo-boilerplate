@@ -6,7 +6,8 @@
   "license": "MIT",
   "description": "babel cofniguration files",
   "exports": {
-    "./base": "./base.json"
+    "./node": "./node.json",
+    "./web": "./web.json"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.4",
