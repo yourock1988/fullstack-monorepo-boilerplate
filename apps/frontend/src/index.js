@@ -9,4 +9,4 @@ const app = Vue.createApp(App)
 
 app.use(store)
 
-app.mount('#app')
+window.vm = app.mount('#app')
