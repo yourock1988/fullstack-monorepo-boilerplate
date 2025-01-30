@@ -20,6 +20,14 @@
       {
         "groups": ["props", "data", "computed", "methods", "setup"]
       }
+    ],
+    "no-use-before-define": [
+      "error",
+      {
+        "functions": false,
+        "classes": true,
+        "variables": true
+      }
     ]
   }
 }
