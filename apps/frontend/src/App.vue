@@ -1,24 +1,16 @@
 <script>
-import StudentAppender from './components/StudentAppender.vue'
-import TableStudents from './components/TableStudents.vue'
-
-export default {
-  components: { TableStudents, StudentAppender },
-}
+export default {}
 </script>
 
 <template>
-  <h1>Hello App!</h1>
-  <p><strong>Текущий путь маршрута:</strong> {{ $route.fullPath }}</p>
+  <h1>Vue Router</h1>
+  <p><strong>Текущий путь маршрута: </strong> {{ $route.fullPath }}</p>
   <nav>
     <RouterLink to="/">Go to Home</RouterLink>
-    <RouterLink to="/about">Go to About</RouterLink>
+    <span> | </span>
+    <RouterLink to="/students">Go to Students</RouterLink>
   </nav>
   <main>
     <RouterView />
   </main>
-  <div>
-    <table-students></table-students>
-    <student-appender></student-appender>
-  </div>
 </template>
