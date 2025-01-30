@@ -7,6 +7,12 @@ const webpackVueConfig = require('./vue')
 const PATHS = require('./paths')
 
 module.exports = merge(webpackVueConfig, {
+  resolve: {
+    alias: {
+      '@': PATHS.src,
+    },
+  },
+
   stats: 'minimal',
   infrastructureLogging: { level: 'error' },
 
