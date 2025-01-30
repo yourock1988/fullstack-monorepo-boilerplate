@@ -8,6 +8,13 @@
     "ecmaVersion": 2024,
     "sourceType": "module"
   },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./apps/frontend/src"]]
+      }
+    }
+  },
   "ignorePatterns": ["node_modules/", "lib/", "dist/", "build/"],
   "extends": ["airbnb-base", "plugin:vue/vue3-recommended", "prettier"],
   "rules": {
