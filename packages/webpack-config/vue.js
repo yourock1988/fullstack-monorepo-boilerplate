@@ -6,6 +6,7 @@ module.exports = {
     alias: {
       vue$: 'vue/dist/vue.esm-bundler.js',
       vuex$: 'vuex/dist/vuex.esm-bundler.js',
+      'vue-router$': 'vue-router/dist/vue-router.esm-bundler.js',
     },
   },
 
