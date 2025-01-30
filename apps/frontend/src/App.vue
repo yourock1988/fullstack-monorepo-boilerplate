@@ -1,13 +1,15 @@
 <script>
-import ExampleStore from './components/store-example/ExampleStore.vue'
+import StudentAppender from './components/StudentAppender.vue'
+import TableStudents from './components/TableStudents.vue'
 
 export default {
-  components: { ExampleStore },
+  components: { TableStudents, StudentAppender },
 }
 </script>
 
 <template>
   <div>
-    <example-store></example-store>
+    <table-students></table-students>
+    <student-appender></student-appender>
   </div>
 </template>
