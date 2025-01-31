@@ -1,10 +1,10 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import TableThead from './TableThead.vue'
-import EditableTd from './EditableTd.vue'
+import TheadPart from './TheadPart.vue'
+import TdEditable from './TdEditable.vue'
 
 export default {
-  components: { TableThead, EditableTd },
+  components: { TheadPart, TdEditable },
 
   computed: {
     ...mapGetters('students', ['getStudents']),
@@ -27,16 +27,16 @@ export default {
 
 <template>
   <table>
-    <table-thead :column-captions="columnCaptions"></table-thead>
+    <thead-part :column-captions="columnCaptions"></thead-part>
     <tbody>
       <tr v-for="student of getStudents" :key="student.id">
         <th>{{ student.id }}</th>
-        <editable-td
+        <td-editable
           v-for="columnCaption of columnCaptions"
           :key="student.id + columnCaption"
           :student="student"
           :prop-name="columnCaption"
-        ></editable-td>
+        ></td-editable>
         <td>
           <button @click="deleteStudentById(student.id)">delete</button>
         </td>
