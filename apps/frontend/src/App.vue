@@ -9,6 +9,8 @@ export default {}
     <RouterLink to="/">Go to Home</RouterLink>
     <span> | </span>
     <RouterLink to="/students">Go to Students</RouterLink>
+    <span> | </span>
+    <RouterLink to="/products">Go to Products</RouterLink>
   </nav>
   <main>
     <RouterView />
