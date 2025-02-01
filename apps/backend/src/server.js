@@ -1,11 +1,8 @@
-const Server = require('express')
+const vhost = require('vhost')
+const routes = require('./routes')
 
-const welcomeRouter = require('./routers/welcome')
-const publicStatic = require('./routers/public-static')
+function startServer(domain) {
+  return vhost(domain, routes)
+}
 
-const server = Server()
-
-server.use('/', welcomeRouter)
-server.use('/', publicStatic)
-
-module.exports = server
+module.exports = startServer
