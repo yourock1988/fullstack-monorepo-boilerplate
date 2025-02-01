@@ -4,7 +4,7 @@
   "description": "fullstack monorepo boilerplate",
   "author": "YouROCK",
   "license": "MIT",
-  "main": "./dist/server/http.js",
+  "main": "./dist/server/https.js",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -12,7 +12,7 @@
   "scripts": {
     "clean": "rimraf build dist",
     "clean:all": "rimraf build dist node_modules",
-    "start": "npm run build:prod && node ./dist/server/http.js",
+    "start": "npm run build:prod && node ./dist/server/https.js",
     "dev": "run-p backend:dev frontend:dev",
     "build:dev": "run-s backend:build:dev frontend:build:dev",
     "build:prod": "run-s backend:build:prod frontend:build:prod",

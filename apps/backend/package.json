@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "nodemon ./dev.js",
     "look": "npm run build:dev && nodemon ../../build/server/http.js",
-    "start": "npm run build:prod && node ../../dist/server/http.js",
+    "start": "npm run build:prod && node ../../dist/server/https.js",
     "build:dev": "babel -d ../../build/server ./src --delete-dir-on-start -s",
     "build:prod": "babel -d ../../dist/server ./src --delete-dir-on-start",
     "lint:js": "eslint ./src",
