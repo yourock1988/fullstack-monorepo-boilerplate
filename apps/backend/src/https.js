@@ -8,8 +8,9 @@ const app = express()
 const PORT_HTTPS = 443
 const domain = 'boilerplate.web-app.click'
 
-const CERT_PRIVKEY = path.join(__dirname, '..', '..', 'ssl_cert', 'privkey.pem')
-const CERT_FILE = path.join(__dirname, '..', '..', 'ssl_cert', 'fullchain.pem')
+const CERT_PATH = '/etc/letsencrypt/live/' + domain
+const CERT_PRIVKEY = CERT_PATH + '/privkey.pem'
+const CERT_FILE = CERT_PATH + '/fullchain.pem'
 
 const httpsOptions = {
   key: fs.readFileSync(CERT_PRIVKEY),
