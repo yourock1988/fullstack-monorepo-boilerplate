@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const https = require('https')
 const express = require('express')
-const startServer = require('./server')
+const enableServer = require('./server')
 
 const app = express()
 const PORT_HTTPS = 443
@@ -17,7 +17,7 @@ const httpsOptions = {
   cert: fs.readFileSync(CERT_FILE),
 }
 
-app.use(startServer(domain))
+app.use(enableServer(domain))
 
 https
   .createServer(httpsOptions, app)

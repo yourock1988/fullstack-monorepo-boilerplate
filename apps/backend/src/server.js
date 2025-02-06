@@ -1,8 +1,8 @@
 const vhost = require('vhost')
 const routes = require('./routes')
 
-function startServer(domain) {
+function enableServer(domain) {
   return vhost(domain, routes)
 }
 
-module.exports = startServer
+module.exports = enableServer
