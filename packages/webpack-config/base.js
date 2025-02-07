@@ -16,7 +16,7 @@ module.exports = merge(webpackVueConfig, {
   performance: {
     maxAssetSize: 500000,
     maxEntrypointSize: 500000,
-    hints: 'warning',
+    hints: false,
   },
 
   stats: 'minimal',
