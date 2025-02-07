@@ -1,6 +1,6 @@
 import sendRequest from './sendRequest'
 
-const url = 'https://web-app.click/pc-shop/api/v0/products/'
+const url = 'https://pc-shop.web-app.click/api/v0/products/'
 
 export async function getProducts() {
   const response = await sendRequest(url)

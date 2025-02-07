@@ -1,6 +1,6 @@
 import sendRequest from './sendRequest'
 
-const url = 'https://web-app.click/university/api/v1/students/'
+const url = 'https://university.web-app.click/api/v1/students/'
 
 export async function getStudents() {
   const response = await sendRequest(url)
