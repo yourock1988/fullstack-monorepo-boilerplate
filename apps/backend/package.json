@@ -7,7 +7,7 @@
   "main": "./src/app.js",
   "scripts": {
     "dev": "nodemon ./dev.js",
-    "look": "npm run build:dev && nodemon ../../build/server/app.js",
+    "look": "nodemon ../../build/server/app.js",
     "start": "node ../../dist/server/app.js",
     "deploy": "npm run build:prod && npm start",
     "build:dev": "babel -d ../../build/server ./src --delete-dir-on-start -s",
