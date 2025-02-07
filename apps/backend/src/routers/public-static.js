@@ -10,7 +10,7 @@ const publicStatic = path.join(baseDir, publicDir)
 global.console.log(publicStatic)
 
 app.use('/', express.static(publicStatic, { index: 'index.html' }))
-app.use('/contacts', express.static(publicStatic, { index: 'index.html' }))
-app.use('/about', express.static(publicStatic, { index: 'index.html' }))
+app.use('/students', express.static(publicStatic, { index: 'index.html' }))
+app.use('/products', express.static(publicStatic, { index: 'index.html' }))
 
 module.exports = app
