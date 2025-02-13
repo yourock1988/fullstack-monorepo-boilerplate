@@ -6,7 +6,7 @@
   --catalog-in_a_row: 2;
   --recently-viewed-count: 2;
   --layout-linetop_height: 30px;
-  --layout-header_height: 72px;
+  --layout-header_height: 62px;
   --layout-category-navigation_height: 120px;
   --layout-verbose-filtration_height: 50px;
   --layout-verbose-filter_sticky-top: calc(var(--layout-header_height));
