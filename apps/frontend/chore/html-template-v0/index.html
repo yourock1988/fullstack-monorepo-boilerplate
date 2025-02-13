@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pc-shop</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/vars.css" />
+    <link rel="stylesheet" href="css/dev.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/appearance.css" />
+  </head>
+
+  <body>
+    <div id="app" class="layout-app">
+      <div class="layout-wrapper">
+        <div class="layout-linetop">
+          <span>Скидки 99% на все товары!</span>
+        </div>
+        <div class="layout-header">
+          <header class="wrapper-header layout-centralize">
+            <div class="wrap-icon-menu">🍔</div>
+            <div class="wrap-icon-logo">
+              <span class="logo-small">🧶</span>
+              <span class="logo-large"
+                >🧶<b
+                  ><u><i>pc-shop</i></u></b
+                ></span
+              >
+            </div>
+            <div class="wrap-button-catalog"><button>🎲Каталог</button></div>
+            <div class="wrap-search">
+              <input type="search" /><button>Найти</button>
+            </div>
+            <div class="wrap-select-lang">
+              <select name="" id="">
+                <option value="">EN</option>
+                <option value="">RU</option>
+                <option value="">UA</option>
+              </select>
+            </div>
+            <div class="wrap-icon-auth">👀</div>
+            <div class="wrap-icon-orders">📃</div>
+            <div class="wrap-icon-notifications">🔔</div>
+            <div class="wrap-icon-compare">⚖</div>
+            <div class="wrap-icon-wishlist">♥</div>
+            <div class="wrap-icon-cart">🛒</div>
+          </header>
+        </div>
+        <div class="layout-main">
+          <div class="layout-centralize">
+            <main>
+              <div class="layout-category-navigation">
+                <div class="category-path">
+                  <span class="short-path">◀ Собранные компьютеры</span>
+                  <span class="long-path"
+                    >🏠 / Компьютеры и ноутбуки / Собранные компьютеры</span
+                  >
+                </div>
+                <div class="category-caption">
+                  <h2>Собранные компьютеры</h2>
+                </div>
+              </div>
+              <div class="layout-verbose-filtration">
+                <div class="wrap-button-show-filters">
+                  <button id="elButtonShowFilters">Фильтры</button>
+                </div>
+                <div class="wrap-span-filtrated-items-count">
+                  <span id="elSpanFiltratedItemsCount"
+                    >Найдено 4000 товаров</span
+                  >
+                </div>
+                <div class="wrap-filter-resets">
+                  <button>Сбросить</button>
+                  <button>GeForce RTX 3060 x</button>
+                </div>
+                <div class="wrap-select-items-on-page">
+                  <span>По</span>
+                  <select id="elSelectItemsOnPage" class="select-items-on-page">
+                    <option value="">30</option>
+                    <option value="">60</option>
+                    <option value="">90</option>
+                  </select>
+                  <span>на странице</span>
+                </div>
+                <div class="wrap-select-sorting-type">
+                  <select id="elSelectSortingType" class="select-sorting-type">
+                    <option value="">По рейтингу</option>
+                    <option value="">От дорогих к дешевым</option>
+                    <option value="">От дешевых к дорогим</option>
+                    <option value="">Новинки</option>
+                  </select>
+                </div>
+                <div class="wrap-picker-wrap-tile-style">
+                  <div id="elPickerTileStyle" class="picker-tile-style">
+                    <input type="radio" name="tile-style" id="" checked />
+                    <input type="radio" name="tile-style" id="" />
+                    <input type="radio" name="tile-style" id="" />
+                  </div>
+                </div>
+              </div>
+              <div class="layout-catalog">
+                <aside class="catalog-filter">
+                  <h3>Фильтр</h3>
+                  <dl class="filter-attribute">
+                    <dt><h5>Видеокарта</h5></dt>
+                    <dd>
+                      <ul>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060 Ti</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 4070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070 Ti</label>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                  <dl class="filter-attribute">
+                    <dt><h5>Видеокарта</h5></dt>
+                    <dd>
+                      <ul>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060 Ti</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 4070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070 Ti</label>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                  <dl class="filter-attribute">
+                    <dt><h5>Видеокарта</h5></dt>
+                    <dd>
+                      <ul>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060 Ti</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 4070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070 Ti</label>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                  <dl class="filter-attribute">
+                    <dt><h5>Видеокарта</h5></dt>
+                    <dd>
+                      <ul>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060 Ti</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 4070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070 Ti</label>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                  <dl class="filter-attribute">
+                    <dt><h5>Видеокарта</h5></dt>
+                    <dd>
+                      <ul>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060 Ti</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 4070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070 Ti</label>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                  <dl class="filter-attribute">
+                    <dt><h5>Видеокарта</h5></dt>
+                    <dd>
+                      <ul>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 3060 Ti</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 4070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070</label>
+                        </li>
+                        <li>
+                          <input type="checkbox" name="" id="" />
+                          <label for="">GeForce RTX 5070 Ti</label>
+                        </li>
+                      </ul>
+                    </dd>
+                  </dl>
+                </aside>
+                <div class="catalog-content">
+                  <ul class="products">
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="product">
+                      <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                      <div class="box">
+                        <div class="top">
+                          <div class="wrap-img">
+                            <img src="img/computer.webp" />
+                          </div>
+                        </div>
+                        <div class="bottom">
+                          <div class="wrap-colors"></div>
+                          <div class="wrap-title">
+                            <span>Компьютер HAL-9000</span>
+                          </div>
+                          <div class="wrap-leave-comment">
+                            <span>💬Оставить отзыв</span>
+                          </div>
+                          <div class="wrap-is-available">
+                            <span>Есть в наличии</span>
+                          </div>
+                          <div class="wrap-buy">
+                            <div class="price">180 000₴</div>
+                            <div class="icon-cart">🛒</div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="paginator">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                  </ul>
+                </div>
+              </div>
+            </main>
+            <div class="recently-viewed">
+              <h3>Последние просмотренные товары</h3>
+              <ul class="products">
+                <li class="product">
+                  <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                  <div class="box">
+                    <div class="top">
+                      <div class="wrap-img">
+                        <img src="img/computer.webp" />
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="wrap-colors"></div>
+                      <div class="wrap-title">
+                        <span>Компьютер HAL-9000</span>
+                      </div>
+                      <div class="wrap-leave-comment">
+                        <span>💬Оставить отзыв</span>
+                      </div>
+                      <div class="wrap-is-available">
+                        <span>Есть в наличии</span>
+                      </div>
+                      <div class="wrap-buy">
+                        <div class="price">180 000₴</div>
+                        <div class="icon-cart">🛒</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product">
+                  <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                  <div class="box">
+                    <div class="top">
+                      <div class="wrap-img">
+                        <img src="img/computer.webp" />
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="wrap-colors"></div>
+                      <div class="wrap-title">
+                        <span>Компьютер HAL-9000</span>
+                      </div>
+                      <div class="wrap-leave-comment">
+                        <span>💬Оставить отзыв</span>
+                      </div>
+                      <div class="wrap-is-available">
+                        <span>Есть в наличии</span>
+                      </div>
+                      <div class="wrap-buy">
+                        <div class="price">180 000₴</div>
+                        <div class="icon-cart">🛒</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product">
+                  <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                  <div class="box">
+                    <div class="top">
+                      <div class="wrap-img">
+                        <img src="img/computer.webp" />
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="wrap-colors"></div>
+                      <div class="wrap-title">
+                        <span>Компьютер HAL-9000</span>
+                      </div>
+                      <div class="wrap-leave-comment">
+                        <span>💬Оставить отзыв</span>
+                      </div>
+                      <div class="wrap-is-available">
+                        <span>Есть в наличии</span>
+                      </div>
+                      <div class="wrap-buy">
+                        <div class="price">180 000₴</div>
+                        <div class="icon-cart">🛒</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product">
+                  <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                  <div class="box">
+                    <div class="top">
+                      <div class="wrap-img">
+                        <img src="img/computer.webp" />
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="wrap-colors"></div>
+                      <div class="wrap-title">
+                        <span>Компьютер HAL-9000</span>
+                      </div>
+                      <div class="wrap-leave-comment">
+                        <span>💬Оставить отзыв</span>
+                      </div>
+                      <div class="wrap-is-available">
+                        <span>Есть в наличии</span>
+                      </div>
+                      <div class="wrap-buy">
+                        <div class="price">180 000₴</div>
+                        <div class="icon-cart">🛒</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product">
+                  <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                  <div class="box">
+                    <div class="top">
+                      <div class="wrap-img">
+                        <img src="img/computer.webp" />
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="wrap-colors"></div>
+                      <div class="wrap-title">
+                        <span>Компьютер HAL-9000</span>
+                      </div>
+                      <div class="wrap-leave-comment">
+                        <span>💬Оставить отзыв</span>
+                      </div>
+                      <div class="wrap-is-available">
+                        <span>Есть в наличии</span>
+                      </div>
+                      <div class="wrap-buy">
+                        <div class="price">180 000₴</div>
+                        <div class="icon-cart">🛒</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product">
+                  <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                  <div class="box">
+                    <div class="top">
+                      <div class="wrap-img">
+                        <img src="img/computer.webp" />
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="wrap-colors"></div>
+                      <div class="wrap-title">
+                        <span>Компьютер HAL-9000</span>
+                      </div>
+                      <div class="wrap-leave-comment">
+                        <span>💬Оставить отзыв</span>
+                      </div>
+                      <div class="wrap-is-available">
+                        <span>Есть в наличии</span>
+                      </div>
+                      <div class="wrap-buy">
+                        <div class="price">180 000₴</div>
+                        <div class="icon-cart">🛒</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product">
+                  <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                  <div class="box">
+                    <div class="top">
+                      <div class="wrap-img">
+                        <img src="img/computer.webp" />
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="wrap-colors"></div>
+                      <div class="wrap-title">
+                        <span>Компьютер HAL-9000</span>
+                      </div>
+                      <div class="wrap-leave-comment">
+                        <span>💬Оставить отзыв</span>
+                      </div>
+                      <div class="wrap-is-available">
+                        <span>Есть в наличии</span>
+                      </div>
+                      <div class="wrap-buy">
+                        <div class="price">180 000₴</div>
+                        <div class="icon-cart">🛒</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product">
+                  <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                  <div class="box">
+                    <div class="top">
+                      <div class="wrap-img">
+                        <img src="img/computer.webp" />
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="wrap-colors"></div>
+                      <div class="wrap-title">
+                        <span>Компьютер HAL-9000</span>
+                      </div>
+                      <div class="wrap-leave-comment">
+                        <span>💬Оставить отзыв</span>
+                      </div>
+                      <div class="wrap-is-available">
+                        <span>Есть в наличии</span>
+                      </div>
+                      <div class="wrap-buy">
+                        <div class="price">180 000₴</div>
+                        <div class="icon-cart">🛒</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="product">
+                  <div class="wrap-sale"><span>АКЦИЯ</span></div>
+                  <div class="box">
+                    <div class="top">
+                      <div class="wrap-img">
+                        <img src="img/computer.webp" />
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="wrap-colors"></div>
+                      <div class="wrap-title">
+                        <span>Компьютер HAL-9000</span>
+                      </div>
+                      <div class="wrap-leave-comment">
+                        <span>💬Оставить отзыв</span>
+                      </div>
+                      <div class="wrap-is-available">
+                        <span>Есть в наличии</span>
+                      </div>
+                      <div class="wrap-buy">
+                        <div class="price">180 000₴</div>
+                        <div class="icon-cart">🛒</div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="layout-footer">
+          <div class="line-downloads"></div>
+          <div class="layout-centralize">
+            <footer>
+              <div class="layout-links">
+                <div class="links-schedule">
+                  <b>График работы Call-центра</b>
+                </div>
+                <div class="links-information">
+                  <div>Информация о компании</div>
+                  <div>О нас</div>
+                  <div>Условия использования сайта</div>
+                  <div>Вакансии</div>
+                  <div>Контакты</div>
+                  <div>Все категории</div>
+                </div>
+                <div class="links-help">
+                  <div>Помощь</div>
+                  <div>Доставка и оплата</div>
+                  <div>Кредит</div>
+                  <div>Гарантия</div>
+                  <div>Возврат товара</div>
+                  <div>Сервисные центры</div>
+                </div>
+                <div class="links-services">
+                  <div>Сервисы</div>
+                  <div>Бонусный счёт</div>
+                  <div>Подарочные сертификаты</div>
+                  <div>pc-shop обмен</div>
+                  <div>Корпоративным клиентам</div>
+                </div>
+                <div class="links-partners">
+                  <div>Партнерам</div>
+                  <div>Продавать на pc-shop</div>
+                  <div>Сотрудничество с нами</div>
+                  <div>Франчайзинг</div>
+                  <div>Аренда помещений</div>
+                </div>
+              </div>
+              <div class="tags-list">
+                <button>ноутбук</button>
+                <button>компьютер</button>
+                <button>процессор</button>
+                <button>видеокарта</button>
+                <button>смартфон</button>
+                <button>планшет</button>
+              </div>
+              <div class="copyright">
+                <span>© 1729-2025 Все права запрещены</span>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="tapbar">
+        <div class="wrap-tap">
+          <span> 🎲 </span>
+        </div>
+        <div class="wrap-tap">
+          <span> 📃 </span>
+        </div>
+        <div class="wrap-tap">
+          <span> 🔔 </span>
+        </div>
+        <div class="wrap-tap wtf">
+          <span> ⚖ </span>
+        </div>
+        <div class="wrap-tap">
+          <span> 🧡 </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

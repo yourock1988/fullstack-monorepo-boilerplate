@@ -1,0 +1,349 @@
+.product {
+  aspect-ratio: 9 / 16;
+  min-width: 0;
+  overflow: hidden;
+  border-bottom: 1px solid #e9e9e9;
+  border-right: 1px solid #e9e9e9;
+  position: relative;
+  padding: 5px;
+  font-size: 13px;
+  white-space: normal;
+}
+.product .wrap-sale {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 5px;
+  span {
+    display: inline-block;
+    padding: 3px 6px;
+  }
+}
+.product .box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.product .box .top {
+  min-height: 0;
+  flex: 1;
+}
+.product .box .bottom > div {
+  padding: 3px;
+}
+.product .box .top .wrap-img {
+  height: 100%;
+  text-align: center;
+  img {
+    height: 100%;
+  }
+}
+.wrap-is-available {
+  color: #00a046;
+}
+.wrap-buy {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.layout-wrapper {
+  margin-bottom: 60px;
+}
+
+.layout-centralize {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+.layout-linetop {
+  overflow: hidden;
+  height: var(--layout-linetop_height);
+}
+.layout-header {
+  z-index: 99999;
+  position: sticky;
+  top: 0px;
+  height: var(--layout-header_height);
+  .wrapper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+    overflow: hidden;
+    .wrap-search {
+      flex: 1;
+      display: flex;
+      [type='search'] {
+        padding: 5px;
+        width: 100px;
+        flex: 1;
+      }
+      button {
+        display: none;
+      }
+    }
+  }
+}
+
+.wrap-icon-logo {
+  .logo-large {
+    display: none;
+  }
+}
+
+.wrap-button-catalog,
+.wrap-select-lang,
+.wrap-icon-auth,
+.wrap-icon-orders,
+.wrap-icon-notifications,
+.wrap-icon-compare,
+.wrap-icon-wishlist {
+  display: none;
+}
+
+.layout-category-navigation {
+  padding-top: 15px;
+  height: var(--category-navigation_height);
+  overflow: hidden;
+  .long-path {
+    display: none;
+  }
+  .category-caption {
+    padding-top: 10px;
+  }
+}
+.layout-verbose-filtration {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  z-index: 9999;
+  position: sticky;
+  top: var(--layout-verbose-filter_sticky-top);
+  height: var(--layout-verbose-filtration_height);
+  overflow: hidden;
+  background: var(--primary-bg-color);
+  .wrap-filter-resets,
+  .wrap-span-filtrated-items-count,
+  .wrap-select-items-on-page,
+  .wrap-picker-wrap-tile-style {
+    display: none;
+  }
+}
+
+.layout-catalog {
+  border-top: 1px solid #e9e9e9;
+  display: flex;
+}
+.catalog-filter {
+  display: none;
+  position: sticky;
+  top: var(--catalog-filter_sticky-top);
+  height: var(--catalog-filter_height);
+  width: 250px;
+  overflow-y: scroll;
+  .filter-attribute {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e9e9e9;
+    [type='checkbox'] {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.catalog-content {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(var(--catalog-in_a_row), minmax(0, 1fr));
+  grid-auto-rows: max-content;
+}
+.paginator {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.recently-viewed {
+  padding: 25px 0;
+  overflow: hidden;
+  .products {
+    margin-top: 15px;
+    grid-template-columns: unset;
+    grid-auto-columns: calc(100% / calc(var(--recently-viewed-count) + 0.5));
+    grid-auto-flow: column;
+    overflow: hidden;
+    overflow-x: auto;
+  }
+}
+
+.line-downloads {
+  height: 100px;
+}
+
+.layout-links {
+  font-size: 16px;
+  padding: 25px 0;
+  [class|='links'] {
+    overflow: hidden;
+  }
+}
+
+.layout-links {
+  display: grid;
+  grid-template-rows: 150px repeat(4, 200px);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-areas:
+    'schedule'
+    'information'
+    'help'
+    'services'
+    'partners';
+}
+
+.tags-list {
+  height: 60px;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.copyright {
+  overflow: hidden;
+  padding: 5px;
+}
+
+.tapbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  height: 52px;
+  .wrap-tap {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --catalog-in_a_row: 3;
+    --recently-viewed-count: 4;
+  }
+  .layout-centralize {
+    padding: 0 16px;
+  }
+  .layout-header {
+    .wrapper-header {
+      .wrap-search {
+        button {
+          display: inline-block;
+        }
+      }
+    }
+  }
+  .wrap-select-lang,
+  .wrap-icon-orders,
+  .wrap-icon-notifications,
+  .wrap-icon-compare,
+  .wrap-icon-wishlist {
+    display: block;
+  }
+  .layout-verbose-filtration {
+    .wrap-span-filtrated-items-count,
+    .wrap-picker-wrap-tile-style {
+      display: block;
+    }
+  }
+  .layout-links {
+    display: grid;
+    grid-template-rows: 200px 200px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-areas:
+      'schedule information help'
+      'schedule services partners';
+  }
+  .tapbar {
+    display: none;
+  }
+  .layout-wrapper {
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  :root {
+    --recently-viewed-count: 6;
+  }
+  .layout-centralize {
+    padding: 0 24px;
+  }
+  .wrap-button-catalog {
+    display: block;
+  }
+  .layout-category-navigation {
+    .short-path {
+      display: none;
+    }
+    .long-path {
+      display: block;
+    }
+  }
+  .layout-verbose-filtration {
+    .wrap-select-items-on-page {
+      display: block;
+    }
+    .wrap-button-show-filters {
+      display: none;
+    }
+  }
+  .catalog-filter {
+    display: block;
+  }
+  .layout-links {
+    display: grid;
+    grid-template-rows: 100px 200px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-areas:
+      'schedule schedule schedule schedule'
+      'information help services partners';
+  }
+}
+@media only screen and (min-width: 1280px) {
+  :root {
+    --catalog-in_a_row: 5;
+    --recently-viewed-count: 7;
+  }
+  .layout-centralize {
+    padding: 0 32px;
+  }
+  .wrap-icon-logo {
+    .logo-small {
+      display: none;
+    }
+    .logo-large {
+      display: block;
+    }
+  }
+  .layout-verbose-filtration {
+    .wrap-filter-resets {
+      display: block;
+    }
+  }
+  .layout-links {
+    display: grid;
+    grid-template-rows: 300px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-areas: 'schedule information help services partners';
+  }
+}

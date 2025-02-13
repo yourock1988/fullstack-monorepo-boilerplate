@@ -1,0 +1,34 @@
+:root {
+  --scrollbar-color: #ccc;
+  --scrollbar-background: #eee;
+  --primary-bg-color: white;
+  --primary-black-color: #221f1f;
+  --catalog-in_a_row: 2;
+  --recently-viewed-count: 2;
+  --layout-linetop_height: 30px;
+  --layout-header_height: 72px;
+  --layout-category-navigation_height: 120px;
+  --layout-verbose-filtration_height: 50px;
+  --layout-verbose-filter_sticky-top: calc(var(--layout-header_height));
+  --catalog-filter_height: calc(100vh - var(--catalog-filter_sticky-top));
+  --catalog-filter_sticky-top: calc(
+    var(--layout-verbose-filtration_height) +
+      var(--layout-verbose-filter_sticky-top)
+  );
+}
+
+.links-schedule {
+  grid-area: schedule;
+}
+.links-information {
+  grid-area: information;
+}
+.links-help {
+  grid-area: help;
+}
+.links-services {
+  grid-area: services;
+}
+.links-partners {
+  grid-area: partners;
+}

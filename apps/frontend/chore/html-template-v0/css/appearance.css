@@ -1,0 +1,133 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+.catalog-filter::-webkit-scrollbar {
+  background-color: var(--scrollbar-background);
+  width: 8px;
+}
+.catalog-filter::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 8px;
+}
+.recently-viewed > .products::-webkit-scrollbar {
+  background-color: var(--scrollbar-background);
+  height: 8px;
+}
+.recently-viewed > .products::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 8px;
+}
+
+html,
+a,
+button,
+textarea,
+select,
+input {
+  font-family: Noto Sans, sans-serif;
+  font-size: 14px;
+  color: #221f1f;
+}
+
+button,
+textarea,
+select,
+input {
+  color: #234;
+  outline: none;
+}
+
+body {
+  background: var(--primary-bg-color);
+}
+
+.layout-linetop {
+  line-height: var(--layout-linetop_height);
+  text-align: center;
+  color: #111;
+  font-weight: bold;
+  background-image: linear-gradient(
+    120deg,
+    #ff00d4 0%,
+    #00ffa3 50%,
+    #00f0ff 100%
+  );
+}
+
+.layout-header {
+  background: #111;
+  color: white;
+}
+.wrap-search {
+  [type='search'] {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  button {
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+.wrap-icon-logo {
+  font-size: 42px;
+}
+.wrap-icon-menu,
+.wrap-icon-auth,
+.wrap-icon-orders,
+.wrap-icon-notifications,
+.wrap-icon-compare,
+.wrap-icon-wishlist,
+.wrap-icon-cart {
+  font-size: 32px;
+}
+
+.layout-verbose-filtration {
+  box-shadow: 0 2px 2px 0 #2343;
+}
+
+.paginator {
+  font-size: 26px;
+  color: cornflowerblue;
+  li {
+    cursor: pointer;
+  }
+}
+
+.line-downloads {
+  background: mediumseagreen;
+}
+
+.layout-links {
+}
+
+.tags-list {
+}
+
+.product .wrap-sale {
+  span {
+    color: white;
+    background: crimson;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 18px;
+  }
+}
+
+.copyright {
+  text-align: center;
+}
+
+.tapbar {
+  background: var(--primary-bg-color);
+  box-shadow: 0 0 5px 0 #2345;
+  .wrap-tap {
+    /* background: #789; */
+    font-size: 22px;
+    text-align: center;
+    line-height: 42px;
+    span {
+    }
+  }
+  .wtf {
+    font-size: 28px;
+  }
+}
