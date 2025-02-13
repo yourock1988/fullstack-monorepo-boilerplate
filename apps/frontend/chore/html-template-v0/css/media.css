@@ -3,6 +3,9 @@
     --catalog-in_a_row: 1;
     --recently-viewed-count: 1;
   }
+  .wrap-icon-logo {
+    display: none;
+  }
 }
 @media only screen and (min-width: 768px) {
   :root {

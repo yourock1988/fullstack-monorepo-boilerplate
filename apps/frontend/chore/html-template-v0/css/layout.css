@@ -66,6 +66,7 @@
   position: sticky;
   top: 0px;
   height: var(--layout-header_height);
+  padding: 0 8px;
   .wrapper-header {
     display: flex;
     justify-content: space-between;
