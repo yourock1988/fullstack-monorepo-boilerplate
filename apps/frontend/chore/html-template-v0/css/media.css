@@ -34,7 +34,7 @@
 
   .layout-verbose-filtration {
     .wrap-span-filtrated-items-count,
-    .wrap-picker-wrap-tile-style {
+    .wrap-picker-tile-style {
       display: block;
     }
   }
