@@ -67,7 +67,7 @@ i[class|='fa'] {
     user-select: none;
   }
   label:hover {
-    background-color: var(----primary-color-transparent-2);
+    background-color: var(--primary-color-transparent-2);
   }
   i {
     font-size: 21px;
