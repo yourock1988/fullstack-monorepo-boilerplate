@@ -3,7 +3,7 @@
     --catalog-in_a_row: 1;
     --recently-viewed-count: 1;
   }
-  .wrap-icon-logo {
+  .wrap-logo {
     display: none;
   }
 }
@@ -106,7 +106,7 @@
   }
   .layout-header {
     .wrapper-header {
-      .wrap-icon-logo {
+      .wrap-logo {
         .logo-small {
           display: none;
         }

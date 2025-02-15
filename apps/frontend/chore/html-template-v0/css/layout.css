@@ -1,6 +1,4 @@
 .product {
-  border-bottom: 1px solid #e9e9e9; /**/
-  border-right: 1px solid #e9e9e9; /**/
   aspect-ratio: 9 / 16;
   min-width: 0;
   overflow: hidden;
@@ -43,6 +41,10 @@
     bottom: 0;
     right: 0;
     margin: 3% 10%;
+    padding: 1px;
+  }
+  .icon-cart:active {
+    padding: 2px 0px 0px 2px;
   }
 }
 
@@ -71,7 +73,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 25px;
+    gap: 15px;
     height: 100%;
     overflow: hidden;
     .wrap-button-catalog,
@@ -84,10 +86,9 @@
       display: none;
     }
     .wrap-button-catalog > button {
-      padding: 7px 20px;
-      border: 1px solid white;
+      padding: 5px 15px;
     }
-    .wrap-icon-logo {
+    .wrap-logo {
       .logo-small {
         display: flex;
       }
@@ -118,11 +119,10 @@
     display: none;
   }
   .category-caption {
-    padding-top: 10px;
+    padding: 15px 0;
   }
 }
 .layout-verbose-filtration {
-  border-bottom: 1px solid #e9e9e9;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -151,8 +151,11 @@
   width: 250px;
   overflow-y: scroll;
   .filter-attribute {
-    border-bottom: 1px solid #e9e9e9; /**/
+    padding: 5px;
     padding-bottom: 25px;
+    dt {
+      padding-bottom: 9px;
+    }
     [type='checkbox'] {
       width: 20px;
       height: 20px;

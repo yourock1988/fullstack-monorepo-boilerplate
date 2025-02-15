@@ -1,8 +1,15 @@
 :root {
-  --scrollbar-color: #ccc;
-  --scrollbar-background: #eee;
-  --primary-bg-color: white;
-  --primary-black-color: #221f1f;
+  --primary-color: royalblue;
+  --primary-color-light: cornflowerblue;
+  --primary-color-transparent-1: #6495ed55;
+  --primary-color-transparent-2: #6495ed11;
+  --secondary-color: crimson;
+  --color-black: #234;
+  --color-black-transparent: #2345;
+  --color-gray: #789;
+  --color-white: white;
+  --color-white-1: #e1e5e9;
+  --color-white-2: #c1c5c9;
   --catalog-in_a_row: 2;
   --recently-viewed-count: 2;
   --layout-linetop_height: 30px;
@@ -15,6 +22,7 @@
     var(--layout-verbose-filtration_height) +
       var(--layout-verbose-filter_sticky-top)
   );
+  --select-icon-arrow: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyBmaWxsPScjNzk3ODc4JyB2aWV3Qm94PScwIDAgMTMgNycgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJz48cGF0aCBmaWxsLXJ1bGU9J2V2ZW5vZGQnIGNsaXAtcnVsZT0nZXZlbm9kZCcgZD0nTTYuNSA3YS45NTYuOTU2IDAgMCAxLS42NTctLjI1NmwtNS41Ny01LjI1YS44MzkuODM5IDAgMCAxIDAtMS4yMzcuOTY4Ljk2OCAwIDAgMSAxLjMxMiAwTDYuNSA0Ljg4OCAxMS40MTUuMjU3YS45NjguOTY4IDAgMCAxIDEuMzEzIDAgLjgzOS44MzkgMCAwIDEgMCAxLjIzN2wtNS41NzIgNS4yNUEuOTU2Ljk1NiAwIDAgMSA2LjUgN1onLz48L3N2Zz4=);
 }
 
 .links-schedule {
