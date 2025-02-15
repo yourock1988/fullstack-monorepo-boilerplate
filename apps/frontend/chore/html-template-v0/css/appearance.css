@@ -119,7 +119,7 @@ i[class|='fa'] {
     }
   }
   .wrap-img {
-    text-align: center;
+    /* text-align: center; */
   }
   .wrap-is-available {
     color: var(--primary-color-light);

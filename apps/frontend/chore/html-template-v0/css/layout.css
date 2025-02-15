@@ -29,8 +29,11 @@
 }
 .product .wrap-img {
   height: 100%;
+  display: flex;
   img {
-    height: 100%;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
   }
 }
 .product .wrap-buy {
