@@ -1,3 +1,46 @@
+.picker-tile-style {
+  user-select: none;
+
+  input {
+    display: none;
+  }
+
+  i {
+    font-size: 22px;
+    padding: 3px;
+  }
+
+  #s-grid:checked ~ [for='s-grid'] {
+    color: var(--primary-color);
+  }
+  #s-grid:checked ~ [for='s-grid']:hover {
+    color: var(--primary-color-light);
+  }
+  #s-grid ~ [for='s-grid']:hover {
+    color: var(--color-black-1);
+  }
+
+  #s-table:checked ~ [for='s-table'] {
+    color: var(--primary-color);
+  }
+  #s-table:checked ~ [for='s-table']:hover {
+    color: var(--primary-color-light);
+  }
+  #s-table ~ [for='s-table']:hover {
+    color: var(--color-black-1);
+  }
+
+  #s-list:checked ~ [for='s-list'] {
+    color: var(--primary-color);
+  }
+  #s-list:checked ~ [for='s-list']:hover {
+    color: var(--primary-color-light);
+  }
+  #s-list ~ [for='s-list']:hover {
+    color: var(--color-black-1);
+  }
+}
+
 html,
 a,
 button,
