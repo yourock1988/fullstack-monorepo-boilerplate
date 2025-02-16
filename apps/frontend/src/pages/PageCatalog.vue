@@ -10,6 +10,7 @@ import UiLinks from '../ui/UiLinks.vue'
 import UiTags from '../ui/UiTags.vue'
 import UiCopyright from '../ui/UiCopyright.vue'
 import UiTapbar from '../ui/UiTapbar.vue'
+import UiLinetop from '../ui/UiLinetop.vue'
 
 export default {
   components: {
@@ -24,6 +25,7 @@ export default {
     UiTags,
     UiCopyright,
     UiTapbar,
+    UiLinetop,
   },
 
   data() {
@@ -34,9 +36,7 @@ export default {
 
 <template>
   <div class="layout-wrapper">
-    <div class="layout-linetop">
-      <span>Скидки 99% на все товары!</span>
-    </div>
+    <UiLinetop />
     <WidgetHeader></WidgetHeader>
     <div class="layout-main">
       <div class="layout-centralize">
