@@ -8,6 +8,7 @@ import WidgetPaginator from '../components/WidgetPaginator.vue'
 import RecentlyViewed from '../components/RecentlyViewed.vue'
 import UiLinks from '../ui/UiLinks.vue'
 import UiTags from '../ui/UiTags.vue'
+import UiCopyright from '../ui/UiCopyright.vue'
 
 export default {
   components: {
@@ -20,6 +21,7 @@ export default {
     RecentlyViewed,
     UiLinks,
     UiTags,
+    UiCopyright,
   },
 
   data() {
@@ -56,9 +58,7 @@ export default {
         <footer>
           <UiLinks></UiLinks>
           <UiTags></UiTags>
-          <div class="copyright">
-            <span>© 1729-2025 Все права запрещены</span>
-          </div>
+          <UiCopyright></UiCopyright>
         </footer>
       </div>
     </div>
