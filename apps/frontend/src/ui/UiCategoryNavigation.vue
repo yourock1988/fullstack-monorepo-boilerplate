@@ -1,9 +1,3 @@
-<script>
-export default {
-  //
-}
-</script>
-
 <template>
   <div class="layout-category-navigation">
     <div class="category-path">

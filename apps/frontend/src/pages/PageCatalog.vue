@@ -1,6 +1,6 @@
 <script>
 import WidgetHeader from '@/components/WidgetHeader.vue'
-import CategoryNavigation from '@/components/CategoryNavigation.vue'
+import UiCategoryNavigation from '@/ui/UiCategoryNavigation.vue'
 import VerboseFiltration from '@/components/VerboseFiltration.vue'
 import WidgetFilter from '@/components/WidgetFilter.vue'
 import WidgetProducts from '@/components/WidgetProducts.vue'
@@ -15,7 +15,7 @@ import UiLinetop from '@/ui/UiLinetop.vue'
 export default {
   components: {
     WidgetHeader,
-    CategoryNavigation,
+    UiCategoryNavigation,
     VerboseFiltration,
     WidgetFilter,
     WidgetProducts,
@@ -41,7 +41,7 @@ export default {
     <div class="layout-main">
       <div class="layout-centralize">
         <main>
-          <CategoryNavigation />
+          <UiCategoryNavigation />
           <VerboseFiltration />
           <div class="layout-catalog">
             <WidgetFilter />
