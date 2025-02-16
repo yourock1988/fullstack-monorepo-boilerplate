@@ -281,15 +281,22 @@ i[class|='fa'] {
 }
 
 .paginator {
+  background: var(--primary-color);
+  border-radius: 10px;
   li {
     font-size: 26px;
-    color: var(--primary-color-light);
+    color: var(--color-white-1);
     vertical-align: top;
     cursor: pointer;
+    border-right: 1px solid var(--primary-color-light);
+  }
+  li:last-child {
+    border: 0;
   }
   li.selected {
-    font-size: 28px;
-    color: var(--primary-color);
+    background: var(--primary-color-light);
+    font-size: 30px;
+    color: var(--color-white);
     font-weight: bold;
   }
 }

@@ -175,13 +175,18 @@
   grid-template-columns: repeat(var(--catalog-in_a_row), minmax(0, 1fr));
   grid-auto-rows: max-content;
 }
+
+.wrap-paginator {
+  text-align: center;
+  padding: 25px 0;
+}
 .paginator {
-  margin: 25px 0;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
-  gap: 25px;
-  padding: 15px;
   overflow: hidden;
+  li {
+    padding: 5px 15px;
+  }
 }
 
 .recently-viewed {
