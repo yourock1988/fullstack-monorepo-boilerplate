@@ -37,30 +37,30 @@ export default {
 <template>
   <div class="layout-wrapper">
     <UiLinetop />
-    <WidgetHeader></WidgetHeader>
+    <WidgetHeader />
     <div class="layout-main">
       <div class="layout-centralize">
         <main>
-          <CategoryNavigation></CategoryNavigation>
-          <VerboseFiltration></VerboseFiltration>
+          <CategoryNavigation />
+          <VerboseFiltration />
           <div class="layout-catalog">
-            <WidgetFilter></WidgetFilter>
+            <WidgetFilter />
             <div class="catalog-content">
-              <WidgetProducts></WidgetProducts>
-              <WidgetPaginator></WidgetPaginator>
+              <WidgetProducts />
+              <WidgetPaginator />
             </div>
           </div>
         </main>
-        <RecentlyViewed></RecentlyViewed>
+        <RecentlyViewed />
       </div>
     </div>
     <div class="layout-footer">
       <div class="line-downloads"></div>
       <div class="layout-centralize">
         <footer>
-          <UiLinks></UiLinks>
-          <UiTags></UiTags>
-          <UiCopyright></UiCopyright>
+          <UiLinks />
+          <UiTags />
+          <UiCopyright />
         </footer>
       </div>
     </div>
