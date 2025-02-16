@@ -7,6 +7,7 @@ import WidgetProducts from '../components/WidgetProducts.vue'
 import WidgetPaginator from '../components/WidgetPaginator.vue'
 import RecentlyViewed from '../components/RecentlyViewed.vue'
 import UiLinks from '../ui/UiLinks.vue'
+import UiTags from '../ui/UiTags.vue'
 
 export default {
   components: {
@@ -18,6 +19,7 @@ export default {
     WidgetPaginator,
     RecentlyViewed,
     UiLinks,
+    UiTags,
   },
 
   data() {
@@ -53,14 +55,7 @@ export default {
       <div class="layout-centralize">
         <footer>
           <UiLinks></UiLinks>
-          <div class="tags-list">
-            <button>ноутбук</button>
-            <button>компьютер</button>
-            <button>процессор</button>
-            <button>видеокарта</button>
-            <button>смартфон</button>
-            <button>планшет</button>
-          </div>
+          <UiTags></UiTags>
           <div class="copyright">
             <span>© 1729-2025 Все права запрещены</span>
           </div>
