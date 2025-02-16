@@ -1,10 +1,11 @@
 <script>
 import imgComputer from '@/assets/img/computer.webp'
 import imgComputerRotated from '@/assets/img/computer-rotated.webp'
-import WidgetHeader from '../components/WidgetHeader.vue'
+import WidgetHeader from '@/components/WidgetHeader.vue'
+import CategoryNavigation from '@/components/CategoryNavigation.vue'
 
 export default {
-  components: { WidgetHeader },
+  components: { WidgetHeader, CategoryNavigation },
 
   data() {
     return {
@@ -24,21 +25,7 @@ export default {
     <div class="layout-main">
       <div class="layout-centralize">
         <main>
-          <div class="layout-category-navigation">
-            <div class="category-path">
-              <span class="short-path"
-                ><i class="fa-solid fa-arrow-left"></i> Собранные
-                компьютеры</span
-              >
-              <span class="long-path"
-                ><i class="fa-solid fa-house"></i> / Компьютеры и ноутбуки /
-                Собранные компьютеры</span
-              >
-            </div>
-            <div class="category-caption">
-              <h2>Собранные компьютеры</h2>
-            </div>
-          </div>
+          <CategoryNavigation></CategoryNavigation>
           <div class="layout-verbose-filtration">
             <div class="wrap-button-show-filters">
               <button id="elButtonShowFilters">Фильтры</button>
