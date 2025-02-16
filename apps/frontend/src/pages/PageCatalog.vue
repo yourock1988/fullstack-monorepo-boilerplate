@@ -4,6 +4,7 @@ import CategoryNavigation from '@/components/CategoryNavigation.vue'
 import VerboseFiltration from '../components/VerboseFiltration.vue'
 import WidgetFilter from '../components/WidgetFilter.vue'
 import WidgetProducts from '../components/WidgetProducts.vue'
+import WidgetPaginator from '../components/WidgetPaginator.vue'
 
 export default {
   components: {
@@ -12,6 +13,7 @@ export default {
     VerboseFiltration,
     WidgetFilter,
     WidgetProducts,
+    WidgetPaginator,
   },
 
   data() {
@@ -35,15 +37,7 @@ export default {
             <WidgetFilter></WidgetFilter>
             <div class="catalog-content">
               <WidgetProducts></WidgetProducts>
-              <div class="wrap-paginator">
-                <ul class="paginator">
-                  <li class="selected">1</li>
-                  <li>2</li>
-                  <li>3</li>
-                  <li>4</li>
-                  <li>5</li>
-                </ul>
-              </div>
+              <WidgetPaginator></WidgetPaginator>
             </div>
           </div>
         </main>
