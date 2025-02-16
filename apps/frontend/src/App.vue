@@ -1,11 +1,16 @@
 <script>
-export default {}
+import PageCatalog from './pages/PageCatalog.vue'
+
+export default {
+  components: { PageCatalog },
+}
 </script>
 
 <template>
   <h1>Vue Router</h1>
-  <p><strong>Текущий путь маршрута: </strong> {{ $route.fullPath }}</p>
-  <nav>
+  <PageCatalog></PageCatalog>
+  <!-- <p><strong>Текущий путь маршрута: </strong> {{ $route.fullPath }}</p> -->
+  <!-- <nav>
     <RouterLink to="/">Go to Home</RouterLink>
     <span> | </span>
     <RouterLink to="/students">Go to Students</RouterLink>
@@ -14,5 +19,5 @@ export default {}
   </nav>
   <main>
     <RouterView />
-  </main>
+  </main> -->
 </template>

@@ -5,5 +5,7 @@ export default {
 </script>
 
 <template>
-  <h1>HOME</h1>
+  <div>
+    <h1>PageCatalog</h1>
+  </div>
 </template>
