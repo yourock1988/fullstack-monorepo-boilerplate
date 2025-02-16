@@ -9,6 +9,7 @@ import RecentlyViewed from '../components/RecentlyViewed.vue'
 import UiLinks from '../ui/UiLinks.vue'
 import UiTags from '../ui/UiTags.vue'
 import UiCopyright from '../ui/UiCopyright.vue'
+import UiTapbar from '../ui/UiTapbar.vue'
 
 export default {
   components: {
@@ -22,6 +23,7 @@ export default {
     UiLinks,
     UiTags,
     UiCopyright,
+    UiTapbar,
   },
 
   data() {
@@ -63,21 +65,5 @@ export default {
       </div>
     </div>
   </div>
-  <div class="tapbar">
-    <div class="wrap-tap">
-      <i class="fa-solid fa-table-cells-large"></i>
-    </div>
-    <div class="wrap-tap">
-      <i class="fa-solid fa-table-list"></i>
-    </div>
-    <div class="wrap-tap">
-      <i class="fa-regular fa-bell"></i>
-    </div>
-    <div class="wrap-tap">
-      <i class="fa-solid fa-scale-balanced"></i>
-    </div>
-    <div class="wrap-tap">
-      <i class="fa-regular fa-heart"></i>
-    </div>
-  </div>
+  <UiTapbar />
 </template>
