@@ -1,15 +1,17 @@
 <script>
 import products from '@/json/products.json'
+import TileProduct from './TileProduct.vue'
 
 products.forEach(p => {
   p.priceUah = Math.round((p.price * 42) / 100) * 100
 })
 
 export default {
+  components: { TileProduct },
+
   data() {
     return {
       products,
-      urlToPhoto: 'https://web-app.click/pc-shop/photos/products/computers/',
     }
   },
 }
@@ -17,31 +19,10 @@ export default {
 
 <template>
   <ul class="products">
-    <li
+    <TileProduct
       v-for="product of products.slice(0, 30)"
       :key="product.id"
-      class="product"
-    >
-      <div class="wrap-sale"><span>АКЦИЯ</span></div>
-      <div class="box">
-        <div class="top">
-          <div class="wrap-img">
-            <img :src="urlToPhoto + product.photos[0]" />
-          </div>
-        </div>
-        <div class="bottom">
-          <div class="wrap-colors"></div>
-          <div class="wrap-title">
-            <span>{{ product.caption }}</span>
-          </div>
-          <div class="wrap-leave-comment"><span>💬Оставить отзыв</span></div>
-          <div class="wrap-is-available"><span>Есть в наличии</span></div>
-          <div class="wrap-buy">
-            <div class="price">{{ product.priceUah }}₴</div>
-            <div class="icon-cart"><i class="fa-solid fa-cart-plus"></i></div>
-          </div>
-        </div>
-      </div>
-    </li>
+      :product="product"
+    />
   </ul>
 </template>
