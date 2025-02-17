@@ -29,7 +29,18 @@ export default {
   },
 
   data() {
-    return {}
+    return {
+      customerChoice: {
+        sortingType: 'expensiveFirst',
+      },
+    }
+  },
+
+  methods: {
+    changeSortingType(sortingType) {
+      window.console.log(sortingType)
+      this.customerChoice.sortingType = sortingType
+    },
   },
 }
 </script>
@@ -42,11 +53,11 @@ export default {
       <div class="layout-centralize">
         <main>
           <UiCategoryNavigation />
-          <VerboseFiltration />
+          <VerboseFiltration @sorting-type-changed="changeSortingType" />
           <div class="layout-catalog">
             <WidgetFilter />
             <div class="catalog-content">
-              <WidgetProducts />
+              <WidgetProducts :customer-choice="customerChoice" />
               <WidgetPaginator />
             </div>
           </div>

@@ -7,9 +7,11 @@ export default {
       selectedSortingType: 'rating',
 
       sortingTypes: {
+        expensiveFirst: 'Сначала дорогие',
+        cheapFirst: 'Сначала дешевые',
+        idHightLow: 'По id от большего',
+        idLowHight: 'По id от меньшего',
         rating: 'По рейтингу',
-        cheapFirst: 'Сначала дорогие',
-        expensiveFirst: 'Сначала дешевые',
         novelties: 'Новинки',
       },
     }
@@ -17,7 +19,7 @@ export default {
 
   watch: {
     selectedSortingType(newValue, oldValue) {
-      console.log(newValue, oldValue)
+      window.console.log(newValue, oldValue)
       this.$emit('sorting-type-changed', newValue)
     },
   },

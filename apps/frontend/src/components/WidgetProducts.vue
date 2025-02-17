@@ -1,6 +1,7 @@
 <script>
 import products from '@/json/products.json'
-import TileProduct from './TileProduct.vue'
+import sortProducts from '@/functions/sortProducts'
+import TileProduct from '@/components/TileProduct.vue'
 
 products.forEach(p => {
   p.priceUah = Math.round((p.price * 42) / 100) * 100
@@ -9,10 +10,18 @@ products.forEach(p => {
 export default {
   components: { TileProduct },
 
+  props: ['customerChoice'],
+
   data() {
     return {
       products,
     }
+  },
+
+  computed: {
+    computedProducts() {
+      return sortProducts(this.products, this.customerChoice.sortingType)
+    },
   },
 }
 </script>
@@ -20,7 +29,7 @@ export default {
 <template>
   <ul class="products">
     <TileProduct
-      v-for="product of products.slice(0, 30)"
+      v-for="product of computedProducts"
       :key="product.id"
       :product="product"
     />

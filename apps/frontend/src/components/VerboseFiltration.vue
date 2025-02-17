@@ -4,9 +4,12 @@ import SelectSortingType from './SelectSortingType.vue'
 export default {
   components: { SelectSortingType },
 
+  emits: ['sorting-type-changed'],
+
   methods: {
     changeSortingType(sortingType) {
-      console.log(sortingType)
+      window.console.log(sortingType)
+      this.$emit('sorting-type-changed', sortingType)
     },
   },
 }
