@@ -3,6 +3,12 @@ import SelectSortingType from './SelectSortingType.vue'
 
 export default {
   components: { SelectSortingType },
+
+  methods: {
+    changeSortingType(sortingType) {
+      console.log(sortingType)
+    },
+  },
 }
 </script>
 
@@ -21,7 +27,7 @@ export default {
       <button>GeForce RTX 3060 x</button>
     </div>
 
-    <SelectSortingType />
+    <SelectSortingType @sorting-type-changed="changeSortingType" />
 
     <div class="wrap-select-items-on-page">
       <select id="elSelectItemsOnPage" class="select-items-on-page">
