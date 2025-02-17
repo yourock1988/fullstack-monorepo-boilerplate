@@ -1,8 +1,9 @@
 <script>
 import SelectSortingType from './SelectSortingType.vue'
+import SelectPageSize from './SelectPageSize.vue'
 
 export default {
-  components: { SelectSortingType },
+  components: { SelectSortingType, SelectPageSize },
 
   emits: ['sorting-type-changed'],
 
@@ -32,13 +33,7 @@ export default {
 
     <SelectSortingType @sorting-type-changed="changeSortingType" />
 
-    <div class="wrap-select-items-on-page">
-      <select id="elSelectItemsOnPage" class="select-items-on-page">
-        <option value="">30</option>
-        <option value="">60</option>
-        <option value="">90</option>
-      </select>
-    </div>
+    <SelectPageSize />
 
     <div class="wrap-picker-tile-style">
       <div id="elPickerTileStyle" class="picker-tile-style">
