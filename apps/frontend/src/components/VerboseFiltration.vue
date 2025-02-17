@@ -1,6 +1,8 @@
 <script>
+import SelectSortingType from './SelectSortingType.vue'
+
 export default {
-  //
+  components: { SelectSortingType },
 }
 </script>
 
@@ -19,14 +21,7 @@ export default {
       <button>GeForce RTX 3060 x</button>
     </div>
 
-    <div class="wrap-select-sorting-type">
-      <select id="elSelectSortingType" class="select-sorting-type">
-        <option value="">По рейтингу</option>
-        <option value="">Сначала дорогие</option>
-        <option value="">Сначала дешевые</option>
-        <option value="">Новинки</option>
-      </select>
-    </div>
+    <SelectSortingType />
 
     <div class="wrap-select-items-on-page">
       <select id="elSelectItemsOnPage" class="select-items-on-page">
