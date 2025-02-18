@@ -4,7 +4,7 @@ export default {
 
   data() {
     return {
-      selectedSortingType: 'rating',
+      selectedSortingType: 'idHightLow',
 
       sortingTypes: {
         expensiveFirst: 'Сначала дорогие',
@@ -18,8 +18,7 @@ export default {
   },
 
   watch: {
-    selectedSortingType(newValue, oldValue) {
-      window.console.log(newValue, oldValue)
+    selectedSortingType(newValue) {
       this.$emit('sorting-type-changed', newValue)
     },
   },

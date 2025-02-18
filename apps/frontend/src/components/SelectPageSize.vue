@@ -11,7 +11,6 @@ export default {
 
   watch: {
     selectedPageSize(newValue) {
-      window.console.log(newValue)
       this.$emit('page-size-changed', newValue)
     },
   },

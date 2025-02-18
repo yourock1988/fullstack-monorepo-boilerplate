@@ -30,16 +30,28 @@ export default {
 
   data() {
     return {
-      customerChoice: {
-        sortingType: 'expensiveFirst',
-      },
+      sortingType: 'idHightLow',
+      pageSize: 10,
+      currentPage: 0,
+      pagesTotal: 3,
     }
   },
 
   methods: {
     changeSortingType(sortingType) {
-      window.console.log(sortingType)
-      this.customerChoice.sortingType = sortingType
+      this.sortingType = sortingType
+    },
+
+    changePageSize(pageSize) {
+      this.pageSize = pageSize
+    },
+
+    changeCurrentPage(currentPage) {
+      this.currentPage = currentPage
+    },
+
+    changePagesTotal(pagesTotal) {
+      this.pagesTotal = pagesTotal
     },
   },
 }
@@ -53,12 +65,23 @@ export default {
       <div class="layout-centralize">
         <main>
           <UiCategoryNavigation />
-          <VerboseFiltration @sorting-type-changed="changeSortingType" />
+          <VerboseFiltration
+            @sorting-type-changed="changeSortingType"
+            @page-size-changed="changePageSize"
+          />
           <div class="layout-catalog">
             <WidgetFilter />
             <div class="catalog-content">
-              <WidgetProducts :customer-choice="customerChoice" />
-              <SelectCurrentPage />
+              <WidgetProducts
+                :sorting-type="sortingType"
+                :page-size="pageSize"
+                :current-page="currentPage"
+                @pages-total-changed="changePagesTotal"
+              />
+              <SelectCurrentPage
+                :pages-total="pagesTotal"
+                @current-page-changed="changeCurrentPage"
+              />
             </div>
           </div>
         </main>

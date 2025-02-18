@@ -5,12 +5,15 @@ import SelectPageSize from './SelectPageSize.vue'
 export default {
   components: { SelectSortingType, SelectPageSize },
 
-  emits: ['sorting-type-changed'],
+  emits: ['sorting-type-changed', 'page-size-changed'],
 
   methods: {
     changeSortingType(sortingType) {
-      window.console.log(sortingType)
       this.$emit('sorting-type-changed', sortingType)
+    },
+
+    changePageSize(pageSize) {
+      this.$emit('page-size-changed', pageSize)
     },
   },
 }
@@ -33,7 +36,7 @@ export default {
 
     <SelectSortingType @sorting-type-changed="changeSortingType" />
 
-    <SelectPageSize />
+    <SelectPageSize @page-size-changed="changePageSize" />
 
     <div class="wrap-picker-tile-style">
       <div id="elPickerTileStyle" class="picker-tile-style">
