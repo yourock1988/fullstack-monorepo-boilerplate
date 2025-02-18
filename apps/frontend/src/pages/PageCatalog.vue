@@ -60,44 +60,56 @@ export default {
 <template>
   <div class="layout-wrapper">
     <UiLinetop />
+
     <WidgetHeader />
+
     <div class="layout-main">
       <div class="layout-centralize">
         <main>
           <UiCategoryNavigation />
+
           <VerboseFiltration
             @sorting-type-changed="changeSortingType"
             @page-size-changed="changePageSize"
           />
+
           <div class="layout-catalog">
             <WidgetFilter />
+
             <div class="catalog-content">
+              <SelectCurrentPage
+                :pages-total="pagesTotal"
+                @current-page-changed="changeCurrentPage"
+              />
+
               <WidgetProducts
                 :sorting-type="sortingType"
                 :page-size="pageSize"
                 :current-page="currentPage"
                 @pages-total-changed="changePagesTotal"
               />
-              <SelectCurrentPage
-                :pages-total="pagesTotal"
-                @current-page-changed="changeCurrentPage"
-              />
             </div>
           </div>
         </main>
+
         <RecentlyViewed />
       </div>
     </div>
+
     <div class="layout-footer">
       <div class="line-downloads"></div>
+
       <div class="layout-centralize">
         <footer>
           <UiLinks />
+
           <UiTags />
+
           <UiCopyright />
         </footer>
       </div>
     </div>
   </div>
+
   <UiTapbar />
 </template>

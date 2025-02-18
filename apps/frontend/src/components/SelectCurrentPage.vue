@@ -16,6 +16,12 @@ export default {
     },
   },
 
+  watch: {
+    pagesTotal() {
+      this.changeCurrentPage(0)
+    },
+  },
+
   methods: {
     changeCurrentPage(currentPage) {
       this.selectedCurrentPage = currentPage

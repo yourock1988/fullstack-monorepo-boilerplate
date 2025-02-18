@@ -17,7 +17,7 @@ export default {
 
   data() {
     return {
-      products,
+      products: [],
     }
   },
 
@@ -43,6 +43,10 @@ export default {
     pagesTotal(newValue) {
       this.$emit('pages-total-changed', newValue)
     },
+  },
+
+  created() {
+    this.products = products
   },
 }
 </script>
