@@ -1,8 +1,11 @@
 <script>
 import imgLogo from '@/assets/img/logo.png'
 import imgLogoFull from '@/assets/img/logo-full.png'
+import SelectSearchQuery from './SelectSearchQuery.vue'
 
 export default {
+  components: { SelectSearchQuery },
+
   data() {
     return {
       imgLogo,
@@ -32,9 +35,9 @@ export default {
           <span>Каталог</span>
         </button>
       </div>
-      <div class="wrap-search">
-        <input type="search" /><button>Найти</button>
-      </div>
+
+      <SelectSearchQuery />
+
       <div class="wrap-select-lang">
         <select id="" name="">
           <option value="">EN</option>
