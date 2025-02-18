@@ -31,7 +31,11 @@ export default {
 
 <template>
   <div class="wrap-search">
-    <input v-model.trim="searchQuery" type="search" />
+    <input
+      v-model.trim="searchQuery"
+      type="search"
+      @keypress.enter="changeSearchQuery"
+    />
     <button @click="changeSearchQuery">Найти</button>
   </div>
 </template>

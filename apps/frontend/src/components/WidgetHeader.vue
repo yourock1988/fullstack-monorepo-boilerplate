@@ -5,8 +5,16 @@ import SelectSearchQuery from './SelectSearchQuery.vue'
 export default {
   components: { SelectSearchQuery, UiLogo },
 
+  emits: ['search-query-changed'],
+
   data() {
     return {}
+  },
+
+  methods: {
+    changeSearchQuery(searchQuery) {
+      this.$emit('search-query-changed', searchQuery)
+    },
   },
 }
 </script>
@@ -27,7 +35,7 @@ export default {
         </button>
       </div>
 
-      <SelectSearchQuery />
+      <SelectSearchQuery @search-query-changed="changeSearchQuery" />
 
       <div class="wrap-select-lang">
         <select id="" name="">

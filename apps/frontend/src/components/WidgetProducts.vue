@@ -1,5 +1,6 @@
 <script>
 import products from '@/json/products.json'
+import searchProducts from '@/functions/searchProducts'
 import sortProducts from '@/functions/sortProducts'
 import paginateProducts from '@/functions/paginateProducts'
 import TileProduct from '@/components/TileProduct.vue'
@@ -11,7 +12,7 @@ products.forEach(p => {
 export default {
   components: { TileProduct },
 
-  props: ['sortingType', 'pageSize', 'currentPage'],
+  props: ['sortingType', 'pageSize', 'currentPage', 'searchQuery'],
 
   emits: ['pages-total-changed'],
 
@@ -22,12 +23,12 @@ export default {
   },
 
   computed: {
-    pagesTotal() {
-      return Math.ceil(this.sortedProducts.length / this.pageSize)
+    searchedProducts() {
+      return searchProducts(this.products, this.searchQuery)
     },
 
     sortedProducts() {
-      return sortProducts(this.products, this.sortingType)
+      return sortProducts(this.searchedProducts, this.sortingType)
     },
 
     paginatedProducts() {
@@ -36,6 +37,10 @@ export default {
         this.currentPage,
         this.pageSize
       )
+    },
+
+    pagesTotal() {
+      return Math.ceil(this.sortedProducts.length / this.pageSize)
     },
   },
 

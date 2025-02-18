@@ -30,6 +30,7 @@ export default {
 
   data() {
     return {
+      searchQuery: '',
       sortingType: 'idHightLow',
       pageSize: 10,
       currentPage: 0,
@@ -38,6 +39,10 @@ export default {
   },
 
   methods: {
+    changeSearchQuery(searchQuery) {
+      this.searchQuery = searchQuery
+    },
+
     changeSortingType(sortingType) {
       this.sortingType = sortingType
     },
@@ -61,7 +66,7 @@ export default {
   <div class="layout-wrapper">
     <UiLinetop />
 
-    <WidgetHeader />
+    <WidgetHeader @search-query-changed="changeSearchQuery" />
 
     <div class="layout-main">
       <div class="layout-centralize">
@@ -83,6 +88,7 @@ export default {
               />
 
               <WidgetProducts
+                :search-query="searchQuery"
                 :sorting-type="sortingType"
                 :page-size="pageSize"
                 :current-page="currentPage"
