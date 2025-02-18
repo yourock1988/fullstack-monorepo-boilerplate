@@ -4,7 +4,7 @@ import UiCategoryNavigation from '@/ui/UiCategoryNavigation.vue'
 import VerboseFiltration from '@/components/VerboseFiltration.vue'
 import WidgetFilter from '@/components/WidgetFilter.vue'
 import WidgetProducts from '@/components/WidgetProducts.vue'
-import WidgetPaginator from '@/components/WidgetPaginator.vue'
+import SelectCurrentPage from '@/components/SelectCurrentPage.vue'
 import RecentlyViewed from '@/components/RecentlyViewed.vue'
 import UiLinks from '@/ui/UiLinks.vue'
 import UiTags from '@/ui/UiTags.vue'
@@ -19,7 +19,7 @@ export default {
     VerboseFiltration,
     WidgetFilter,
     WidgetProducts,
-    WidgetPaginator,
+    SelectCurrentPage,
     RecentlyViewed,
     UiLinks,
     UiTags,
@@ -58,7 +58,7 @@ export default {
             <WidgetFilter />
             <div class="catalog-content">
               <WidgetProducts :customer-choice="customerChoice" />
-              <WidgetPaginator />
+              <SelectCurrentPage />
             </div>
           </div>
         </main>
