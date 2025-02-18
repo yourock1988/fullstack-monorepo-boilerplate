@@ -1,16 +1,12 @@
 <script>
-import imgLogo from '@/assets/img/logo.png'
-import imgLogoFull from '@/assets/img/logo-full.png'
+import UiLogo from '@/ui/UiLogo.vue'
 import SelectSearchQuery from './SelectSearchQuery.vue'
 
 export default {
-  components: { SelectSearchQuery },
+  components: { SelectSearchQuery, UiLogo },
 
   data() {
-    return {
-      imgLogo,
-      imgLogoFull,
-    }
+    return {}
   },
 }
 </script>
@@ -21,14 +17,9 @@ export default {
       <div class="wrap-icon-menu">
         <i class="fa-solid fa-bars"></i>
       </div>
-      <div class="wrap-logo">
-        <span class="logo-small">
-          <img :src="imgLogo" width="50px" alt="" />
-        </span>
-        <span class="logo-large">
-          <img :src="imgLogoFull" height="50px" alt="" />
-        </span>
-      </div>
+
+      <UiLogo />
+
       <div class="wrap-button-catalog">
         <button>
           <i class="fa-solid fa-table-cells-large"></i>
