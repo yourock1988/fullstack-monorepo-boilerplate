@@ -65,11 +65,11 @@ export default {
       this.pagesTotal = pagesTotal
     },
 
-    changeMinPrice(priceMin) {
+    changePriceMin(priceMin) {
       this.priceMin = priceMin
     },
 
-    changeMaxPrice(priceMax) {
+    changePriceMax(priceMax) {
       this.priceMax = priceMax
     },
 
@@ -124,8 +124,8 @@ export default {
                 :page-size="pageSize"
                 :current-page="currentPage"
                 @pages-total-changed="changePagesTotal"
-                @min-price-changed="changeMinPrice"
-                @max-price-changed="changeMaxPrice"
+                @min-price-changed="changePriceMin"
+                @max-price-changed="changePriceMax"
               />
             </div>
           </div>
