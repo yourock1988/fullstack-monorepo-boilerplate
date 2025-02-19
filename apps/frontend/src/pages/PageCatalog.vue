@@ -37,8 +37,8 @@ export default {
       pageSize: 10,
       currentPage: 0,
       pagesTotal: 1,
-      minPrice: 0,
-      maxPrice: Number.MAX_SAFE_INTEGER,
+      priceMin: 0,
+      priceMax: Number.MAX_SAFE_INTEGER,
       priceFrom: 0,
       priceTo: Number.MAX_SAFE_INTEGER,
     }
@@ -65,12 +65,12 @@ export default {
       this.pagesTotal = pagesTotal
     },
 
-    changeMinPrice(minPrice) {
-      this.minPrice = minPrice
+    changeMinPrice(priceMin) {
+      this.priceMin = priceMin
     },
 
-    changeMaxPrice(maxPrice) {
-      this.maxPrice = maxPrice
+    changeMaxPrice(priceMax) {
+      this.priceMax = priceMax
     },
 
     changePriceFrom(priceFrom) {
@@ -103,8 +103,8 @@ export default {
           <div class="layout-catalog">
             <aside class="catalog-filter">
               <SelectPriceRanges
-                :price-min="minPrice"
-                :price-max="maxPrice"
+                :price-min="priceMin"
+                :price-max="priceMax"
                 @price-from-changed="changePriceFrom"
                 @price-to-changed="changePriceTo"
               />
