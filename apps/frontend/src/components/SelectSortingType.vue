@@ -11,8 +11,7 @@ export default {
         cheapFirst: 'Сначала дешевые',
         idHightLow: 'По id от большего',
         idLowHight: 'По id от меньшего',
-        rating: 'По рейтингу',
-        novelties: 'Новинки',
+        randomize: 'Случайным образом',
       },
     }
   },
