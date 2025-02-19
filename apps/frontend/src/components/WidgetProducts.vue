@@ -40,12 +40,12 @@ export default {
       return Math.ceil(this.sortedProducts.length / this.pageSize)
     },
 
-    minPrice() {
+    priceMin() {
       const min = Math.min(...this.searchedProducts.map(sp => sp.priceUah))
       return Number.isFinite(min) ? min : 0
     },
 
-    maxPrice() {
+    priceMax() {
       const max = Math.max(...this.searchedProducts.map(sp => sp.priceUah))
       return Number.isFinite(max) ? max : Number.MAX_SAFE_INTEGER
     },
@@ -56,11 +56,11 @@ export default {
       this.$emit('pages-total-changed', newValue)
     },
 
-    minPrice(newValue) {
+    priceMin(newValue) {
       this.$emit('min-price-changed', newValue)
     },
 
-    maxPrice(newValue) {
+    priceMax(newValue) {
       this.$emit('max-price-changed', newValue)
     },
   },
