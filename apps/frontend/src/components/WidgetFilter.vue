@@ -4,12 +4,14 @@ import SelectFilterAttributes from './SelectFilterAttributes.vue'
 
 export default {
   components: { SelectPriceRanges, SelectFilterAttributes },
+
+  props: ['minPrice', 'maxPrice'],
 }
 </script>
 
 <template>
   <aside class="catalog-filter">
-    <SelectPriceRanges />
+    <SelectPriceRanges :min-price="minPrice" :max-price="maxPrice" />
 
     <SelectFilterAttributes />
   </aside>

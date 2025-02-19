@@ -34,7 +34,9 @@ export default {
       sortingType: 'idHightLow',
       pageSize: 10,
       currentPage: 0,
-      pagesTotal: 3,
+      pagesTotal: 1,
+      minPrice: 0,
+      maxPrice: Number.MAX_SAFE_INTEGER,
     }
   },
 
@@ -58,6 +60,14 @@ export default {
     changePagesTotal(pagesTotal) {
       this.pagesTotal = pagesTotal
     },
+
+    changeMinPrice(minPrice) {
+      this.minPrice = minPrice
+    },
+
+    changeMaxPrice(maxPrice) {
+      this.maxPrice = maxPrice
+    },
   },
 }
 </script>
@@ -79,7 +89,7 @@ export default {
           />
 
           <div class="layout-catalog">
-            <WidgetFilter />
+            <WidgetFilter :min-price="minPrice" :max-price="maxPrice" />
 
             <div class="catalog-content">
               <SelectCurrentPage
@@ -93,6 +103,8 @@ export default {
                 :page-size="pageSize"
                 :current-page="currentPage"
                 @pages-total-changed="changePagesTotal"
+                @min-price-changed="changeMinPrice"
+                @max-price-changed="changeMaxPrice"
               />
             </div>
           </div>

@@ -14,7 +14,7 @@ export default {
 
   props: ['sortingType', 'pageSize', 'currentPage', 'searchQuery'],
 
-  emits: ['pages-total-changed'],
+  emits: ['pages-total-changed', 'min-price-changed', 'max-price-changed'],
 
   data() {
     return {
@@ -32,15 +32,22 @@ export default {
     },
 
     paginatedProducts() {
-      return paginateProducts(
-        this.sortedProducts,
-        this.currentPage,
-        this.pageSize
-      )
+      const { sortedProducts, currentPage, pageSize } = this
+      return paginateProducts(sortedProducts, currentPage, pageSize)
     },
 
     pagesTotal() {
       return Math.ceil(this.sortedProducts.length / this.pageSize)
+    },
+
+    minPrice() {
+      const min = Math.min(...this.searchedProducts.map(sp => sp.priceUah))
+      return Number.isFinite(min) ? min : 0
+    },
+
+    maxPrice() {
+      const max = Math.max(...this.searchedProducts.map(sp => sp.priceUah))
+      return Number.isFinite(max) ? max : Number.MAX_SAFE_INTEGER
     },
   },
 
@@ -48,10 +55,29 @@ export default {
     pagesTotal(newValue) {
       this.$emit('pages-total-changed', newValue)
     },
+
+    minPrice(newValue) {
+      this.$emit('min-price-changed', newValue)
+    },
+
+    maxPrice(newValue) {
+      this.$emit('max-price-changed', newValue)
+    },
   },
 
-  created() {
-    this.products = products
+  mounted() {
+    setTimeout(() => {
+      this.products = products.filter(p => p.priceUah !== 5900)
+    }, 1500)
+    setTimeout(() => {
+      this.products = products.filter(p => p.priceUah !== 8300)
+    }, 2500)
+    setTimeout(() => {
+      this.products = products.filter(p => p.priceUah !== 205800)
+    }, 4000)
+    setTimeout(() => {
+      this.products = products.filter(p => p.priceUah !== 128300)
+    }, 5500)
   },
 }
 </script>
