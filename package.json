@@ -12,7 +12,8 @@
   "scripts": {
     "clean": "rimraf build dist",
     "clean:all": "rimraf build dist node_modules",
-    "deploy": "run-s build:prod start",
+    "installation": "npm ci",
+    "deploy": "run-s clean:all installation build:prod start",
     "start": "npm run start --workspace=@monorepo/backend",
     "look": "run-s frontend:build:dev backend:build:dev backend:look",
     "dev": "run-p backend:dev frontend:dev",
