@@ -14,25 +14,25 @@ export default {
   watch: {
     priceMin(newValue) {
       if (newValue > this.priceFrom) this.priceFrom = newValue
+      this.$nextTick(() => {
+        if (newValue === this.priceTo) this.priceTo = this.priceMax
+      })
     },
 
     priceMax(newValue) {
       if (newValue < this.priceTo) this.priceTo = newValue
+      this.$nextTick(() => {
+        if (newValue === this.priceFrom) this.priceFrom = this.priceMin
+      })
     },
 
     priceFrom(newValue) {
-      this.$nextTick(() => {
         if (newValue > this.priceTo) this.priceTo = newValue
-      })
-
       this.$emit('price-from-changed', this.priceFrom)
     },
 
     priceTo(newValue) {
-      this.$nextTick(() => {
         if (newValue < this.priceFrom) this.priceFrom = newValue
-      })
-
       this.$emit('price-to-changed', this.priceTo)
     },
   },
