@@ -103,8 +103,8 @@ export default {
           <div class="layout-catalog">
             <aside class="catalog-filter">
               <SelectPriceRanges
-                :min-price="minPrice"
-                :max-price="maxPrice"
+                :price-min="minPrice"
+                :price-max="maxPrice"
                 @price-from-changed="changePriceFrom"
                 @price-to-changed="changePriceTo"
               />

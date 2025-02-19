@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ['minPrice', 'maxPrice'],
+  props: ['priceMin', 'priceMax'],
 
   emits: ['price-from-changed', 'price-to-changed'],
 
@@ -12,11 +12,11 @@ export default {
   },
 
   watch: {
-    minPrice(newValue) {
+    priceMin(newValue) {
       if (newValue > this.priceFrom) this.priceFrom = newValue
     },
 
-    maxPrice(newValue) {
+    priceMax(newValue) {
       if (newValue < this.priceTo) this.priceTo = newValue
     },
 
@@ -50,8 +50,8 @@ export default {
       <input
         id="priceFrom"
         v-model.number="priceFrom"
-        :min="minPrice"
-        :max="maxPrice"
+        :min="priceMin"
+        :max="priceMax"
         type="range"
       />
     </div>
@@ -63,8 +63,8 @@ export default {
       <input
         id="priceTo"
         v-model.number="priceTo"
-        :min="minPrice"
-        :max="maxPrice"
+        :min="priceMin"
+        :max="priceMax"
         type="range"
       />
     </div>
