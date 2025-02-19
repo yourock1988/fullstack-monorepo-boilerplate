@@ -39,6 +39,8 @@ export default {
       pagesTotal: 1,
       minPrice: 0,
       maxPrice: Number.MAX_SAFE_INTEGER,
+      priceFrom: 0,
+      priceTo: Number.MAX_SAFE_INTEGER,
     }
   },
 
@@ -70,6 +72,14 @@ export default {
     changeMaxPrice(maxPrice) {
       this.maxPrice = maxPrice
     },
+
+    changePriceFrom(priceFrom) {
+      this.priceFrom = priceFrom
+    },
+
+    changePriceTo(priceTo) {
+      this.priceTo = priceTo
+    },
   },
 }
 </script>
@@ -92,7 +102,12 @@ export default {
 
           <div class="layout-catalog">
             <aside class="catalog-filter">
-              <SelectPriceRanges :min-price="minPrice" :max-price="maxPrice" />
+              <SelectPriceRanges
+                :min-price="minPrice"
+                :max-price="maxPrice"
+                @price-from-changed="changePriceFrom"
+                @price-to-changed="changePriceTo"
+              />
 
               <SelectFilterAttributes />
             </aside>

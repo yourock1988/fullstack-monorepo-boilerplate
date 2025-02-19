@@ -2,32 +2,38 @@
 export default {
   props: ['minPrice', 'maxPrice'],
 
+  emits: ['price-from-changed', 'price-to-changed'],
+
   data() {
     return {
-      from: 0,
-      to: Number.MAX_SAFE_INTEGER,
+      priceFrom: 0,
+      priceTo: Number.MAX_SAFE_INTEGER,
     }
   },
 
   watch: {
     minPrice(newValue) {
-      if (newValue > this.from) this.from = newValue
+      if (newValue > this.priceFrom) this.priceFrom = newValue
     },
 
     maxPrice(newValue) {
-      if (newValue < this.to) this.to = newValue
+      if (newValue < this.priceTo) this.priceTo = newValue
     },
 
-    from(newValue) {
+    priceFrom(newValue) {
       this.$nextTick(() => {
-        if (newValue > this.to) this.to = newValue
+        if (newValue > this.priceTo) this.priceTo = newValue
       })
+
+      this.$emit('price-from-changed', this.priceFrom)
     },
 
-    to(newValue) {
+    priceTo(newValue) {
       this.$nextTick(() => {
-        if (newValue < this.from) this.from = newValue
+        if (newValue < this.priceFrom) this.priceFrom = newValue
       })
+
+      this.$emit('price-to-changed', this.priceTo)
     },
   },
 }
@@ -39,11 +45,11 @@ export default {
     <div class="wrap-input-range">
       <label for="priceFrom">
         <span>От: </span>
-        <b>{{ from }}</b>
+        <b>{{ priceFrom }}</b>
       </label>
       <input
         id="priceFrom"
-        v-model.number="from"
+        v-model.number="priceFrom"
         :min="minPrice"
         :max="maxPrice"
         type="range"
@@ -52,11 +58,11 @@ export default {
     <div class="wrap-input-range">
       <label for="priceTo">
         <span>До: </span>
-        <b>{{ to }}</b>
+        <b>{{ priceTo }}</b>
       </label>
       <input
         id="priceTo"
-        v-model.number="to"
+        v-model.number="priceTo"
         :min="minPrice"
         :max="maxPrice"
         type="range"
