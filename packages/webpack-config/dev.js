@@ -7,6 +7,7 @@ module.exports = merge(webpackBaseConfig, {
   devtool: 'inline-source-map',
 
   devServer: {
+    port: 9000,
     open: false,
     historyApiFallback: true,
   },

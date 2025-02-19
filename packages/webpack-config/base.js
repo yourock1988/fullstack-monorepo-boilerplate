@@ -20,12 +20,12 @@ module.exports = merge(webpackVueConfig, {
   },
 
   stats: 'minimal',
-  infrastructureLogging: { level: 'error' },
+  infrastructureLogging: { level: 'info' },
 
   target: ['web', 'es5'],
 
   output: {
-    filename: 'assets/js/[name].js',
+    filename: 'assets/js/[name].[contenthash:8].js',
     publicPath: '/',
     clean: true,
   },
@@ -76,7 +76,15 @@ module.exports = merge(webpackVueConfig, {
         test: /\.(jpe?g|png|gif|svg|webp)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/img/[hash][ext]',
+          filename: 'assets/img/[contenthash][ext]',
+        },
+      },
+
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/font/[contenthash][ext]',
         },
       },
     ],
@@ -91,7 +99,7 @@ module.exports = merge(webpackVueConfig, {
     }),
 
     new MiniCssExtractPlugin({
-      filename: path.join('assets', 'css', '[name].css'),
+      filename: path.join('assets', 'css', '[name].[contenthash:8].css'),
     }),
 
     new CopyWebpackPlugin({
