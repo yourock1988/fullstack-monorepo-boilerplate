@@ -27,12 +27,12 @@ export default {
     },
 
     priceFrom(newValue) {
-        if (newValue > this.priceTo) this.priceTo = newValue
+      if (newValue > this.priceTo) this.priceTo = newValue
       this.$emit('price-from-changed', this.priceFrom)
     },
 
     priceTo(newValue) {
-        if (newValue < this.priceFrom) this.priceFrom = newValue
+      if (newValue < this.priceFrom) this.priceFrom = newValue
       this.$emit('price-to-changed', this.priceTo)
     },
   },

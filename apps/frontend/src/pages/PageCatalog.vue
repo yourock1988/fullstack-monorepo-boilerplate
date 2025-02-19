@@ -120,12 +120,14 @@ export default {
 
               <WidgetProducts
                 :search-query="searchQuery"
+                :price-from="priceFrom"
+                :price-to="priceTo"
                 :sorting-type="sortingType"
-                :page-size="pageSize"
                 :current-page="currentPage"
-                @pages-total-changed="changePagesTotal"
+                :page-size="pageSize"
                 @price-min-changed="changePriceMin"
                 @price-max-changed="changePriceMax"
+                @pages-total-changed="changePagesTotal"
               />
             </div>
           </div>
