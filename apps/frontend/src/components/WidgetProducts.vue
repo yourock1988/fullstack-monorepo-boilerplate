@@ -14,7 +14,7 @@ export default {
 
   props: ['sortingType', 'pageSize', 'currentPage', 'searchQuery'],
 
-  emits: ['pages-total-changed', 'min-price-changed', 'max-price-changed'],
+  emits: ['pages-total-changed', 'price-min-changed', 'price-max-changed'],
 
   data() {
     return {
@@ -57,11 +57,11 @@ export default {
     },
 
     priceMin(newValue) {
-      this.$emit('min-price-changed', newValue)
+      this.$emit('price-min-changed', newValue)
     },
 
     priceMax(newValue) {
-      this.$emit('max-price-changed', newValue)
+      this.$emit('price-max-changed', newValue)
     },
   },
 

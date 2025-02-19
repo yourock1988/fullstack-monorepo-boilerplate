@@ -124,8 +124,8 @@ export default {
                 :page-size="pageSize"
                 :current-page="currentPage"
                 @pages-total-changed="changePagesTotal"
-                @min-price-changed="changePriceMin"
-                @max-price-changed="changePriceMax"
+                @price-min-changed="changePriceMin"
+                @price-max-changed="changePriceMax"
               />
             </div>
           </div>
