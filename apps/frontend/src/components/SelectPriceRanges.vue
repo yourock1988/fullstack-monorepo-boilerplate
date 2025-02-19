@@ -7,7 +7,7 @@ export default {
   data() {
     return {
       priceFrom: 0,
-      priceTo: Number.MAX_SAFE_INTEGER,
+      priceTo: 0,
     }
   },
 
