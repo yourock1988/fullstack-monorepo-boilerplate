@@ -2,7 +2,6 @@
 import WidgetHeader from '@/components/WidgetHeader.vue'
 import UiCategoryNavigation from '@/ui/UiCategoryNavigation.vue'
 import VerboseFiltration from '@/components/VerboseFiltration.vue'
-import WidgetFilter from '@/components/WidgetFilter.vue'
 import WidgetProducts from '@/components/WidgetProducts.vue'
 import SelectCurrentPage from '@/components/SelectCurrentPage.vue'
 import RecentlyViewed from '@/components/RecentlyViewed.vue'
@@ -11,13 +10,14 @@ import UiTags from '@/ui/UiTags.vue'
 import UiCopyright from '@/ui/UiCopyright.vue'
 import UiTapbar from '@/ui/UiTapbar.vue'
 import UiLinetop from '@/ui/UiLinetop.vue'
+import SelectPriceRanges from '@/components/SelectPriceRanges.vue'
+import SelectFilterAttributes from '@/components/SelectFilterAttributes.vue'
 
 export default {
   components: {
     WidgetHeader,
     UiCategoryNavigation,
     VerboseFiltration,
-    WidgetFilter,
     WidgetProducts,
     SelectCurrentPage,
     RecentlyViewed,
@@ -26,6 +26,8 @@ export default {
     UiCopyright,
     UiTapbar,
     UiLinetop,
+    SelectPriceRanges,
+    SelectFilterAttributes,
   },
 
   data() {
@@ -89,7 +91,11 @@ export default {
           />
 
           <div class="layout-catalog">
-            <WidgetFilter :min-price="minPrice" :max-price="maxPrice" />
+            <aside class="catalog-filter">
+              <SelectPriceRanges :min-price="minPrice" :max-price="maxPrice" />
+
+              <SelectFilterAttributes />
+            </aside>
 
             <div class="catalog-content">
               <SelectCurrentPage
