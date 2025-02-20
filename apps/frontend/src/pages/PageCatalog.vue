@@ -13,6 +13,17 @@ import UiLinetop from '@/ui/UiLinetop.vue'
 import SelectPriceRanges from '@/components/SelectPriceRanges.vue'
 import SelectFilterAttributes from '@/components/SelectFilterAttributes.vue'
 
+import products from '@/json/products.json'
+
+import searchProducts from '@/functions/searchProducts'
+import rangeProducts from '@/functions/rangeProducts'
+import sortProducts from '@/functions/sortProducts'
+import paginateProducts from '@/functions/paginateProducts'
+
+products.forEach(p => {
+  p.priceUah = Math.round((p.price * 42) / 100) * 100
+})
+
 export default {
   components: {
     WidgetHeader,
@@ -32,54 +43,53 @@ export default {
 
   data() {
     return {
+      products: [],
       searchQuery: '',
-      sortingType: 'idHightLow',
-      pageSize: 10,
-      currentPage: 0,
-      pagesTotal: 1,
-      priceMin: 0,
-      priceMax: Number.MAX_SAFE_INTEGER,
       priceFrom: 0,
       priceTo: 0,
+      sortingType: 'idHightLow',
+      currentPage: 0,
+      pageSize: 10,
     }
   },
 
-  methods: {
-    changeSearchQuery(searchQuery) {
-      this.searchQuery = searchQuery
+  computed: {
+    searchedProducts() {
+      return searchProducts(this.products, this.searchQuery)
     },
 
-    changeSortingType(sortingType) {
-      this.sortingType = sortingType
+    rangedProducts() {
+      return rangeProducts(this.searchedProducts, this.priceFrom, this.priceTo)
     },
 
-    changePageSize(pageSize) {
-      this.pageSize = pageSize
+    sortedProducts() {
+      return sortProducts(this.rangedProducts, this.sortingType)
     },
 
-    changeCurrentPage(currentPage) {
-      this.currentPage = currentPage
+    paginatedProducts() {
+      const { sortedProducts, currentPage, pageSize } = this
+      return paginateProducts(sortedProducts, currentPage, pageSize)
     },
 
-    changePagesTotal(pagesTotal) {
-      this.pagesTotal = pagesTotal
+    pagesTotal() {
+      return Math.ceil(this.sortedProducts.length / this.pageSize)
     },
 
-    changePriceMin(priceMin) {
-      this.priceMin = priceMin
+    priceMin() {
+      const min = Math.min(...this.searchedProducts.map(sp => sp.priceUah))
+      return Number.isFinite(min) ? min : 0
     },
 
-    changePriceMax(priceMax) {
-      this.priceMax = priceMax
+    priceMax() {
+      const max = Math.max(...this.searchedProducts.map(sp => sp.priceUah))
+      return Number.isFinite(max) ? max : Number.MAX_SAFE_INTEGER
     },
+  },
 
-    changePriceFrom(priceFrom) {
-      this.priceFrom = priceFrom
-    },
-
-    changePriceTo(priceTo) {
-      this.priceTo = priceTo
-    },
+  mounted() {
+    setTimeout(() => {
+      this.products = products
+    }, 750)
   },
 }
 </script>
@@ -88,7 +98,7 @@ export default {
   <div class="layout-wrapper">
     <UiLinetop />
 
-    <WidgetHeader @search-query-changed="changeSearchQuery" />
+    <WidgetHeader @search-query-changed="searchQuery = $event" />
 
     <div class="layout-main">
       <div class="layout-centralize">
@@ -96,8 +106,8 @@ export default {
           <UiCategoryNavigation />
 
           <VerboseFiltration
-            @sorting-type-changed="changeSortingType"
-            @page-size-changed="changePageSize"
+            @sorting-type-changed="sortingType = $event"
+            @page-size-changed="pageSize = $event"
           />
 
           <div class="layout-catalog">
@@ -105,8 +115,8 @@ export default {
               <SelectPriceRanges
                 :price-min="priceMin"
                 :price-max="priceMax"
-                @price-from-changed="changePriceFrom"
-                @price-to-changed="changePriceTo"
+                @price-from-changed="priceFrom = $event"
+                @price-to-changed="priceTo = $event"
               />
 
               <SelectFilterAttributes />
@@ -115,20 +125,10 @@ export default {
             <div class="catalog-content">
               <SelectCurrentPage
                 :pages-total="pagesTotal"
-                @current-page-changed="changeCurrentPage"
+                @current-page-changed="currentPage = $event"
               />
 
-              <WidgetProducts
-                :search-query="searchQuery"
-                :price-from="priceFrom"
-                :price-to="priceTo"
-                :sorting-type="sortingType"
-                :current-page="currentPage"
-                :page-size="pageSize"
-                @price-min-changed="changePriceMin"
-                @price-max-changed="changePriceMax"
-                @pages-total-changed="changePagesTotal"
-              />
+              <WidgetProducts :paginated-products="paginatedProducts" />
             </div>
           </div>
         </main>
