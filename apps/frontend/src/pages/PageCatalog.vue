@@ -20,6 +20,7 @@ import rangeProducts from '@/functions/rangeProducts'
 import sortProducts from '@/functions/sortProducts'
 import paginateProducts from '@/functions/paginateProducts'
 import attributeProducts from '@/functions/attributeProducts'
+import normalizeProducts from '@/functions/normalizeProducts'
 
 products.forEach(p => {
   p.priceUah = Math.round((p.price * 42) / 100) * 100
@@ -94,7 +95,7 @@ export default {
 
   mounted() {
     setTimeout(() => {
-      this.products = products
+      this.products = normalizeProducts(products)
     }, 750)
   },
 
