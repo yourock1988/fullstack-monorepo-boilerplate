@@ -7,10 +7,6 @@ export default {
 
   emits: ['search-query-changed'],
 
-  data() {
-    return {}
-  },
-
   methods: {
     changeSearchQuery(searchQuery) {
       this.$emit('search-query-changed', searchQuery)
