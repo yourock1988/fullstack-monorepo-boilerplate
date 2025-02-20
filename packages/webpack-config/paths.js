@@ -9,6 +9,7 @@ const PATHS = {
   build: path.join(rootPath, 'build', 'client'),
   dist: path.join(rootPath, 'dist', 'client'),
   src: path.join(frontendPath, 'src'),
+  assets: path.join(frontendPath, 'src', 'assets'),
 }
 
 module.exports = PATHS
