@@ -17,7 +17,16 @@ function createFilters(products) {
     })
   })
 
-  return filters
+  filters.forEach(filter => {
+    filter.attrValues = filter.attrValues.toSorted(
+      ({ caption }, { caption: prev }) =>
+        parseFloat(caption) - parseFloat(prev) || caption.localeCompare(prev)
+    )
+  })
+
+  return filters.toSorted(({ attrName }, { attrName: prev }) =>
+    attrName.localeCompare(prev)
+  )
 }
 
 export default createFilters
