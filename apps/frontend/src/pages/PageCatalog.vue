@@ -19,6 +19,7 @@ import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
 import sortProducts from '@/functions/sortProducts'
 import paginateProducts from '@/functions/paginateProducts'
+import attributeProducts from '@/functions/attributeProducts'
 
 products.forEach(p => {
   p.priceUah = Math.round((p.price * 42) / 100) * 100
@@ -50,6 +51,7 @@ export default {
       sortingType: 'idHightLow',
       currentPage: 0,
       pageSize: 10,
+      selectedFilters: [],
     }
   },
 
@@ -62,8 +64,12 @@ export default {
       return rangeProducts(this.searchedProducts, this.priceFrom, this.priceTo)
     },
 
+    attributedProducts() {
+      return attributeProducts(this.rangedProducts, this.selectedFilters)
+    },
+
     sortedProducts() {
-      return sortProducts(this.rangedProducts, this.sortingType)
+      return sortProducts(this.attributedProducts, this.sortingType)
     },
 
     paginatedProducts() {
@@ -90,6 +96,12 @@ export default {
     setTimeout(() => {
       this.products = products
     }, 750)
+  },
+
+  methods: {
+    changeSelectedFilters(selectedFilters) {
+      this.selectedFilters = selectedFilters
+    },
   },
 }
 </script>
@@ -119,7 +131,10 @@ export default {
                 @price-to-changed="priceTo = $event"
               />
 
-              <SelectFilterAttributes />
+              <SelectFilterAttributes
+                :products="rangedProducts"
+                @selected-filters-changed="changeSelectedFilters"
+              />
             </aside>
 
             <div class="catalog-content">
