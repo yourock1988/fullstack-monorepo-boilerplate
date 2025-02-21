@@ -4,13 +4,13 @@ export default {
 
   data() {
     return {
-      selectedSortingType: 'idHightLow',
+      selectedSortingType: 'expensiveFirst',
 
       sortingTypes: {
-        expensiveFirst: 'Сначала дорогие',
         cheapFirst: 'Сначала дешевые',
-        idHightLow: 'По id от большего',
+        expensiveFirst: 'Сначала дорогие',
         idLowHight: 'По id от меньшего',
+        idHightLow: 'По id от большего',
         randomize: 'Случайным образом',
       },
     }
