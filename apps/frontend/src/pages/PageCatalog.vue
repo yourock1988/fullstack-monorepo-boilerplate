@@ -102,6 +102,11 @@ export default {
   methods: {
     changeSelectedFilters(selectedFilters) {
       this.selectedFilters = selectedFilters
+
+      this.$refs.aside.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+      })
     },
   },
 }
@@ -123,8 +128,8 @@ export default {
             @page-size-changed="pageSize = $event"
           />
 
-          <div class="layout-catalog">
-            <aside class="catalog-filter">
+          <div id="ccc" class="layout-catalog">
+            <aside ref="aside" class="catalog-filter">
               <SelectPriceRanges
                 :price-min="priceMin"
                 :price-max="priceMax"
