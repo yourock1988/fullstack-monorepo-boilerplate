@@ -3,13 +3,24 @@ function normalizeProducts(products) {
 
   cloneProducts.forEach(p => {
     const pattern = {
-      'Частота процессора': [' Ghz', 'Ghz'],
-      'Блок питания': ['P', ''],
+      'Частота процессора': [[' Ghz', 'Ghz']],
+      'Блок питания': [['P', '']],
+      'Материнская плата': [
+        ['AsRock', 'ASRock'],
+        ['LGA1200', 'LGA'],
+        ['LGA1700', 'LGA'],
+      ],
+      Процессор: [
+        ['LGA1700', 'LGA'],
+        ['INTEL', 'Intel'],
+      ],
     }
 
     Object.entries(pattern).forEach(([key, val]) => {
       if (p.attributes?.[key]) {
-        p.attributes[key] = p.attributes?.[key]?.replace(val[0], val[1])
+        val.forEach(v => {
+          p.attributes[key] = p.attributes?.[key]?.replace(v[0], v[1])
+        })
       }
     })
   })
