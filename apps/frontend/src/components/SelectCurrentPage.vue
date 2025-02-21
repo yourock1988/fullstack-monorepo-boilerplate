@@ -22,6 +22,10 @@ export default {
     },
   },
 
+  mounted() {
+    this.$emit('current-page-changed', this.selectedCurrentPage)
+  },
+
   methods: {
     changeCurrentPage(currentPage) {
       this.selectedCurrentPage = currentPage

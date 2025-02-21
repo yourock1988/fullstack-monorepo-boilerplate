@@ -36,6 +36,11 @@ export default {
       this.$emit('price-to-changed', this.priceTo)
     },
   },
+
+  mounted() {
+    this.$emit('price-from-changed', this.priceFrom)
+    this.$emit('price-to-changed', this.priceTo)
+  },
 }
 </script>
 

@@ -18,6 +18,10 @@ export default {
     },
   },
 
+  mounted() {
+    this.$emit('search-query-changed', this.searchQuery)
+  },
+
   methods: {
     changeSearchQuery() {
       if (this.isUpdated && this.searchQuery !== '') {

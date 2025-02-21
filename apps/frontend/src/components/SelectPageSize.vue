@@ -15,7 +15,9 @@ export default {
     },
   },
 
-  methods: {},
+  mounted() {
+    this.$emit('page-size-changed', this.selectedPageSize)
+  },
 }
 </script>
 

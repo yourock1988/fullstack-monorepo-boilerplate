@@ -21,6 +21,10 @@ export default {
       this.$emit('sorting-type-changed', newValue)
     },
   },
+
+  mounted() {
+    this.$emit('sorting-type-changed', this.selectedSortingType)
+  },
 }
 </script>
 
