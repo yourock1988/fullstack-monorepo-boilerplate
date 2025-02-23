@@ -21,10 +21,7 @@ import sortProducts from '@/functions/sortProducts'
 import paginateProducts from '@/functions/paginateProducts'
 import attributeProducts from '@/functions/attributeProducts'
 import normalizeProducts from '@/functions/normalizeProducts'
-
-products.forEach(p => {
-  p.priceUah = Math.round((p.price * 42) / 100) * 100
-})
+import convertProductsPrice from '@/functions/convertProductsPrice'
 
 export default {
   components: {
@@ -54,6 +51,7 @@ export default {
       pageSize: 10,
       selectedFilters: [],
       isScrollingDisabled: true,
+      ccy: { usdUah: 42 },
     }
   },
 
@@ -104,6 +102,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.products = normalizeProducts(products)
+      convertProductsPrice(this.products, this.ccy)
       setTimeout(() => {
         this.isScrollingDisabled = false
       }, 500)
