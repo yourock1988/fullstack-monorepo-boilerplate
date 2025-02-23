@@ -53,6 +53,7 @@ export default {
       currentPage: 0,
       pageSize: 10,
       selectedFilters: [],
+      isScrollingDisabled: true,
     }
   },
 
@@ -96,13 +97,20 @@ export default {
   mounted() {
     setTimeout(() => {
       this.products = normalizeProducts(products)
-    }, 750)
+      setTimeout(() => {
+        this.isScrollingDisabled = false
+      }, 500)
+    }, 500)
   },
 
   methods: {
     changeSelectedFilters(selectedFilters) {
       this.selectedFilters = selectedFilters
+      this.scrollToAsideBottom()
+    },
 
+    scrollToAsideBottom() {
+      if (this.isScrollingDisabled) return
       this.$refs.aside.scrollIntoView({
         behavior: 'smooth',
         block: 'end',
