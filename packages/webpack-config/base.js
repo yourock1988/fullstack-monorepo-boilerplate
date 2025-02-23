@@ -20,7 +20,7 @@ module.exports = merge(webpackVueConfig, {
   },
 
   stats: 'minimal',
-  infrastructureLogging: { level: 'info' },
+  infrastructureLogging: { level: 'error' },
 
   target: ['web', 'es5'],
 
