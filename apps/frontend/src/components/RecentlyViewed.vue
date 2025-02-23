@@ -1,8 +1,13 @@
 <script>
 import imgComputer from '@/assets/img/computer.webp'
 import imgComputerRotated from '@/assets/img/computer-rotated.webp'
+import TileProduct from './TileProduct.vue'
 
 export default {
+  components: { TileProduct },
+
+  props: ['recentlyViewedProducts'],
+
   data() {
     return {
       imgComputer,
@@ -16,6 +21,11 @@ export default {
   <div class="recently-viewed">
     <h3>Последние просмотренные товары</h3>
     <ul class="products">
+      <TileProduct
+        v-if="recentlyViewedProducts[0]"
+        :product="recentlyViewedProducts[0]"
+      />
+
       <li class="product">
         <div class="wrap-sale"><span>АКЦИЯ</span></div>
         <div class="box">

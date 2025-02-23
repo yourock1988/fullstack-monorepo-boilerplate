@@ -96,8 +96,8 @@ export default {
     selectedFilters: {
       deep: true,
       handler(newValue) {
-      this.selectedFilters = newValue
-      this.scrollToAsideBottom()
+        this.selectedFilters = newValue
+        this.scrollToAsideBottom()
       },
     },
   },
@@ -166,7 +166,7 @@ export default {
           </div>
         </main>
 
-        <RecentlyViewed />
+        <RecentlyViewed :recently-viewed-products="products" />
       </div>
     </div>
 
