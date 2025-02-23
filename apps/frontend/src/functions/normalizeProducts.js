@@ -1,7 +1,7 @@
 function normalizeProducts(products) {
-  const cloneProducts = structuredClone(products)
+  const clonedProducts = structuredClone(products)
 
-  cloneProducts.forEach(p => {
+  clonedProducts.forEach(p => {
     const pattern = {
       'Частота процессора': [[' Ghz', 'Ghz']],
       'Блок питания': [['P', '']],
@@ -25,7 +25,7 @@ function normalizeProducts(products) {
     })
   })
 
-  return cloneProducts
+  return clonedProducts
 }
 
 export default normalizeProducts
