@@ -94,6 +94,13 @@ export default {
     },
   },
 
+  watch: {
+    selectedFilters(newValue) {
+      this.selectedFilters = newValue
+      this.scrollToAsideBottom()
+    },
+  },
+
   mounted() {
     setTimeout(() => {
       this.products = normalizeProducts(products)
@@ -104,11 +111,6 @@ export default {
   },
 
   methods: {
-    changeSelectedFilters(selectedFilters) {
-      this.selectedFilters = selectedFilters
-      this.scrollToAsideBottom()
-    },
-
     scrollToAsideBottom() {
       if (this.isScrollingDisabled) return
       this.$refs.aside.scrollIntoView({
@@ -147,7 +149,7 @@ export default {
 
               <SelectFilterAttributes
                 :products="rangedProducts"
-                @selected-filters-changed="changeSelectedFilters"
+                @selected-filters-changed="selectedFilters = $event"
               />
             </aside>
 
