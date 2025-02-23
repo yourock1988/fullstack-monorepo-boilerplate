@@ -93,9 +93,12 @@ export default {
   },
 
   watch: {
-    selectedFilters(newValue) {
+    selectedFilters: {
+      deep: true,
+      handler(newValue) {
       this.selectedFilters = newValue
       this.scrollToAsideBottom()
+      },
     },
   },
 
