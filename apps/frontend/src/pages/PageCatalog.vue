@@ -98,15 +98,19 @@ export default {
     },
   },
 
-  async mounted() {
-    this.products = await getProducts()
-    convertProductsPrice(this.products, this.ccy)
-    setTimeout(() => {
-      this.isScrollingDisabled = false
-    }, 100)
+  mounted() {
+    this.loadProducts()
   },
 
   methods: {
+    async loadProducts() {
+      this.products = await getProducts()
+      convertProductsPrice(this.products, this.ccy)
+      setTimeout(() => {
+        this.isScrollingDisabled = false
+      }, 100)
+    },
+
     scrollToAsideBottom() {
       if (this.isScrollingDisabled) return
       this.$refs.aside.scrollIntoView({
