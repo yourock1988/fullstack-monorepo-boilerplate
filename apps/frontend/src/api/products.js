@@ -1,10 +1,12 @@
+import normalizeProducts from '@/functions/normalizeProducts'
 import sendRequest from './sendRequest'
 
 const url = 'https://pc-shop.web-app.click/api/v0/products/'
 
 export async function getProducts() {
   const response = await sendRequest(url)
-  return response.payload
+  const normalizedProducts = normalizeProducts(response.payload)
+  return normalizedProducts
 }
 
 export async function getProductById(id) {
