@@ -1,8 +1,11 @@
 <script>
 import harvestAttributes from '@/functions/harvestAttributes'
 import extractSelectedAttributes from '@/functions/extractSelectedAttributes'
+import ItemAttrValue from './ItemAttrValue.vue'
 
 export default {
+  components: { ItemAttrValue },
+
   props: ['products'],
 
   emits: ['attributes-changed'],
@@ -44,23 +47,14 @@ export default {
       </dt>
       <dd>
         <ul>
-          <li v-for="(attrValue, subIdx) of filter.attrValues" :key="subIdx">
-            <div class="wrap-checkbox-fa">
-              <input
-                :id="`attr-${idx}-${subIdx}`"
-                v-model="attrValue.isChecked"
-                type="checkbox"
-              />
-              <label :for="`attr-${idx}-${subIdx}`">
-                <i class="fa-solid fa-square-check"></i>
-                <i class="fa-solid fa-square"></i>
-                <span>
-                  {{ attrValue.caption
-                  }}<sup>({{ attrValue.count }})</sup></span
-                >
-              </label>
-            </div>
-          </li>
+          <ItemAttrValue
+            v-for="(attrValue, subIdx) of filter.attrValues"
+            :key="subIdx"
+            v-model="attrValue.isChecked"
+            :attr-value="attrValue"
+            :idx="idx"
+            :sub-idx="subIdx"
+          />
         </ul>
       </dd>
     </dl>
