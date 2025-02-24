@@ -5,16 +5,12 @@ export default {
   components: { TileProduct },
 
   props: ['watchedProducts'],
-
-  data() {
-    return {}
-  },
 }
 </script>
 
 <template>
   <div class="watched-products">
-    <h3>Последние просмотренные товары</h3>
+    <h3>Просмотренные товары</h3>
     <ul class="products">
       <TileProduct
         v-for="product of watchedProducts"
