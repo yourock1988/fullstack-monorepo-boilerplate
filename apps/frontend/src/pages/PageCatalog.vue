@@ -172,7 +172,7 @@ export default {
           </div>
         </main>
 
-        <WatchedProducts :recently-viewed-products="watchedProducts" />
+        <WatchedProducts :watched-products="watchedProducts" />
       </div>
     </div>
 

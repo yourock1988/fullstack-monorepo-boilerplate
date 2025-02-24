@@ -4,7 +4,7 @@ import TileProduct from './TileProduct.vue'
 export default {
   components: { TileProduct },
 
-  props: ['recentlyViewedProducts'],
+  props: ['watchedProducts'],
 
   data() {
     return {}
@@ -17,7 +17,7 @@ export default {
     <h3>Последние просмотренные товары</h3>
     <ul class="products">
       <TileProduct
-        v-for="product of recentlyViewedProducts"
+        v-for="product of watchedProducts"
         :key="product.id"
         :product="product"
       />
