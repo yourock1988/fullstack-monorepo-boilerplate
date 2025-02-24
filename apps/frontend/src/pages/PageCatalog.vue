@@ -21,7 +21,7 @@ import attributeProducts from '@/functions/attributeProducts'
 
 import convertProductsPrice from '@/functions/convertProductsPrice'
 import { getProducts } from '@/api/products'
-import { getWatchedProducts } from '@/api/watched'
+import { getWatchedProducts } from '@/api/watchedProducts'
 
 export default {
   components: {
