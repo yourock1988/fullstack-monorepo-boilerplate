@@ -13,8 +13,6 @@ export default {
     }
   },
 
-  computed: {},
-
   watch: {
     filters: {
       deep: true,
