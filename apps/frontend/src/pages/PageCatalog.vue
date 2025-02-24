@@ -4,7 +4,7 @@ import UiCategoryNavigation from '@/ui/UiCategoryNavigation.vue'
 import VerboseFiltration from '@/components/VerboseFiltration.vue'
 import WidgetProducts from '@/components/WidgetProducts.vue'
 import SelectCurrentPage from '@/components/SelectCurrentPage.vue'
-import RecentlyViewed from '@/components/RecentlyViewed.vue'
+import WatchedProducts from '@/components/WatchedProducts.vue'
 import UiLinks from '@/ui/UiLinks.vue'
 import UiTags from '@/ui/UiTags.vue'
 import UiCopyright from '@/ui/UiCopyright.vue'
@@ -30,7 +30,7 @@ export default {
     VerboseFiltration,
     WidgetProducts,
     SelectCurrentPage,
-    RecentlyViewed,
+    WatchedProducts,
     UiLinks,
     UiTags,
     UiCopyright,
@@ -172,7 +172,7 @@ export default {
           </div>
         </main>
 
-        <RecentlyViewed :recently-viewed-products="watchedProducts" />
+        <WatchedProducts :recently-viewed-products="watchedProducts" />
       </div>
     </div>
 
