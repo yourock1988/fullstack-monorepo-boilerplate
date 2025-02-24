@@ -22,7 +22,8 @@ function sortProducts(products, sortingType) {
   if (sortingType in sortingMethods) {
     return sortingMethods[sortingType](products)
   }
-  throw new Error('Sorting Error: wrong sortingType')
+  // throw new Error('Sorting Error: wrong sortingType')
+  return products
 }
 
 export default sortProducts
