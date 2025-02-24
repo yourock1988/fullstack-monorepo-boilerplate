@@ -24,8 +24,22 @@ function createFilters(products) {
     )
   })
 
-  return filters.toSorted(({ attrName }, { attrName: prev }) =>
-    attrName.localeCompare(prev)
+  const attrNameOrder = [
+    'Процессор',
+    'Количество ядер',
+    'Частота процессора',
+    'Тип ОЗУ',
+    'Объем ОЗУ',
+    'Частота ОЗУ',
+    'Тип накопителя',
+    'Объем накопителя',
+    'Материнская плата',
+    'Блок питания',
+  ]
+
+  return filters.toSorted(
+    ({ attrName }, { attrName: prev }) =>
+      attrNameOrder.indexOf(attrName) - attrNameOrder.indexOf(prev)
   )
 }
 
