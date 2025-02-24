@@ -79,6 +79,10 @@
     gap: 15px;
     height: 100%;
     overflow: hidden;
+    .panel-icons {
+      display: flex;
+      gap: 15px;
+    }
     .wrap-button-catalog,
     .wrap-select-lang,
     .wrap-icon-auth,
