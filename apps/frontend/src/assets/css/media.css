@@ -1,7 +1,7 @@
 @media only screen and (max-width: 360px) {
   :root {
     --catalog-in_a_row: 1;
-    --recently-viewed-count: 1;
+    --watched-products-count: 1;
   }
   .wrap-logo {
     display: none;
@@ -10,7 +10,7 @@
 @media only screen and (min-width: 768px) {
   :root {
     --catalog-in_a_row: 3;
-    --recently-viewed-count: 4;
+    --watched-products-count: 4;
   }
   .layout-centralize {
     padding: 0 16px;
@@ -55,7 +55,7 @@
 }
 @media only screen and (min-width: 1024px) {
   :root {
-    --recently-viewed-count: 6;
+    --watched-products-count: 6;
     --layout-header_height: 72px;
   }
   .layout-centralize {
@@ -99,7 +99,7 @@
 @media only screen and (min-width: 1280px) {
   :root {
     --catalog-in_a_row: 5;
-    --recently-viewed-count: 7;
+    --watched-products-count: 7;
   }
   .layout-centralize {
     padding: 0 32px;

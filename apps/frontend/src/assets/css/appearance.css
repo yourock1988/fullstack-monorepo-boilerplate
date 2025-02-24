@@ -93,11 +93,11 @@ i[class|='fa'] {
   background-color: var(--color-white-2);
   border-radius: 8px;
 }
-.recently-viewed > .products::-webkit-scrollbar {
+.watched-products > .products::-webkit-scrollbar {
   height: 8px; /**/
   background-color: var(--color-white-1);
 }
-.recently-viewed > .products::-webkit-scrollbar-thumb {
+.watched-products > .products::-webkit-scrollbar-thumb {
   background-color: var(--color-white-2);
   border-radius: 8px;
 }
@@ -304,7 +304,7 @@ i[class|='fa'] {
   }
 }
 
-.recently-viewed {
+.watched-products {
 }
 .line-downloads {
   background: var(--primary-color);

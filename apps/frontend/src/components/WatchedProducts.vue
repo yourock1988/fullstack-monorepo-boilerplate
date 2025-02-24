@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-  <div class="recently-viewed">
+  <div class="watched-products">
     <h3>Последние просмотренные товары</h3>
     <ul class="products">
       <TileProduct
