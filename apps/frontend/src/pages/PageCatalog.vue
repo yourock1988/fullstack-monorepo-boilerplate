@@ -11,7 +11,7 @@ import UiCopyright from '@/ui/UiCopyright.vue'
 import UiTapbar from '@/ui/UiTapbar.vue'
 import UiLinetop from '@/ui/UiLinetop.vue'
 import SelectPriceRanges from '@/components/SelectPriceRanges.vue'
-import SelectFilterAttributes from '@/components/SelectFilterAttributes.vue'
+import SelectAttributes from '@/components/SelectAttributes.vue'
 
 import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
@@ -37,7 +37,7 @@ export default {
     UiTapbar,
     UiLinetop,
     SelectPriceRanges,
-    SelectFilterAttributes,
+    SelectAttributes,
   },
 
   data() {
@@ -155,7 +155,7 @@ export default {
                 @price-to-changed="priceTo = $event"
               />
 
-              <SelectFilterAttributes
+              <SelectAttributes
                 :products="rangedProducts"
                 @selected-filters-changed="selectedFilters = $event"
               />
