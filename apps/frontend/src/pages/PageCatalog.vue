@@ -108,6 +108,7 @@ export default {
   methods: {
     async loadWatchedProducts() {
       this.watchedProducts = await getWatchedProducts()
+      convertProductsPrice(this.watchedProducts, this.ccy)
     },
 
     async loadProducts() {
