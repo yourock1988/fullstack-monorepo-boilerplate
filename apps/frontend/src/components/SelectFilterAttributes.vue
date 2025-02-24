@@ -1,5 +1,6 @@
 <script>
 import createFilters from '@/functions/createFilters'
+import filtrateFilters from '@/functions/filtrateFilters'
 
 export default {
   props: ['products'],
@@ -17,9 +18,9 @@ export default {
   watch: {
     filters: {
       deep: true,
-
       handler(newValue) {
-        this.$emit('selected-filters-changed', newValue)
+        const onlyCheckedFilters = filtrateFilters(newValue)
+        this.$emit('selected-filters-changed', onlyCheckedFilters)
       },
     },
 
