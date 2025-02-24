@@ -48,7 +48,7 @@ export default {
       sortingType: 'idHightLow',
       currentPage: 0,
       pageSize: 10,
-      selectedFilters: [],
+      attributes: [],
       watchedProducts: [],
       products: [],
       isScrollingDisabled: true,
@@ -66,7 +66,7 @@ export default {
     },
 
     attributedProducts() {
-      return attributeProducts(this.rangedProducts, this.selectedFilters)
+      return attributeProducts(this.rangedProducts, this.attributes)
     },
 
     sortedProducts() {
@@ -94,8 +94,7 @@ export default {
   },
 
   watch: {
-    selectedFilters(newValue) {
-      this.selectedFilters = newValue
+    attributes() {
       this.scrollToAsideBottom()
     },
   },
@@ -157,7 +156,7 @@ export default {
 
               <SelectAttributes
                 :products="rangedProducts"
-                @selected-filters-changed="selectedFilters = $event"
+                @attributes-changed="attributes = $event"
               />
             </aside>
 

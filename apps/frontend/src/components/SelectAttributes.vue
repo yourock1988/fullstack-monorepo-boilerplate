@@ -5,7 +5,7 @@ import extractSelectedAttributes from '@/functions/extractSelectedAttributes'
 export default {
   props: ['products'],
 
-  emits: ['selected-filters-changed'],
+  emits: ['attributes-changed'],
 
   data() {
     return {
@@ -21,7 +21,7 @@ export default {
 
   watch: {
     selectedAttributes(newValue) {
-      this.$emit('selected-filters-changed', newValue)
+      this.$emit('attributes-changed', newValue)
     },
 
     products() {
@@ -33,7 +33,7 @@ export default {
 
 <template>
   <div class="filter-attributes">
-    <h3>Фильтры</h3>
+    <h3>Атрибуты</h3>
     <dl
       v-for="(filter, idx) of availableAttributes"
       :key="idx"
