@@ -13,15 +13,14 @@ import UiLinetop from '@/ui/UiLinetop.vue'
 import SelectPriceRanges from '@/components/SelectPriceRanges.vue'
 import SelectFilterAttributes from '@/components/SelectFilterAttributes.vue'
 
-import products from '@/json/products.json'
-
 import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
 import sortProducts from '@/functions/sortProducts'
 import paginateProducts from '@/functions/paginateProducts'
 import attributeProducts from '@/functions/attributeProducts'
-import normalizeProducts from '@/functions/normalizeProducts'
+
 import convertProductsPrice from '@/functions/convertProductsPrice'
+import { getProducts } from '@/api/products'
 
 export default {
   components: {
@@ -42,7 +41,6 @@ export default {
 
   data() {
     return {
-      products: [],
       searchQuery: '',
       priceFrom: 0,
       priceTo: 0,
@@ -50,6 +48,7 @@ export default {
       currentPage: 0,
       pageSize: 10,
       selectedFilters: [],
+      products: [],
       isScrollingDisabled: true,
       ccy: { usdUah: 42 },
     }
@@ -102,14 +101,12 @@ export default {
     },
   },
 
-  mounted() {
+  async mounted() {
+    this.products = await getProducts()
+    convertProductsPrice(this.products, this.ccy)
     setTimeout(() => {
-      this.products = normalizeProducts(products)
-      convertProductsPrice(this.products, this.ccy)
-      setTimeout(() => {
-        this.isScrollingDisabled = false
-      }, 500)
-    }, 500)
+      this.isScrollingDisabled = false
+    }, 100)
   },
 
   methods: {
