@@ -21,6 +21,7 @@ import attributeProducts from '@/functions/attributeProducts'
 
 import convertProductsPrice from '@/functions/convertProductsPrice'
 import { getProducts } from '@/api/products'
+import { getWatchedProducts } from '@/api/watched'
 
 export default {
   components: {
@@ -48,6 +49,7 @@ export default {
       currentPage: 0,
       pageSize: 10,
       selectedFilters: [],
+      watchedProducts: [],
       products: [],
       isScrollingDisabled: true,
       ccy: { usdUah: 42 },
@@ -100,9 +102,14 @@ export default {
 
   mounted() {
     this.loadProducts()
+    this.loadWatchedProducts()
   },
 
   methods: {
+    async loadWatchedProducts() {
+      this.watchedProducts = await getWatchedProducts()
+    },
+
     async loadProducts() {
       this.products = await getProducts()
       convertProductsPrice(this.products, this.ccy)
@@ -164,7 +171,7 @@ export default {
           </div>
         </main>
 
-        <RecentlyViewed :recently-viewed-products="products" />
+        <RecentlyViewed :recently-viewed-products="watchedProducts" />
       </div>
     </div>
 
