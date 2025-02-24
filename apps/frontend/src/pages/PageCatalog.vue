@@ -166,12 +166,12 @@ export default {
                 @current-page-changed="currentPage = $event"
               />
 
-              <WidgetProducts :paginated-products="paginatedProducts" />
+              <WidgetProducts :products="paginatedProducts" />
             </div>
           </div>
         </main>
 
-        <WatchedProducts :watched-products="watchedProducts" />
+        <WatchedProducts :products="watchedProducts" />
       </div>
     </div>
 
