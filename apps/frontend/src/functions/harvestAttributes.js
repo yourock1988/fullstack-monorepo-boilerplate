@@ -1,4 +1,4 @@
-function createFilters(products) {
+function harvestAttributes(products) {
   const filters = []
 
   products.forEach(product => {
@@ -43,4 +43,4 @@ function createFilters(products) {
   )
 }
 
-export default createFilters
+export default harvestAttributes

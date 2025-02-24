@@ -1,6 +1,6 @@
 <script>
-import createFilters from '@/functions/createFilters'
-import filtrateFilters from '@/functions/filtrateFilters'
+import harvestAttributes from '@/functions/harvestAttributes'
+import extractSelectedAttributes from '@/functions/extractSelectedAttributes'
 
 export default {
   props: ['products'],
@@ -9,21 +9,23 @@ export default {
 
   data() {
     return {
-      filters: [],
+      availableAttributes: [],
     }
   },
 
+  computed: {
+    selectedAttributes() {
+      return extractSelectedAttributes(this.availableAttributes)
+    },
+  },
+
   watch: {
-    filters: {
-      deep: true,
-      handler(newValue) {
-        const onlyCheckedFilters = filtrateFilters(newValue)
-        this.$emit('selected-filters-changed', onlyCheckedFilters)
-      },
+    selectedAttributes(newValue) {
+      this.$emit('selected-filters-changed', newValue)
     },
 
     products() {
-      this.filters = createFilters(this.products)
+      this.availableAttributes = harvestAttributes(this.products)
     },
   },
 }
@@ -32,7 +34,11 @@ export default {
 <template>
   <div class="filter-attributes">
     <h3>Фильтры</h3>
-    <dl v-for="(filter, idx) of filters" :key="idx" class="filter-attribute">
+    <dl
+      v-for="(filter, idx) of availableAttributes"
+      :key="idx"
+      class="filter-attribute"
+    >
       <dt>
         <h4>{{ filter.attrName }}</h4>
       </dt>
