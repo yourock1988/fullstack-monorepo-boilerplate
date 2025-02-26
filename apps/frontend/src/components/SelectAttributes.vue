@@ -16,13 +16,18 @@ export default {
 
   watch: {
     modelValue(newValue) {
-      this.availableAttributes = newValue
+      const clone = JSON.parse(JSON.stringify(newValue))
+      this.availableAttributes = clone
     },
 
     availableAttributes: {
       deep: true,
-      handler(newValue) {
-        this.$emit('update:modelValue', newValue)
+      handler(newValue, oldValue) {
+        // omg magic !!
+        if (newValue === oldValue) {
+          const clone = JSON.parse(JSON.stringify(newValue))
+          this.$emit('update:modelValue', clone)
+        }
       },
     },
   },

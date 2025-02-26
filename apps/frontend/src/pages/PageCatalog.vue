@@ -100,15 +100,12 @@ export default {
   },
 
   watch: {
-    rangedProducts() {
-      this.attributes = harvestAttributes(this.rangedProducts)
+    searchedProducts() {
+      this.attributes = harvestAttributes(this.searchedProducts)
     },
 
-    attributes: {
-      deep: true,
-      handler() {
-        this.scrollToAsideBottom()
-      },
+    attributes() {
+      this.scrollToAsideBottom()
     },
   },
 
