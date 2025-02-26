@@ -19,7 +19,9 @@ import sortProducts from '@/functions/sortProducts'
 import paginateProducts from '@/functions/paginateProducts'
 import attributeProducts from '@/functions/attributeProducts'
 
+import harvestAttributes from '@/functions/harvestAttributes'
 import convertProductsPrice from '@/functions/convertProductsPrice'
+
 import { getProducts } from '@/api/products'
 import { getWatchedProducts } from '@/api/watchedProducts'
 
@@ -98,8 +100,15 @@ export default {
   },
 
   watch: {
-    attributes() {
-      this.scrollToAsideBottom()
+    rangedProducts() {
+      this.attributes = harvestAttributes(this.rangedProducts)
+    },
+
+    attributes: {
+      deep: true,
+      handler() {
+        this.scrollToAsideBottom()
+      },
     },
   },
 
@@ -159,10 +168,7 @@ export default {
                 @price-to-changed="priceTo = $event"
               />
 
-              <SelectAttributes
-                :products="rangedProducts"
-                @attributes-changed="attributes = $event"
-              />
+              <SelectAttributes v-model="attributes" />
             </aside>
 
             <div class="catalog-content">

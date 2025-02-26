@@ -1,14 +1,12 @@
 <script>
-import harvestAttributes from '@/functions/harvestAttributes'
-import extractSelectedAttributes from '@/functions/extractSelectedAttributes'
 import ItemAttrValue from './ItemAttrValue.vue'
 
 export default {
   components: { ItemAttrValue },
 
-  props: ['products'],
+  props: ['modelValue'],
 
-  emits: ['attributes-changed'],
+  emits: ['update:modelValue'],
 
   data() {
     return {
@@ -16,19 +14,16 @@ export default {
     }
   },
 
-  computed: {
-    selectedAttributes() {
-      return extractSelectedAttributes(this.availableAttributes)
-    },
-  },
-
   watch: {
-    selectedAttributes(newValue) {
-      this.$emit('attributes-changed', newValue)
+    modelValue(newValue) {
+      this.availableAttributes = newValue
     },
 
-    products() {
-      this.availableAttributes = harvestAttributes(this.products)
+    availableAttributes: {
+      deep: true,
+      handler(newValue) {
+        this.$emit('update:modelValue', newValue)
+      },
     },
   },
 }
