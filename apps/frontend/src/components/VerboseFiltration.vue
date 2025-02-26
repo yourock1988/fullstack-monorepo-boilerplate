@@ -2,13 +2,24 @@
 import SelectSortingType from './SelectSortingType.vue'
 import SelectPageSize from './SelectPageSize.vue'
 import ShowFiltratedCount from './ShowFiltratedCount.vue'
+import ResetAttributes from './ResetAttributes.vue'
 
 export default {
-  components: { SelectSortingType, SelectPageSize, ShowFiltratedCount },
+  components: {
+    SelectSortingType,
+    SelectPageSize,
+    ShowFiltratedCount,
+    ResetAttributes,
+  },
 
-  props: ['filtratedCount'],
+  props: ['filtratedCount', 'modelValue'],
 
-  emits: ['sorting-type-changed', 'page-size-changed'],
+  emits: [
+    'sorting-type-changed',
+    'page-size-changed',
+    'signal-reset-attributes',
+    'update:modelValue',
+  ],
 
   methods: {
     changeSortingType(sortingType) {
@@ -30,10 +41,10 @@ export default {
 
     <ShowFiltratedCount :filtrated-count="filtratedCount" />
 
-    <div class="wrap-filter-resets">
-      <button>Сбросить</button>
-      <button>GeForce RTX 3060 x</button>
-    </div>
+    <ResetAttributes
+      :model-value="modelValue"
+      @update:model-value="$emit('update:modelValue', $event)"
+    />
 
     <SelectSortingType @sorting-type-changed="changeSortingType" />
 

@@ -151,6 +151,7 @@ export default {
           <UiCategoryNavigation />
 
           <VerboseFiltration
+            v-model="attributes"
             :filtrated-count="filtratedCount"
             @sorting-type-changed="sortingType = $event"
             @page-size-changed="pageSize = $event"
