@@ -79,7 +79,7 @@ export default {
     },
 
     pagesTotal() {
-      return Math.ceil(this.sortedProducts.length / this.pageSize)
+      return Math.ceil(this.filtratedCount / this.pageSize)
     },
 
     priceMin() {
@@ -90,6 +90,10 @@ export default {
     priceMax() {
       const max = Math.max(...this.searchedProducts.map(sp => sp.priceUah))
       return Number.isFinite(max) ? max : Number.MAX_SAFE_INTEGER
+    },
+
+    filtratedCount() {
+      return this.sortedProducts.length
     },
   },
 
@@ -141,6 +145,7 @@ export default {
           <UiCategoryNavigation />
 
           <VerboseFiltration
+            :filtrated-count="filtratedCount"
             @sorting-type-changed="sortingType = $event"
             @page-size-changed="pageSize = $event"
           />

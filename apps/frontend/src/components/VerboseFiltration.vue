@@ -1,9 +1,12 @@
 <script>
 import SelectSortingType from './SelectSortingType.vue'
 import SelectPageSize from './SelectPageSize.vue'
+import ShowFiltratedCount from './ShowFiltratedCount.vue'
 
 export default {
-  components: { SelectSortingType, SelectPageSize },
+  components: { SelectSortingType, SelectPageSize, ShowFiltratedCount },
+
+  props: ['filtratedCount'],
 
   emits: ['sorting-type-changed', 'page-size-changed'],
 
@@ -25,9 +28,7 @@ export default {
       <button id="elButtonShowFilters">Фильтры</button>
     </div>
 
-    <div class="wrap-span-filtrated-items-count">
-      <span id="elSpanFiltratedItemsCount">Найдено 4000 товаров</span>
-    </div>
+    <ShowFiltratedCount :filtrated-count="filtratedCount" />
 
     <div class="wrap-filter-resets">
       <button>Сбросить</button>
