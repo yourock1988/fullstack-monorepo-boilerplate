@@ -4,14 +4,14 @@ import UiCategoryNavigation from '@/ui/UiCategoryNavigation.vue'
 import VerboseFiltration from '@/components/VerboseFiltration.vue'
 import WidgetProducts from '@/components/WidgetProducts.vue'
 import SelectCurrentPage from '@/components/SelectCurrentPage.vue'
-import RecentlyViewed from '@/components/RecentlyViewed.vue'
+import WatchedProducts from '@/components/WatchedProducts.vue'
 import UiLinks from '@/ui/UiLinks.vue'
 import UiTags from '@/ui/UiTags.vue'
 import UiCopyright from '@/ui/UiCopyright.vue'
 import UiTapbar from '@/ui/UiTapbar.vue'
 import UiLinetop from '@/ui/UiLinetop.vue'
 import SelectPriceRanges from '@/components/SelectPriceRanges.vue'
-import SelectFilterAttributes from '@/components/SelectFilterAttributes.vue'
+import SelectAttributes from '@/components/SelectAttributes.vue'
 
 import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
@@ -21,6 +21,7 @@ import attributeProducts from '@/functions/attributeProducts'
 
 import convertProductsPrice from '@/functions/convertProductsPrice'
 import { getProducts } from '@/api/products'
+import { getWatchedProducts } from '@/api/watchedProducts'
 
 export default {
   components: {
@@ -29,14 +30,14 @@ export default {
     VerboseFiltration,
     WidgetProducts,
     SelectCurrentPage,
-    RecentlyViewed,
+    WatchedProducts,
     UiLinks,
     UiTags,
     UiCopyright,
     UiTapbar,
     UiLinetop,
     SelectPriceRanges,
-    SelectFilterAttributes,
+    SelectAttributes,
   },
 
   data() {
@@ -47,7 +48,8 @@ export default {
       sortingType: 'idHightLow',
       currentPage: 0,
       pageSize: 10,
-      selectedFilters: [],
+      attributes: [],
+      watchedProducts: [],
       products: [],
       isScrollingDisabled: true,
       ccy: { usdUah: 42 },
@@ -64,7 +66,7 @@ export default {
     },
 
     attributedProducts() {
-      return attributeProducts(this.rangedProducts, this.selectedFilters)
+      return attributeProducts(this.rangedProducts, this.attributes)
     },
 
     sortedProducts() {
@@ -92,24 +94,30 @@ export default {
   },
 
   watch: {
-    selectedFilters: {
-      deep: true,
-      handler(newValue) {
-        this.selectedFilters = newValue
-        this.scrollToAsideBottom()
-      },
+    attributes() {
+      this.scrollToAsideBottom()
     },
   },
 
-  async mounted() {
-    this.products = await getProducts()
-    convertProductsPrice(this.products, this.ccy)
-    setTimeout(() => {
-      this.isScrollingDisabled = false
-    }, 100)
+  mounted() {
+    this.loadProducts()
+    this.loadWatchedProducts()
   },
 
   methods: {
+    async loadWatchedProducts() {
+      this.watchedProducts = await getWatchedProducts()
+      convertProductsPrice(this.watchedProducts, this.ccy)
+    },
+
+    async loadProducts() {
+      this.products = await getProducts()
+      convertProductsPrice(this.products, this.ccy)
+      setTimeout(() => {
+        this.isScrollingDisabled = false
+      }, 100)
+    },
+
     scrollToAsideBottom() {
       if (this.isScrollingDisabled) return
       this.$refs.aside.scrollIntoView({
@@ -146,9 +154,9 @@ export default {
                 @price-to-changed="priceTo = $event"
               />
 
-              <SelectFilterAttributes
+              <SelectAttributes
                 :products="rangedProducts"
-                @selected-filters-changed="selectedFilters = $event"
+                @attributes-changed="attributes = $event"
               />
             </aside>
 
@@ -158,12 +166,12 @@ export default {
                 @current-page-changed="currentPage = $event"
               />
 
-              <WidgetProducts :paginated-products="paginatedProducts" />
+              <WidgetProducts :products="paginatedProducts" />
             </div>
           </div>
         </main>
 
-        <RecentlyViewed :recently-viewed-products="products" />
+        <WatchedProducts :products="watchedProducts" />
       </div>
     </div>
 

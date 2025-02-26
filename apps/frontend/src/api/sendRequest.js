@@ -1,6 +1,7 @@
 async function sendRequest(url, method = 'GET', payload = null) {
   const request = {
     method,
+    credentials: 'include',
   }
 
   if (payload) {

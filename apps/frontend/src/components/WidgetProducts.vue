@@ -4,14 +4,14 @@ import TileProduct from '@/components/TileProduct.vue'
 export default {
   components: { TileProduct },
 
-  props: ['paginatedProducts'],
+  props: ['products'],
 }
 </script>
 
 <template>
   <ul class="products">
     <TileProduct
-      v-for="product of paginatedProducts"
+      v-for="product of products"
       :key="product.id"
       :product="product"
     />

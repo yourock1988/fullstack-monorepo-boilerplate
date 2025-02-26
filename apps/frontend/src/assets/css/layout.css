@@ -79,6 +79,10 @@
     gap: 15px;
     height: 100%;
     overflow: hidden;
+    .panel-icons {
+      display: flex;
+      gap: 15px;
+    }
     .wrap-button-catalog,
     .wrap-select-lang,
     .wrap-icon-auth,
@@ -201,13 +205,13 @@
   }
 }
 
-.recently-viewed {
+.watched-products {
   padding: 25px 0;
   overflow: hidden;
   .products {
     margin-top: 15px;
     grid-template-columns: unset;
-    grid-auto-columns: calc(100% / calc(var(--recently-viewed-count) + 0.5));
+    grid-auto-columns: calc(100% / calc(var(--watched-products-count) + 0.5));
     grid-auto-flow: column;
     overflow: hidden;
     overflow-x: auto;
