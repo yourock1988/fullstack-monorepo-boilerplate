@@ -1,5 +1,9 @@
 <script>
+import InputRange from './InputRange.vue'
+
 export default {
+  components: { InputRange },
+
   props: ['priceMin', 'priceMax'],
 
   emits: ['price-from-changed', 'price-to-changed'],
@@ -47,31 +51,19 @@ export default {
 <template>
   <div class="price-ranges">
     <h3>Цена</h3>
-    <div class="wrap-input-range">
-      <label for="priceFrom">
-        <span>От: </span>
-        <b>{{ priceFrom }}</b>
-      </label>
-      <input
-        id="priceFrom"
-        v-model.number="priceFrom"
-        :min="priceMin"
-        :max="priceMax"
-        type="range"
-      />
-    </div>
-    <div class="wrap-input-range">
-      <label for="priceTo">
-        <span>До: </span>
-        <b>{{ priceTo }}</b>
-      </label>
-      <input
-        id="priceTo"
-        v-model.number="priceTo"
-        :min="priceMin"
-        :max="priceMax"
-        type="range"
-      />
-    </div>
+
+    <InputRange
+      v-model.number="priceFrom"
+      :price-min="priceMin"
+      :price-max="priceMax"
+      text="От"
+    />
+
+    <InputRange
+      v-model.number="priceTo"
+      :price-min="priceMin"
+      :price-max="priceMax"
+      text="До"
+    />
   </div>
 </template>
