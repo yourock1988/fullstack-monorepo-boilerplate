@@ -36,7 +36,6 @@
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "pg-promise": "^11.10.2",
-    "ts-case-convert": "^2.1.0",
-    "vhost": "^3.0.2"
+    "ts-case-convert": "^2.1.0"
   }
 }
