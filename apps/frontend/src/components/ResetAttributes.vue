@@ -27,12 +27,31 @@ export default {
       },
     },
   },
+
+  methods: {
+    resetAll() {
+      const resetted = this.availableAttributes.reduce(
+        (acc, { attrName, attrValues }) => {
+          acc.push({
+            attrName,
+            attrValues: attrValues.map(attrValue => ({
+              ...attrValue,
+              isChecked: false,
+            })),
+          })
+          return acc
+        },
+        []
+      )
+      this.$emit('update:modelValue', resetted)
+    },
+  },
 }
 </script>
 
 <template>
   <div class="wrap-filter-resets">
-    <button>Сбросить</button>
+    <button @click="resetAll">Сбросить</button>
 
     <template v-for="(attribute, idx) of availableAttributes" :key="idx">
       <template
