@@ -5,6 +5,20 @@ export default {
   components: { TileProduct },
 
   props: ['products'],
+
+  data() {
+    return {
+      canShowHint: false,
+    }
+  },
+
+  watch: {
+    products(newValue) {
+      if (newValue.length > 0) {
+        this.canShowHint = true
+      }
+    },
+  },
 }
 </script>
 
@@ -17,7 +31,7 @@ export default {
     />
   </ul>
   <div v-else class="no-goods">
-    <h2>
+    <h2 v-if="canShowHint">
       <i>
         К сожалению, ни один наш товар не соответствует вашим высоким
         требованиям!
