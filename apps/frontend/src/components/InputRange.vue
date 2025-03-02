@@ -6,7 +6,7 @@ export default {
 
   data() {
     return {
-      id: `id${(Math.random() * 0xff ** 4).toFixed()}`,
+      forId: `forId-${(Math.random() * 0xff ** 4).toFixed()}`,
     }
   },
 }
@@ -14,12 +14,12 @@ export default {
 
 <template>
   <div class="wrap-input-range">
-    <label :for="id">
+    <label :for="forId">
       <span>{{ text }}: </span>
       <b>{{ modelValue }}</b>
     </label>
     <input
-      :id="id"
+      :id="forId"
       type="range"
       :min="priceMin"
       :max="priceMax"
