@@ -166,9 +166,11 @@ i[class|='fa'] {
   }
 }
 
+.product-line:hover,
 .product:hover {
   opacity: 0.9;
 }
+.product-line,
 .product {
   border-bottom: 1px solid var(--color-white-1);
   border-right: 1px solid var(--color-white-1);

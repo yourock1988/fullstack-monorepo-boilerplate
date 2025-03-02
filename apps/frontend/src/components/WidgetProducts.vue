@@ -1,8 +1,9 @@
 <script>
 import ListProducts from './ListProducts.vue'
+import ListProductsLines from './ListProductsLines.vue'
 
 export default {
-  components: { ListProducts },
+  components: { ListProducts, ListProductsLines },
 
   props: ['products'],
 
@@ -23,7 +24,9 @@ export default {
 </script>
 
 <template>
-  <ListProducts v-if="products.length" :products="products" />
+  <!-- <ListProducts v-if="products.length" :products="products" /> -->
+
+  <ListProductsLines v-if="products.length" :products="products" />
 
   <div v-else class="no-goods">
     <h2 v-if="canShowHint">

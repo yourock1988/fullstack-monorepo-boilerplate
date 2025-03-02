@@ -57,7 +57,7 @@ export default {
       products: [],
       isScrollingDisabled: true,
       ccy: { usdUah: 42 },
-      isShowOffcanvas: true,
+      isShowOffcanvas: false,
     }
   },
 
