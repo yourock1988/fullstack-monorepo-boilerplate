@@ -81,7 +81,7 @@
       display: block;
     }
     .wrap-button-show-filters {
-      display: none;
+      /* display: none; */
     }
   }
   .catalog-filter {

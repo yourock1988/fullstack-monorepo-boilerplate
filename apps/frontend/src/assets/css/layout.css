@@ -9,11 +9,12 @@
 
 .offcanvas {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   bottom: 0;
   width: 280px;
-  padding: 5px;
+  padding: 15px;
+  overflow-y: scroll;
 }
 
 .product {
@@ -165,6 +166,9 @@
   .wrap-select-items-on-page,
   .wrap-picker-tile-style {
     display: none;
+  }
+  .wrap-filter-resets > button:first-child {
+    margin-right: 25px;
   }
 }
 
