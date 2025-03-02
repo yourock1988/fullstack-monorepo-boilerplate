@@ -12,6 +12,7 @@ import UiTapbar from '@/ui/UiTapbar.vue'
 import UiLinetop from '@/ui/UiLinetop.vue'
 import SelectPriceRanges from '@/components/SelectPriceRanges.vue'
 import SelectAttributes from '@/components/SelectAttributes.vue'
+import OffCanvas from '@/components/OffCanvas.vue'
 
 import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
@@ -40,6 +41,7 @@ export default {
     UiLinetop,
     SelectPriceRanges,
     SelectAttributes,
+    OffCanvas,
   },
 
   data() {
@@ -55,6 +57,7 @@ export default {
       products: [],
       isScrollingDisabled: true,
       ccy: { usdUah: 42 },
+      isShowOffcanvas: true,
     }
   },
 
@@ -155,6 +158,7 @@ export default {
             :filtrated-count="filtratedCount"
             @sorting-type-changed="sortingType = $event"
             @page-size-changed="pageSize = $event"
+            @offcanvas-show="isShowOffcanvas = true"
           />
 
           <div id="ccc" class="layout-catalog">
@@ -198,6 +202,8 @@ export default {
       </div>
     </div>
   </div>
+
+  <OffCanvas v-model="isShowOffcanvas" />
 
   <UiTapbar />
 </template>

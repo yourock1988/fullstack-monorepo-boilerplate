@@ -19,6 +19,7 @@ export default {
     'page-size-changed',
     'signal-reset-attributes',
     'update:modelValue',
+    'offcanvas-show',
   ],
 
   methods: {
@@ -36,7 +37,9 @@ export default {
 <template>
   <div class="layout-verbose-filtration">
     <div class="wrap-button-show-filters">
-      <button id="elButtonShowFilters">Фильтры</button>
+      <button id="elButtonShowFilters" @click="$emit('offcanvas-show')">
+        Фильтры
+      </button>
     </div>
 
     <ShowFiltratedCount :filtrated-count="filtratedCount" />

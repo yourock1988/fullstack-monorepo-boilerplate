@@ -1,3 +1,21 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999999;
+}
+
+.offcanvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  padding: 5px;
+}
+
 .product {
   aspect-ratio: 9 / 16;
   min-width: 0;
