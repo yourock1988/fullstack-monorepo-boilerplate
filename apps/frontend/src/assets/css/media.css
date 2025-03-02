@@ -12,6 +12,9 @@
     --catalog-in_a_row: 3;
     --watched-products-count: 4;
   }
+  .td-available {
+    display: table-cell;
+  }
   .layout-centralize {
     padding: 0 16px;
   }

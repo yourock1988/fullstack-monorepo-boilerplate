@@ -1,0 +1,26 @@
+<script>
+export default {
+  props: ['product'],
+
+  data() {
+    return {
+      urlToPhoto: 'https://web-app.click/pc-shop/photos/products/computers/',
+    }
+  },
+}
+</script>
+
+<template>
+  <tr class="product-row">
+    <th>{{ product.id }}</th>
+    <td><img height="50" :src="urlToPhoto + product.photos[0]" /></td>
+    <td class="td-caption">
+      {{ product.caption }}
+    </td>
+    <td class="td-available">Есть в наличии</td>
+    <td>{{ product.priceUah }}₴</td>
+    <td>
+      <div class="icon-cart"><i class="fa-solid fa-cart-plus"></i></div>
+    </td>
+  </tr>
+</template>
