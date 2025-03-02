@@ -182,6 +182,7 @@
   height: var(--catalog-filter_height);
   width: 250px;
   overflow-y: scroll;
+  padding: 15px 5px;
 
   .filter-attribute {
     padding: 5px;
@@ -196,6 +197,7 @@
   }
 }
 .price-ranges {
+  margin-bottom: 15px;
   white-space: normal;
   .wrap-input-range {
     padding: 5px;
