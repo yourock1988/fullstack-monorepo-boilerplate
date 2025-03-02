@@ -1,16 +1,18 @@
 <script>
-import ListProducts from './ListProducts.vue'
-import ListProductsLines from './ListProductsLines.vue'
+import ListProductsPave from './ListProductsPave.vue'
+import ListProductsWall from './ListProductsWall.vue'
 import ListProductsTable from './ListProductsTable.vue'
 
 export default {
-  components: { ListProducts, ListProductsLines, ListProductsTable },
+  components: { ListProductsPave, ListProductsWall, ListProductsTable },
 
   props: ['products'],
 
   data() {
     return {
       canShowHint: false,
+      availableListTypes: ['pave', 'table', 'wall'],
+      listType: 'pave',
     }
   },
 
@@ -25,9 +27,9 @@ export default {
 </script>
 
 <template>
-  <!-- <ListProducts v-if="products.length" :products="products" /> -->
+  <!-- <ListProductsPave v-if="products.length" :products="products" /> -->
 
-  <!-- <ListProductsLines v-if="products.length" :products="products" /> -->
+  <!-- <ListProductsWall v-if="products.length" :products="products" /> -->
 
   <ListProductsTable v-if="products.length" :products="products" />
 

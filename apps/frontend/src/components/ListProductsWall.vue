@@ -1,8 +1,8 @@
 <script>
-import LineProduct from '@/components/LineProduct.vue'
+import BrickProduct from '@/components/BrickProduct.vue'
 
 export default {
-  components: { LineProduct },
+  components: { BrickProduct },
 
   props: ['products'],
 }
@@ -10,7 +10,7 @@ export default {
 
 <template>
   <ul class="products-line">
-    <LineProduct
+    <BrickProduct
       v-for="product of products"
       :key="product.id"
       :product="product"
