@@ -1,8 +1,8 @@
 <script>
-import TileProduct from '@/components/TileProduct.vue'
+import ListProducts from './ListProducts.vue'
 
 export default {
-  components: { TileProduct },
+  components: { ListProducts },
 
   props: ['products'],
 
@@ -23,13 +23,8 @@ export default {
 </script>
 
 <template>
-  <ul v-if="products.length" class="products">
-    <TileProduct
-      v-for="product of products"
-      :key="product.id"
-      :product="product"
-    />
-  </ul>
+  <ListProducts v-if="products.length" :products="products" />
+
   <div v-else class="no-goods">
     <h2 v-if="canShowHint">
       <i>
