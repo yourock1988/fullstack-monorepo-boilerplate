@@ -290,12 +290,12 @@ i[class|='fa'] {
 }
 
 .catalog-filter {
-  .price-ranges {
-    user-select: none;
-  }
   .filter-attribute {
     border-bottom: 1px solid var(--color-white-1);
   }
+}
+.price-ranges {
+  user-select: none;
 }
 
 .paginator {

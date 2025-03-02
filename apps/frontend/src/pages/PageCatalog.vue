@@ -164,10 +164,10 @@ export default {
           <div id="ccc" class="layout-catalog">
             <aside ref="aside" class="catalog-filter">
               <SelectPriceRanges
+                v-model:price-from="priceFrom"
+                v-model:price-to="priceTo"
                 :price-min="priceMin"
                 :price-max="priceMax"
-                @price-from-changed="priceFrom = $event"
-                @price-to-changed="priceTo = $event"
               />
 
               <SelectAttributes v-model="attributes" />
@@ -203,7 +203,13 @@ export default {
     </div>
   </div>
 
-  <OffCanvas v-model="isShowOffcanvas" />
+  <OffCanvas
+    v-model:price-from="priceFrom"
+    v-model:price-to="priceTo"
+    v-model="isShowOffcanvas"
+    :price-min="priceMin"
+    :price-max="priceMax"
+  />
 
   <UiTapbar />
 </template>

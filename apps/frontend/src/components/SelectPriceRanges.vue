@@ -4,46 +4,38 @@ import InputRange from './InputRange.vue'
 export default {
   components: { InputRange },
 
-  props: ['priceMin', 'priceMax'],
+  props: ['priceMin', 'priceMax', 'priceFrom', 'priceTo'],
 
-  emits: ['price-from-changed', 'price-to-changed'],
-
-  data() {
-    return {
-      priceFrom: 0,
-      priceTo: 0,
-    }
-  },
+  emits: ['update:price-from', 'update:price-to'],
 
   watch: {
     priceMin(newValue) {
-      if (newValue > this.priceFrom) this.priceFrom = newValue
+      if (newValue > this.priceFrom) this.$emit('update:price-from', newValue)
       this.$nextTick(() => {
-        if (newValue === this.priceTo) this.priceTo = this.priceMax
+        if (newValue === this.priceTo) {
+          this.$emit('update:price-to', this.priceMax)
+        }
       })
     },
 
     priceMax(newValue) {
-      if (newValue < this.priceTo) this.priceTo = newValue
+      if (newValue < this.priceTo) this.$emit('update:price-to', newValue)
       this.$nextTick(() => {
-        if (newValue === this.priceFrom) this.priceFrom = this.priceMin
+        if (newValue === this.priceFrom) {
+          this.$emit('update:price-from', this.priceMin)
+        }
       })
     },
 
     priceFrom(newValue) {
-      if (newValue > this.priceTo) this.priceTo = newValue
-      this.$emit('price-from-changed', this.priceFrom)
+      if (newValue > this.priceTo) this.$emit('update:price-to', newValue)
+      this.$emit('update:price-from', this.priceFrom)
     },
 
     priceTo(newValue) {
-      if (newValue < this.priceFrom) this.priceFrom = newValue
-      this.$emit('price-to-changed', this.priceTo)
+      if (newValue < this.priceFrom) this.$emit('update:price-from', newValue)
+      this.$emit('update:price-to', this.priceTo)
     },
-  },
-
-  mounted() {
-    this.$emit('price-from-changed', this.priceFrom)
-    this.$emit('price-to-changed', this.priceTo)
   },
 }
 </script>
@@ -53,17 +45,19 @@ export default {
     <h3>Цена</h3>
 
     <InputRange
-      v-model.number="priceFrom"
+      text="От"
       :price-min="priceMin"
       :price-max="priceMax"
-      text="От"
+      :model-value="priceFrom"
+      @update:model-value="$emit('update:price-from', $event)"
     />
 
     <InputRange
-      v-model.number="priceTo"
+      text="До"
       :price-min="priceMin"
       :price-max="priceMax"
-      text="До"
+      :model-value="priceTo"
+      @update:model-value="$emit('update:price-to', $event)"
     />
   </div>
 </template>

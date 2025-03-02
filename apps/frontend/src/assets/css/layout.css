@@ -178,15 +178,7 @@
   height: var(--catalog-filter_height);
   width: 250px;
   overflow-y: scroll;
-  .price-ranges {
-    white-space: normal;
-    .wrap-input-range {
-      padding: 5px;
-      [type='range'] {
-        width: 100%;
-      }
-    }
-  }
+
   .filter-attribute {
     padding: 5px;
     padding-bottom: 25px;
@@ -199,6 +191,16 @@
     }
   }
 }
+.price-ranges {
+  white-space: normal;
+  .wrap-input-range {
+    padding: 5px;
+    [type='range'] {
+      width: 100%;
+    }
+  }
+}
+
 .catalog-content {
   flex: 1;
   min-width: 0;

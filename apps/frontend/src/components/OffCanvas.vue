@@ -1,8 +1,12 @@
 <script>
-export default {
-  props: ['modelValue'],
+import SelectPriceRanges from './SelectPriceRanges.vue'
 
-  emits: ['update:modelValue'],
+export default {
+  components: { SelectPriceRanges },
+
+  props: ['modelValue', 'priceMin', 'priceMax', 'priceFrom', 'priceTo'],
+
+  emits: ['update:modelValue', 'update:price-from', 'update:price-to'],
 }
 </script>
 
@@ -12,6 +16,15 @@ export default {
     class="backdrop"
     @click="$emit('update:modelValue', false)"
   >
-    <div class="offcanvas" @click.stop></div>
+    <div class="offcanvas" @click.stop>
+      <SelectPriceRanges
+        :price-min="priceMin"
+        :price-max="priceMax"
+        :price-from="priceFrom"
+        :price-to="priceTo"
+        @update:price-from="$emit('update:price-from', $event)"
+        @update:price-to="$emit('update:price-to', $event)"
+      />
+    </div>
   </div>
 </template>
