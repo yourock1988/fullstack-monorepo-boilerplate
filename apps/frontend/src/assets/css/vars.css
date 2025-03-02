@@ -1,6 +1,8 @@
 :root {
   --primary-color: royalblue;
+  --primary-color-2: hsl(225, 73%, 62%);
   --primary-color-light: cornflowerblue;
+  --primary-color-light-2: hsl(219, 79%, 71%);
   --primary-color-transparent-1: #6495ed55;
   --primary-color-transparent-2: #6495ed11;
   --secondary-color: crimson;
