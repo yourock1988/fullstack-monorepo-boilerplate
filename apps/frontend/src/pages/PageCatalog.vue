@@ -204,6 +204,7 @@ export default {
   </div>
 
   <OffCanvas
+    v-model:attributes="attributes"
     v-model:price-from="priceFrom"
     v-model:price-to="priceTo"
     v-model="isShowOffcanvas"

@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       availableAttributes: [],
+      forId: `forId-${(Math.random() * 0xff ** 4).toFixed()}`,
     }
   },
 
@@ -30,6 +31,10 @@ export default {
         }
       },
     },
+  },
+
+  mounted() {
+    this.availableAttributes = this.modelValue
   },
 }
 </script>
@@ -52,8 +57,7 @@ export default {
             :key="subIdx"
             v-model="attrValue.isChecked"
             :attr-value="attrValue"
-            :idx="idx"
-            :sub-idx="subIdx"
+            :for-id="`${forId}-${idx}-${subIdx}`"
           />
         </ul>
       </dd>

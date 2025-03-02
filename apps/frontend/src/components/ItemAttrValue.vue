@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: ['attrValue', 'idx', 'subIdx', 'modelValue'],
+  props: ['attrValue', 'forId', 'modelValue'],
 
   emits: ['update:modelValue'],
 }
@@ -10,12 +10,12 @@ export default {
   <li>
     <div class="wrap-checkbox-fa">
       <input
-        :id="`attr-${idx}-${subIdx}`"
+        :id="forId"
         type="checkbox"
         :checked="modelValue"
         @change="$emit('update:modelValue', $event.target.checked)"
       />
-      <label :for="`attr-${idx}-${subIdx}`">
+      <label :for="forId">
         <i class="fa-solid fa-square-check"></i>
         <i class="fa-solid fa-square"></i>
         <span>
