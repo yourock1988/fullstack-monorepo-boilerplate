@@ -5,7 +5,7 @@ import WidgetProducts from '@/components/page-products/WidgetProducts.vue'
 import PickerCurrentPage from '@/components/page-products/PickerCurrentPage.vue'
 import WatchedProducts from '@/components/page-products/WatchedProducts.vue'
 import PickerPriceRanges from '@/components/page-products/PickerPriceRanges.vue'
-import SelectAttributes from '@/components/page-products/SelectAttributes.vue'
+import PickerAttributes from '@/components/page-products/PickerAttributes.vue'
 import OffCanvas from '@/components/page-products/OffCanvas.vue'
 
 import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
@@ -41,7 +41,7 @@ export default {
     UiTapbar,
     UiLinetop,
     PickerPriceRanges,
-    SelectAttributes,
+    PickerAttributes,
     OffCanvas,
   },
 
@@ -173,7 +173,7 @@ export default {
                 :price-max="priceMax"
               />
 
-              <SelectAttributes v-model="attributes" />
+              <PickerAttributes v-model="attributes" />
             </aside>
 
             <div class="catalog-content">

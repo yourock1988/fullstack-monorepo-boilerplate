@@ -1,9 +1,9 @@
 <script>
-import SelectAttributes from '@/components/page-products/SelectAttributes.vue'
+import PickerAttributes from '@/components/page-products/PickerAttributes.vue'
 import PickerPriceRanges from '@/components/page-products/PickerPriceRanges.vue'
 
 export default {
-  components: { PickerPriceRanges, SelectAttributes },
+  components: { PickerPriceRanges, PickerAttributes },
 
   props: [
     'modelValue',
@@ -39,7 +39,7 @@ export default {
         @update:price-to="$emit('update:price-to', $event)"
       />
 
-      <SelectAttributes
+      <PickerAttributes
         :model-value="attributes"
         @update:model-value="$emit('update:attributes', $event)"
       />
