@@ -1,6 +1,6 @@
 <script>
 import UiLogo from '@/ui/page-products/UiLogo.vue'
-import PickerSearchQuery from '@/components/page-products/pickers/PickerSearchQuery.vue'
+import PickerSearchQuery from './pickers/PickerSearchQuery.vue'
 
 export default {
   components: { PickerSearchQuery, UiLogo },

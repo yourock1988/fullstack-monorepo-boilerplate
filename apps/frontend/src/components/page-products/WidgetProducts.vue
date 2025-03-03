@@ -1,7 +1,7 @@
 <script>
-import ListProductsPave from '@/components/page-products/ListProductsPave.vue'
-import ListProductsWall from '@/components/page-products/ListProductsWall.vue'
-import ListProductsTable from '@/components/page-products/ListProductsTable.vue'
+import ListProductsPave from './ListProductsPave.vue'
+import ListProductsWall from './ListProductsWall.vue'
+import ListProductsTable from './ListProductsTable.vue'
 
 export default {
   components: { ListProductsPave, ListProductsWall, ListProductsTable },

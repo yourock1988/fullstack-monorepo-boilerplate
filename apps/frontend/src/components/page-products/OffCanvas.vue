@@ -1,6 +1,6 @@
 <script>
-import PickerAttributes from '@/components/page-products/pickers/PickerAttributes.vue'
-import PickerPriceRanges from '@/components/page-products/pickers/PickerPriceRanges.vue'
+import PickerAttributes from './pickers/PickerAttributes.vue'
+import PickerPriceRanges from './pickers/PickerPriceRanges.vue'
 
 export default {
   components: { PickerPriceRanges, PickerAttributes },

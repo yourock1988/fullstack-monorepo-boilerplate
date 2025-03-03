@@ -1,48 +1,48 @@
 <script>
-import WidgetHeader from '@/components/page-products/WidgetHeader.vue'
-import VerboseFiltration from '@/components/page-products/VerboseFiltration.vue'
-import WidgetProducts from '@/components/page-products/WidgetProducts.vue'
-import WatchedProducts from '@/components/page-products/WatchedProducts.vue'
-import PickerCurrentPage from '@/components/page-products/pickers/PickerCurrentPage.vue'
-import PickerPriceRanges from '@/components/page-products/pickers/PickerPriceRanges.vue'
-import PickerAttributes from '@/components/page-products/pickers/PickerAttributes.vue'
-import OffCanvas from '@/components/page-products/OffCanvas.vue'
+import PickerAttributes from '~/page-products/pickers/PickerAttributes.vue'
+import PickerCurrentPage from '~/page-products/pickers/PickerCurrentPage.vue'
+import PickerPriceRanges from '~/page-products/pickers/PickerPriceRanges.vue'
+import VerboseFiltration from '~/page-products/VerboseFiltration.vue'
+import WatchedProducts from '~/page-products/WatchedProducts.vue'
+import WidgetProducts from '~/page-products/WidgetProducts.vue'
+import WidgetHeader from '~/page-products/WidgetHeader.vue'
+import OffCanvas from '~/page-products/OffCanvas.vue'
 
 import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
+import UiCopyright from '@/ui/page-products/UiCopyright.vue'
+import UiLinetop from '@/ui/page-products/UiLinetop.vue'
+import UiTapbar from '@/ui/page-products/UiTapbar.vue'
 import UiLinks from '@/ui/page-products/UiLinks.vue'
 import UiTags from '@/ui/page-products/UiTags.vue'
-import UiCopyright from '@/ui/page-products/UiCopyright.vue'
-import UiTapbar from '@/ui/page-products/UiTapbar.vue'
-import UiLinetop from '@/ui/page-products/UiLinetop.vue'
 
+import convertProductsPrice from '@/functions/convertProductsPrice'
+import harvestAttributes from '@/functions/harvestAttributes'
+
+import attributeProducts from '@/functions/attributeProducts'
+import paginateProducts from '@/functions/paginateProducts'
 import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
 import sortProducts from '@/functions/sortProducts'
-import paginateProducts from '@/functions/paginateProducts'
-import attributeProducts from '@/functions/attributeProducts'
 
-import harvestAttributes from '@/functions/harvestAttributes'
-import convertProductsPrice from '@/functions/convertProductsPrice'
-
-import { getProducts } from '@/api/products'
 import { getWatchedProducts } from '@/api/watchedProducts'
+import { getProducts } from '@/api/products'
 
 export default {
   components: {
-    WidgetHeader,
-    UiCategoryNavigation,
-    VerboseFiltration,
-    WidgetProducts,
+    PickerAttributes,
     PickerCurrentPage,
+    PickerPriceRanges,
+    VerboseFiltration,
     WatchedProducts,
+    WidgetProducts,
+    WidgetHeader,
+    OffCanvas,
+    UiCategoryNavigation,
+    UiCopyright,
+    UiLinetop,
+    UiTapbar,
     UiLinks,
     UiTags,
-    UiCopyright,
-    UiTapbar,
-    UiLinetop,
-    PickerPriceRanges,
-    PickerAttributes,
-    OffCanvas,
   },
 
   data() {
@@ -54,12 +54,15 @@ export default {
       currentPage: 0,
       pageSize: 10,
       attributes: [],
-      watchedProducts: [],
-      products: [],
+
+      listType: 'Pave',
+      isShowOffcanvas: false,
+
       isScrollingDisabled: true,
       ccy: { usdUah: 42 },
-      isShowOffcanvas: false,
-      listType: 'Pave',
+
+      watchedProducts: [],
+      products: [],
     }
   },
 

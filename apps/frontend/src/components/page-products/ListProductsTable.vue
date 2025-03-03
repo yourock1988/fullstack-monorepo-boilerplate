@@ -1,5 +1,5 @@
 <script>
-import RowProduct from '@/components/page-products/RowProduct.vue'
+import RowProduct from './RowProduct.vue'
 
 export default {
   components: { RowProduct },

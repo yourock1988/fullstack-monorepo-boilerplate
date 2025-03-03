@@ -1,8 +1,8 @@
 <script>
-import InputRange from '@/components/page-products/InputRange.vue'
+import InputRangePrice from './inputs/InputRangePrice.vue'
 
 export default {
-  components: { InputRange },
+  components: { InputRangePrice },
 
   props: ['priceMin', 'priceMax', 'priceFrom', 'priceTo'],
 
@@ -44,7 +44,7 @@ export default {
   <div class="price-ranges">
     <h3>Цена</h3>
 
-    <InputRange
+    <InputRangePrice
       text="От"
       :price-min="priceMin"
       :price-max="priceMax"
@@ -52,7 +52,7 @@ export default {
       @update:model-value="$emit('update:price-from', $event)"
     />
 
-    <InputRange
+    <InputRangePrice
       text="До"
       :price-min="priceMin"
       :price-max="priceMax"
