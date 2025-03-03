@@ -1,9 +1,9 @@
 <script>
-import SelectSortingType from './SelectSortingType.vue'
-import SelectPageSize from './SelectPageSize.vue'
-import ShowFiltratedCount from './ShowFiltratedCount.vue'
-import ResetAttributes from './ResetAttributes.vue'
-import SelectListType from './SelectListType.vue'
+import SelectSortingType from '@/components/page-products/SelectSortingType.vue'
+import SelectPageSize from '@/components/page-products/SelectPageSize.vue'
+import ResetAttributes from '@/components/page-products/ResetAttributes.vue'
+import SelectListType from '@/components/page-products/SelectListType.vue'
+import ShowFiltratedCount from '@/components/page-products/ShowFiltratedCount.vue'
 
 export default {
   components: {

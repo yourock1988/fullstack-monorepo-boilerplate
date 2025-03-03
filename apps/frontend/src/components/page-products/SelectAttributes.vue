@@ -1,5 +1,5 @@
 <script>
-import ItemAttrValue from './ItemAttrValue.vue'
+import ItemAttrValue from '@/components/page-products/ItemAttrValue.vue'
 
 export default {
   components: { ItemAttrValue },

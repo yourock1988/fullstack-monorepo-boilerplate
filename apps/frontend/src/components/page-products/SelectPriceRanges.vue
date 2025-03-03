@@ -1,5 +1,5 @@
 <script>
-import InputRange from './InputRange.vue'
+import InputRange from '@/components/page-products/InputRange.vue'
 
 export default {
   components: { InputRange },

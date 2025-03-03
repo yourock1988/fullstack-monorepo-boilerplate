@@ -1,6 +1,6 @@
 <script>
-import SelectAttributes from './SelectAttributes.vue'
-import SelectPriceRanges from './SelectPriceRanges.vue'
+import SelectAttributes from '@/components/page-products/SelectAttributes.vue'
+import SelectPriceRanges from '@/components/page-products/SelectPriceRanges.vue'
 
 export default {
   components: { SelectPriceRanges, SelectAttributes },

@@ -1,6 +1,6 @@
 <script>
 import UiLogo from '@/ui/UiLogo.vue'
-import SelectSearchQuery from './SelectSearchQuery.vue'
+import SelectSearchQuery from '@/components/page-products/SelectSearchQuery.vue'
 
 export default {
   components: { SelectSearchQuery, UiLogo },

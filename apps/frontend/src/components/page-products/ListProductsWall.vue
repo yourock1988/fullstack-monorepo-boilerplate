@@ -1,5 +1,5 @@
 <script>
-import BrickProduct from '@/components/BrickProduct.vue'
+import BrickProduct from '@/components/page-products/BrickProduct.vue'
 
 export default {
   components: { BrickProduct },

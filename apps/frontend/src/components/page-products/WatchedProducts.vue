@@ -1,5 +1,5 @@
 <script>
-import TileProduct from './TileProduct.vue'
+import TileProduct from '@/components/page-products/TileProduct.vue'
 
 export default {
   components: { TileProduct },
