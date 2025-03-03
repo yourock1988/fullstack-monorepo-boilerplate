@@ -10,6 +10,7 @@ module.exports = merge(webpackVueConfig, {
   resolve: {
     alias: {
       '@': PATHS.src,
+      '~': path.join(PATHS.src, 'components'),
     },
   },
 
