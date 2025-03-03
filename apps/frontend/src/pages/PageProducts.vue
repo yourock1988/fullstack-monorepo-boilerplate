@@ -32,8 +32,12 @@ import sortProducts from '@/functions/sortProducts'
 import { getWatchedProducts } from '@/api/watchedProducts'
 import { getProducts } from '@/api/products'
 
+import PickerIsOffcanvasOpen from '~/page-products/pickers/PickerIsOffcanvasOpen.vue'
+
 export default {
   components: {
+    PickerIsOffcanvasOpen,
+
     PickerSortingType,
     PickerListType,
     PickerPageSize,
@@ -66,7 +70,7 @@ export default {
       attributes: [],
 
       listType: 'Pave',
-      isShowOffcanvas: false,
+      isOffcanvasOpen: false,
 
       isScrollingDisabled: true,
       ccy: { usdUah: 42 },
@@ -169,11 +173,7 @@ export default {
           <UiCategoryNavigation />
 
           <div class="layout-verbose-filtration">
-            <div class="wrap-button-show-filters">
-              <button id="elButtonShowFilters" @click="isShowOffcanvas = true">
-                Фильтры
-              </button>
-            </div>
+            <PickerIsOffcanvasOpen v-model="isOffcanvasOpen" />
 
             <ShowFiltratedCount :filtrated-count="filtratedCount" />
 
@@ -235,7 +235,7 @@ export default {
     v-model:attributes="attributes"
     v-model:price-from="priceFrom"
     v-model:price-to="priceTo"
-    v-model="isShowOffcanvas"
+    v-model="isOffcanvasOpen"
     :price-min="priceMin"
     :price-max="priceMax"
   />
