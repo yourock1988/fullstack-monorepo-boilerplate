@@ -1,9 +1,9 @@
 <script>
 import UiLogo from '@/ui/page-products/UiLogo.vue'
-import SelectSearchQuery from '@/components/page-products/SelectSearchQuery.vue'
+import PickerSearchQuery from '@/components/page-products/PickerSearchQuery.vue'
 
 export default {
-  components: { SelectSearchQuery, UiLogo },
+  components: { PickerSearchQuery, UiLogo },
 
   emits: ['search-query-changed'],
 
@@ -31,7 +31,7 @@ export default {
         </button>
       </div>
 
-      <SelectSearchQuery @search-query-changed="changeSearchQuery" />
+      <PickerSearchQuery @search-query-changed="changeSearchQuery" />
 
       <div class="wrap-select-lang">
         <select id="" name="">
