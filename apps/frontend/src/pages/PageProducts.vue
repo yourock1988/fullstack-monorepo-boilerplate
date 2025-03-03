@@ -4,7 +4,7 @@ import VerboseFiltration from '@/components/page-products/VerboseFiltration.vue'
 import WidgetProducts from '@/components/page-products/WidgetProducts.vue'
 import SelectCurrentPage from '@/components/page-products/SelectCurrentPage.vue'
 import WatchedProducts from '@/components/page-products/WatchedProducts.vue'
-import SelectPriceRanges from '@/components/page-products/SelectPriceRanges.vue'
+import PickerPriceRanges from '@/components/page-products/PickerPriceRanges.vue'
 import SelectAttributes from '@/components/page-products/SelectAttributes.vue'
 import OffCanvas from '@/components/page-products/OffCanvas.vue'
 
@@ -40,7 +40,7 @@ export default {
     UiCopyright,
     UiTapbar,
     UiLinetop,
-    SelectPriceRanges,
+    PickerPriceRanges,
     SelectAttributes,
     OffCanvas,
   },
@@ -166,7 +166,7 @@ export default {
 
           <div id="ccc" class="layout-catalog">
             <aside ref="aside" class="catalog-filter">
-              <SelectPriceRanges
+              <PickerPriceRanges
                 v-model:price-from="priceFrom"
                 v-model:price-to="priceTo"
                 :price-min="priceMin"
