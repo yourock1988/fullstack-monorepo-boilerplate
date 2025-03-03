@@ -2,7 +2,7 @@
 import WidgetHeader from '@/components/page-products/WidgetHeader.vue'
 import VerboseFiltration from '@/components/page-products/VerboseFiltration.vue'
 import WidgetProducts from '@/components/page-products/WidgetProducts.vue'
-import SelectCurrentPage from '@/components/page-products/SelectCurrentPage.vue'
+import PickerCurrentPage from '@/components/page-products/PickerCurrentPage.vue'
 import WatchedProducts from '@/components/page-products/WatchedProducts.vue'
 import PickerPriceRanges from '@/components/page-products/PickerPriceRanges.vue'
 import SelectAttributes from '@/components/page-products/SelectAttributes.vue'
@@ -33,7 +33,7 @@ export default {
     UiCategoryNavigation,
     VerboseFiltration,
     WidgetProducts,
-    SelectCurrentPage,
+    PickerCurrentPage,
     WatchedProducts,
     UiLinks,
     UiTags,
@@ -177,7 +177,7 @@ export default {
             </aside>
 
             <div class="catalog-content">
-              <SelectCurrentPage
+              <PickerCurrentPage
                 :pages-total="pagesTotal"
                 @current-page-changed="currentPage = $event"
               />
