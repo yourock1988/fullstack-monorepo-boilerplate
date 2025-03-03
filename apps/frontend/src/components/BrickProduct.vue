@@ -28,7 +28,7 @@ export default {
         <div class="wrap-is-available"><span>Есть в наличии</span></div>
       </div>
 
-      <div class="rigth wrap-buy">
+      <div class="right wrap-buy">
         <div class="icon-cart"><i class="fa-solid fa-cart-plus"></i></div>
         <div class="price">
           <span>{{ product.priceUah }}₴</span>
