@@ -27,9 +27,7 @@ export default {
 
   watch: {
     products(newValue) {
-      if (newValue.length > 0) {
-        this.canShowHint = true
-      }
+      if (newValue.length > 0) this.canShowHint = true
     },
   },
 }
