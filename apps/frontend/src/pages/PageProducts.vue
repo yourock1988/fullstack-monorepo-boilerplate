@@ -2,11 +2,16 @@
 import PickerAttributes from '~/page-products/pickers/PickerAttributes.vue'
 import PickerCurrentPage from '~/page-products/pickers/PickerCurrentPage.vue'
 import PickerPriceRanges from '~/page-products/pickers/PickerPriceRanges.vue'
-import VerboseFiltration from '~/page-products/VerboseFiltration.vue'
 import WatchedProducts from '~/page-products/WatchedProducts.vue'
 import WidgetProducts from '~/page-products/WidgetProducts.vue'
 import WidgetHeader from '~/page-products/WidgetHeader.vue'
 import OffCanvas from '~/page-products/OffCanvas.vue'
+
+import PickerSortingType from '~/page-products/pickers/PickerSortingType.vue'
+import PickerPageSize from '~/page-products/pickers/PickerPageSize.vue'
+import PickerListType from '~/page-products/pickers/PickerListType.vue'
+import ResetAttributes from '~/page-products/ResetAttributes.vue'
+import ShowFiltratedCount from '~/page-products/ShowFiltratedCount.vue'
 
 import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
 import UiCopyright from '@/ui/page-products/UiCopyright.vue'
@@ -29,10 +34,15 @@ import { getProducts } from '@/api/products'
 
 export default {
   components: {
+    PickerSortingType,
+    PickerListType,
+    PickerPageSize,
+    ShowFiltratedCount,
+    ResetAttributes,
+
     PickerAttributes,
     PickerCurrentPage,
     PickerPriceRanges,
-    VerboseFiltration,
     WatchedProducts,
     WidgetProducts,
     WidgetHeader,
@@ -158,14 +168,23 @@ export default {
         <main>
           <UiCategoryNavigation />
 
-          <VerboseFiltration
-            v-model="attributes"
-            :filtrated-count="filtratedCount"
-            @sorting-type-changed="sortingType = $event"
-            @page-size-changed="pageSize = $event"
-            @offcanvas-show="isShowOffcanvas = true"
-            @list-type-updated="listType = $event"
-          />
+          <div class="layout-verbose-filtration">
+            <div class="wrap-button-show-filters">
+              <button id="elButtonShowFilters" @click="isShowOffcanvas = true">
+                Фильтры
+              </button>
+            </div>
+
+            <ShowFiltratedCount :filtrated-count="filtratedCount" />
+
+            <ResetAttributes v-model="attributes" />
+
+            <PickerSortingType @sorting-type-changed="sortingType = $event" />
+
+            <PickerPageSize @page-size-changed="pageSize = $event" />
+
+            <PickerListType @list-type-updated="listType = $event" />
+          </div>
 
           <div id="ccc" class="layout-catalog">
             <aside ref="aside" class="catalog-filter">
