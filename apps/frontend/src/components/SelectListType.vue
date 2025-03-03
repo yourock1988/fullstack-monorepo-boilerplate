@@ -1,5 +1,7 @@
 <script>
 export default {
+  emits: ['list-type-updated'],
+
   data() {
     return {
       availableListTypes: {
@@ -9,6 +11,16 @@ export default {
       },
       listType: 'Pave',
     }
+  },
+
+  watch: {
+    listType(newValue) {
+      this.$emit('list-type-updated', newValue)
+    },
+  },
+
+  mounted() {
+    this.$emit('list-type-updated', this.listType)
   },
 }
 </script>

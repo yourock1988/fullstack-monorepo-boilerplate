@@ -6,13 +6,12 @@ import ListProductsTable from './ListProductsTable.vue'
 export default {
   components: { ListProductsPave, ListProductsWall, ListProductsTable },
 
-  props: ['products'],
+  props: ['products', 'listType'],
 
   data() {
     return {
       canShowHint: false,
       availableListTypes: ['Pave', 'Table', 'Wall'],
-      listType: 'Pave',
     }
   },
 

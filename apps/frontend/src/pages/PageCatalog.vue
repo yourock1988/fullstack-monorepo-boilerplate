@@ -58,6 +58,7 @@ export default {
       isScrollingDisabled: true,
       ccy: { usdUah: 42 },
       isShowOffcanvas: false,
+      listType: 'Pave',
     }
   },
 
@@ -159,6 +160,7 @@ export default {
             @sorting-type-changed="sortingType = $event"
             @page-size-changed="pageSize = $event"
             @offcanvas-show="isShowOffcanvas = true"
+            @list-type-updated="listType = $event"
           />
 
           <div id="ccc" class="layout-catalog">
@@ -179,7 +181,10 @@ export default {
                 @current-page-changed="currentPage = $event"
               />
 
-              <WidgetProducts :products="paginatedProducts" />
+              <WidgetProducts
+                :products="paginatedProducts"
+                :list-type="listType"
+              />
             </div>
           </div>
         </main>

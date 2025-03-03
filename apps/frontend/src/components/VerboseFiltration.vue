@@ -22,6 +22,7 @@ export default {
     'signal-reset-attributes',
     'update:modelValue',
     'offcanvas-show',
+    'list-type-updated',
   ],
 
   methods: {
@@ -55,6 +56,6 @@ export default {
 
     <SelectPageSize @page-size-changed="changePageSize" />
 
-    <SelectListType />
+    <SelectListType @list-type-updated="$emit('list-type-updated', $event)" />
   </div>
 </template>
