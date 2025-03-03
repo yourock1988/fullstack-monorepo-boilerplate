@@ -11,9 +11,18 @@ export default {
   data() {
     return {
       canShowHint: false,
-      availableListTypes: ['pave', 'table', 'wall'],
-      listType: 'pave',
+      availableListTypes: ['Pave', 'Table', 'Wall'],
+      listType: 'Pave',
     }
+  },
+
+  computed: {
+    listProducts() {
+      if (!this.availableListTypes.includes(this.listType)) {
+        throw new Error(`Bad ListProducts Component Name: ${this.listType}`)
+      }
+      return `ListProducts${this.listType}`
+    },
   },
 
   watch: {
@@ -27,11 +36,11 @@ export default {
 </script>
 
 <template>
-  <!-- <ListProductsPave v-if="products.length" :products="products" /> -->
-
-  <!-- <ListProductsWall v-if="products.length" :products="products" /> -->
-
-  <ListProductsTable v-if="products.length" :products="products" />
+  <Component
+    :is="listProducts"
+    v-if="products.length"
+    :products="products"
+  ></Component>
 
   <div v-else class="no-goods">
     <h2 v-if="canShowHint">
