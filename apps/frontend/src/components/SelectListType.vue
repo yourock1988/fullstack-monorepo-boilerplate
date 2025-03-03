@@ -1,18 +1,33 @@
+<script>
+export default {
+  data() {
+    return {
+      availableListTypes: {
+        Pave: 'fa-brands fa-microsoft',
+        Table: 'fa-solid fa-table',
+        Wall: 'fa-solid fa-water',
+      },
+      listType: 'Pave',
+    }
+  },
+}
+</script>
+
 <template>
   <div class="wrap-picker-tile-style">
     <div id="elPickerTileStyle" class="picker-tile-style">
-      <input id="s-grid" type="radio" name="tile-style" checked />
-      <input id="s-table" type="radio" name="tile-style" />
-      <input id="s-list" type="radio" name="tile-style" />
-      <label for="s-grid">
-        <i class="fa-brands fa-microsoft"></i>
-      </label>
-      <label for="s-table">
-        <i class="fa-solid fa-table"></i>
-      </label>
-      <label for="s-list">
-        <i class="fa-solid fa-water"></i>
-      </label>
+      <span v-for="(icon, type) in availableListTypes" :key="type">
+        <input
+          :id="type"
+          v-model="listType"
+          :value="type"
+          type="radio"
+          name="tile-style"
+        />
+        <label :for="type">
+          <i :class="icon"></i>
+        </label>
+      </span>
     </div>
   </div>
 </template>
