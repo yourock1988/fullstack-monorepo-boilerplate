@@ -1,5 +1,5 @@
 <script>
-import SelectSortingType from '@/components/page-products/SelectSortingType.vue'
+import PickerSortingType from '@/components/page-products/PickerSortingType.vue'
 import SelectPageSize from '@/components/page-products/SelectPageSize.vue'
 import ResetAttributes from '@/components/page-products/ResetAttributes.vue'
 import SelectListType from '@/components/page-products/SelectListType.vue'
@@ -7,7 +7,7 @@ import ShowFiltratedCount from '@/components/page-products/ShowFiltratedCount.vu
 
 export default {
   components: {
-    SelectSortingType,
+    PickerSortingType,
     SelectListType,
     SelectPageSize,
     ShowFiltratedCount,
@@ -52,7 +52,7 @@ export default {
       @update:model-value="$emit('update:modelValue', $event)"
     />
 
-    <SelectSortingType @sorting-type-changed="changeSortingType" />
+    <PickerSortingType @sorting-type-changed="changeSortingType" />
 
     <SelectPageSize @page-size-changed="changePageSize" />
 
