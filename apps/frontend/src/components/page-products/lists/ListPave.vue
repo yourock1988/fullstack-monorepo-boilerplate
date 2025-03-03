@@ -1,16 +1,16 @@
 <script>
-import BrickProduct from './BrickProduct.vue'
+import ItemTile from './items/ItemTile.vue'
 
 export default {
-  components: { BrickProduct },
+  components: { ItemTile },
 
   props: ['products'],
 }
 </script>
 
 <template>
-  <ul class="products-line">
-    <BrickProduct
+  <ul class="products">
+    <ItemTile
       v-for="product of products"
       :key="product.id"
       :product="product"

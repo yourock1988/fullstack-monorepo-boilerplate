@@ -1,10 +1,10 @@
 <script>
-import ListProductsPave from './ListProductsPave.vue'
-import ListProductsWall from './ListProductsWall.vue'
-import ListProductsTable from './ListProductsTable.vue'
+import ListPave from './lists/ListPave.vue'
+import ListWall from './lists/ListWall.vue'
+import ListTable from './lists/ListTable.vue'
 
 export default {
-  components: { ListProductsPave, ListProductsWall, ListProductsTable },
+  components: { ListPave, ListWall, ListTable },
 
   props: ['products', 'listType'],
 
@@ -20,7 +20,7 @@ export default {
       if (!this.availableListTypes.includes(this.listType)) {
         throw new Error(`Bad ListProducts Component Name: ${this.listType}`)
       }
-      return `ListProducts${this.listType}`
+      return `List${this.listType}`
     },
   },
 
