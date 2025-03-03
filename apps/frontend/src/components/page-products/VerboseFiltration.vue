@@ -1,6 +1,6 @@
 <script>
 import PickerSortingType from '@/components/page-products/PickerSortingType.vue'
-import SelectPageSize from '@/components/page-products/SelectPageSize.vue'
+import PickerPageSize from '@/components/page-products/PickerPageSize.vue'
 import ResetAttributes from '@/components/page-products/ResetAttributes.vue'
 import SelectListType from '@/components/page-products/SelectListType.vue'
 import ShowFiltratedCount from '@/components/page-products/ShowFiltratedCount.vue'
@@ -9,7 +9,7 @@ export default {
   components: {
     PickerSortingType,
     SelectListType,
-    SelectPageSize,
+    PickerPageSize,
     ShowFiltratedCount,
     ResetAttributes,
   },
@@ -54,7 +54,7 @@ export default {
 
     <PickerSortingType @sorting-type-changed="changeSortingType" />
 
-    <SelectPageSize @page-size-changed="changePageSize" />
+    <PickerPageSize @page-size-changed="changePageSize" />
 
     <SelectListType @list-type-updated="$emit('list-type-updated', $event)" />
   </div>
