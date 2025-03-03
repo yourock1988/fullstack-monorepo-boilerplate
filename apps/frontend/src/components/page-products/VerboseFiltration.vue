@@ -1,8 +1,8 @@
 <script>
-import PickerSortingType from '@/components/page-products/PickerSortingType.vue'
-import PickerPageSize from '@/components/page-products/PickerPageSize.vue'
+import PickerSortingType from '@/components/page-products/pickers/PickerSortingType.vue'
+import PickerPageSize from '@/components/page-products/pickers/PickerPageSize.vue'
+import PickerListType from '@/components/page-products/pickers/PickerListType.vue'
 import ResetAttributes from '@/components/page-products/ResetAttributes.vue'
-import PickerListType from '@/components/page-products/PickerListType.vue'
 import ShowFiltratedCount from '@/components/page-products/ShowFiltratedCount.vue'
 
 export default {

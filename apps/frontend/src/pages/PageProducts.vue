@@ -2,10 +2,10 @@
 import WidgetHeader from '@/components/page-products/WidgetHeader.vue'
 import VerboseFiltration from '@/components/page-products/VerboseFiltration.vue'
 import WidgetProducts from '@/components/page-products/WidgetProducts.vue'
-import PickerCurrentPage from '@/components/page-products/PickerCurrentPage.vue'
 import WatchedProducts from '@/components/page-products/WatchedProducts.vue'
-import PickerPriceRanges from '@/components/page-products/PickerPriceRanges.vue'
-import PickerAttributes from '@/components/page-products/PickerAttributes.vue'
+import PickerCurrentPage from '@/components/page-products/pickers/PickerCurrentPage.vue'
+import PickerPriceRanges from '@/components/page-products/pickers/PickerPriceRanges.vue'
+import PickerAttributes from '@/components/page-products/pickers/PickerAttributes.vue'
 import OffCanvas from '@/components/page-products/OffCanvas.vue'
 
 import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
