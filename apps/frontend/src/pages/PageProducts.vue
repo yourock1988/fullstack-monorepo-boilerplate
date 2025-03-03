@@ -10,7 +10,7 @@ import OffCanvas from '~/page-products/OffCanvas.vue'
 import PickerSortingType from '~/page-products/pickers/PickerSortingType.vue'
 import PickerPageSize from '~/page-products/pickers/PickerPageSize.vue'
 import PickerListType from '~/page-products/pickers/PickerListType.vue'
-import ResetAttributes from '~/page-products/ResetAttributes.vue'
+import PickerAttributesReset from '~/page-products/pickers/PickerAttributesReset.vue'
 import ShowFiltratedCount from '~/page-products/ShowFiltratedCount.vue'
 
 import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
@@ -42,7 +42,7 @@ export default {
     PickerListType,
     PickerPageSize,
     ShowFiltratedCount,
-    ResetAttributes,
+    PickerAttributesReset,
 
     PickerAttributes,
     PickerCurrentPage,
@@ -177,7 +177,7 @@ export default {
 
             <ShowFiltratedCount :filtrated-count="filtratedCount" />
 
-            <ResetAttributes v-model="attributes" />
+            <PickerAttributesReset v-model="attributes" />
 
             <PickerSortingType @sorting-type-changed="sortingType = $event" />
 
