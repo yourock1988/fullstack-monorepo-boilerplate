@@ -1,6 +1,8 @@
 <script>
 export default {
-  emits: ['search-query-changed'],
+  props: ['modelValue'],
+
+  emits: ['update:modelValue'],
 
   data() {
     return {
@@ -10,22 +12,26 @@ export default {
   },
 
   watch: {
+    modelValue(newValue) {
+      this.searchQuery = newValue
+    },
+
     searchQuery(newValue) {
       this.isUpdated = true
       if (newValue === '') {
-        this.$emit('search-query-changed', newValue)
+        this.$emit('update:modelValue', newValue)
       }
     },
   },
 
   mounted() {
-    this.$emit('search-query-changed', this.searchQuery)
+    this.searchQuery = this.modelValue
   },
 
   methods: {
-    changeSearchQuery() {
+    handleClick() {
       if (this.isUpdated && this.searchQuery !== '') {
-        this.$emit('search-query-changed', this.searchQuery)
+        this.$emit('update:modelValue', this.searchQuery)
         this.isUpdated = false
       }
     },
@@ -38,8 +44,8 @@ export default {
     <input
       v-model.trim="searchQuery"
       type="search"
-      @keypress.enter="changeSearchQuery"
+      @keypress.enter="handleClick"
     />
-    <button @click="changeSearchQuery">Найти</button>
+    <button @click="handleClick">Найти</button>
   </div>
 </template>

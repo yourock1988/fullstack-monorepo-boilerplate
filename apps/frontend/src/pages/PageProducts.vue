@@ -165,7 +165,7 @@ export default {
   <div class="layout-wrapper">
     <UiLinetop />
 
-    <WidgetHeader @search-query-changed="searchQuery = $event" />
+    <WidgetHeader v-model="searchQuery" />
 
     <div class="layout-main">
       <div class="layout-centralize">
