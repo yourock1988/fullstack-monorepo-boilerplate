@@ -181,7 +181,7 @@ export default {
 
             <PickerSortingType v-model="sortingType" />
 
-            <PickerPageSize @page-size-changed="pageSize = $event" />
+            <PickerPageSize v-model="pageSize" />
 
             <PickerListType @list-type-updated="listType = $event" />
           </div>

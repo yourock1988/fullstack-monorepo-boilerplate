@@ -1,22 +1,30 @@
 <script>
 export default {
-  emits: ['page-size-changed'],
+  props: ['modelValue'],
+
+  emits: ['update:modelValue'],
 
   data() {
     return {
       availablePageSizes: [10, 20, 30],
-      selectedPageSize: 10,
     }
   },
 
   watch: {
-    selectedPageSize(newValue) {
-      this.$emit('page-size-changed', newValue)
+    modelValue(newValue) {
+      this.validate(newValue)
     },
   },
 
   mounted() {
-    this.$emit('page-size-changed', this.selectedPageSize)
+    this.validate(this.modelValue)
+  },
+
+  methods: {
+    validate(pageSize) {
+      if (!this.availablePageSizes.includes(pageSize))
+        throw new Error(`${pageSize} is bad pageSize`)
+    },
   },
 }
 </script>
@@ -25,8 +33,9 @@ export default {
   <div class="wrap-select-items-on-page">
     <select
       id="elSelectItemsOnPage"
-      v-model.number="selectedPageSize"
       class="select-items-on-page"
+      :value="modelValue"
+      @change="$emit('update:modelValue', +$event.target.value)"
     >
       <option v-for="(pageSize, idx) of availablePageSizes" :key="idx">
         {{ pageSize }}
