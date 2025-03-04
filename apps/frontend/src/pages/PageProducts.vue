@@ -186,7 +186,7 @@ export default {
             <PickerListType @list-type-updated="listType = $event" />
           </div>
 
-          <div id="ccc" class="layout-catalog">
+          <div class="layout-catalog">
             <aside ref="aside" class="catalog-filter">
               <PickerPriceRanges
                 v-model:price-from="priceFrom"
