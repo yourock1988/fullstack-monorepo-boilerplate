@@ -1,14 +1,8 @@
 <script>
 export default {
-  props: ['pagesTotal'],
+  props: ['modelValue', 'pagesTotal'],
 
-  emits: ['current-page-changed'],
-
-  data() {
-    return {
-      selectedCurrentPage: 0,
-    }
-  },
+  emits: ['update:modelValue'],
 
   computed: {
     availablePages() {
@@ -18,18 +12,22 @@ export default {
 
   watch: {
     pagesTotal() {
-      this.changeCurrentPage(0)
+      this.$emit('update:modelValue', 0)
+    },
+
+    modelValue(newValue) {
+      this.validate(newValue)
     },
   },
 
   mounted() {
-    this.$emit('current-page-changed', this.selectedCurrentPage)
+    this.validate(this.modelValue)
   },
 
   methods: {
-    changeCurrentPage(currentPage) {
-      this.selectedCurrentPage = currentPage
-      this.$emit('current-page-changed', currentPage)
+    validate(currentPage) {
+      if (currentPage > this.availablePages.length)
+        throw new Error(`${currentPage} is bad current page`)
     },
   },
 }
@@ -41,8 +39,8 @@ export default {
       <li
         v-for="(page, idx) of availablePages"
         :key="idx"
-        :class="{ selected: selectedCurrentPage === idx }"
-        @click="changeCurrentPage(idx)"
+        :class="{ selected: modelValue === idx }"
+        @click="$emit('update:modelValue', idx)"
       >
         {{ page }}
       </li>

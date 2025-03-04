@@ -200,8 +200,8 @@ export default {
 
             <div class="catalog-content">
               <PickerCurrentPage
+                v-model="currentPage"
                 :pages-total="pagesTotal"
-                @current-page-changed="currentPage = $event"
               />
 
               <WidgetProducts
