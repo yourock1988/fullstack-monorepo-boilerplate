@@ -3,7 +3,7 @@ import PickerAttributes from '~/page-products/pickers/PickerAttributes.vue'
 import PickerCurrentPage from '~/page-products/pickers/PickerCurrentPage.vue'
 import PickerPriceRanges from '~/page-products/pickers/PickerPriceRanges.vue'
 import WatchedProducts from '~/page-products/WatchedProducts.vue'
-import WidgetProducts from '~/page-products/WidgetProducts.vue'
+import ShowPaginatedProducts from '~/page-products/ShowPaginatedProducts.vue'
 import WidgetHeader from '~/page-products/WidgetHeader.vue'
 import OffCanvas from '~/page-products/OffCanvas.vue'
 
@@ -48,7 +48,7 @@ export default {
     PickerCurrentPage,
     PickerPriceRanges,
     WatchedProducts,
-    WidgetProducts,
+    ShowPaginatedProducts,
     WidgetHeader,
     OffCanvas,
     UiCategoryNavigation,
@@ -204,7 +204,7 @@ export default {
                 :pages-total="pagesTotal"
               />
 
-              <WidgetProducts
+              <ShowPaginatedProducts
                 :products="paginatedProducts"
                 :list-type="listType"
               />
