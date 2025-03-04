@@ -183,7 +183,7 @@ export default {
 
             <PickerPageSize v-model="pageSize" />
 
-            <PickerListType @list-type-updated="listType = $event" />
+            <PickerListType v-model="listType" />
           </div>
 
           <div class="layout-catalog">
