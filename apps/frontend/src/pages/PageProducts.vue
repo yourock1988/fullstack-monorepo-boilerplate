@@ -64,7 +64,7 @@ export default {
       searchQuery: '',
       priceFrom: 0,
       priceTo: 0,
-      sortingType: 'idHightLow',
+      sortingType: 'expensiveFirst',
       currentPage: 0,
       pageSize: 10,
       attributes: [],
@@ -179,7 +179,7 @@ export default {
 
             <PickerAttributesReset v-model="attributes" />
 
-            <PickerSortingType @sorting-type-changed="sortingType = $event" />
+            <PickerSortingType v-model="sortingType" />
 
             <PickerPageSize @page-size-changed="pageSize = $event" />
 

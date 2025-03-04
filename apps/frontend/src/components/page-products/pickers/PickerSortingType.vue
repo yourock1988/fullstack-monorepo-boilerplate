@@ -1,11 +1,11 @@
 <script>
 export default {
-  emits: ['sorting-type-changed'],
+  props: ['modelValue'],
+
+  emits: ['update:modelValue'],
 
   data() {
     return {
-      selectedSortingType: 'expensiveFirst',
-
       sortingTypes: {
         cheapFirst: 'Сначала дешевые',
         expensiveFirst: 'Сначала дорогие',
@@ -17,13 +17,20 @@ export default {
   },
 
   watch: {
-    selectedSortingType(newValue) {
-      this.$emit('sorting-type-changed', newValue)
+    modelValue(newValue) {
+      this.validate(newValue)
     },
   },
 
   mounted() {
-    this.$emit('sorting-type-changed', this.selectedSortingType)
+    this.validate(this.modelValue)
+  },
+
+  methods: {
+    validate(sortingType) {
+      if (!Object.keys(this.sortingTypes).includes(sortingType))
+        throw new Error(`${sortingType} is bad sorting type`)
+    },
   },
 }
 </script>
@@ -32,8 +39,9 @@ export default {
   <div class="wrap-select-sorting-type">
     <select
       id="elSelectSortingType"
-      v-model="selectedSortingType"
       class="select-sorting-type"
+      :value="modelValue"
+      @change="$emit('update:modelValue', $event.target.value)"
     >
       <option
         v-for="(sortingTypeValue, sortingTypeKey) in sortingTypes"
