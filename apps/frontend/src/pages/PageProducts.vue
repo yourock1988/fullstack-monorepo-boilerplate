@@ -2,7 +2,7 @@
 import PickerAttributes from '~/page-products/pickers/PickerAttributes.vue'
 import PickerCurrentPage from '~/page-products/pickers/PickerCurrentPage.vue'
 import PickerPriceRanges from '~/page-products/pickers/PickerPriceRanges.vue'
-import WatchedProducts from '~/page-products/WatchedProducts.vue'
+import ShowWatchedProducts from '~/page-products/ShowWatchedProducts.vue'
 import ShowPaginatedProducts from '~/page-products/ShowPaginatedProducts.vue'
 import WidgetHeader from '~/page-products/WidgetHeader.vue'
 import OffCanvas from '~/page-products/OffCanvas.vue'
@@ -47,7 +47,7 @@ export default {
     PickerAttributes,
     PickerCurrentPage,
     PickerPriceRanges,
-    WatchedProducts,
+    ShowWatchedProducts,
     ShowPaginatedProducts,
     WidgetHeader,
     OffCanvas,
@@ -212,7 +212,7 @@ export default {
           </div>
         </main>
 
-        <WatchedProducts :products="watchedProducts" />
+        <ShowWatchedProducts :products="watchedProducts" />
       </div>
     </div>
 
