@@ -1,8 +1,8 @@
 <script>
-import ItemAttrValue from './ItemAttrValue.vue'
+import InputCheckboxAttribute from './inputs/InputCheckboxAttribute.vue'
 
 export default {
-  components: { ItemAttrValue },
+  components: { InputCheckboxAttribute },
 
   props: ['modelValue'],
 
@@ -52,7 +52,7 @@ export default {
       </dt>
       <dd>
         <ul>
-          <ItemAttrValue
+          <InputCheckboxAttribute
             v-for="(attrValue, subIdx) of filter.attrValues"
             :key="subIdx"
             v-model="attrValue.isChecked"

@@ -1,8 +1,8 @@
 <script>
-import RowProduct from './RowProduct.vue'
+import ItemTr from './items/ItemTr.vue'
 
 export default {
-  components: { RowProduct },
+  components: { ItemTr },
 
   props: ['products'],
 }
@@ -21,7 +21,7 @@ export default {
       </tr>
     </thead>
     <tbody>
-      <RowProduct
+      <ItemTr
         v-for="product of products"
         :key="product.id"
         :product="product"

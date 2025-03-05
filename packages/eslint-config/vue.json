@@ -11,7 +11,10 @@
   "settings": {
     "import/resolver": {
       "alias": {
-        "map": [["@", "@monorepo/frontend/src"]]
+        "map": [
+          ["@", "@monorepo/frontend/src"],
+          ["~", "@monorepo/frontend/src/components"]
+        ]
       }
     }
   },

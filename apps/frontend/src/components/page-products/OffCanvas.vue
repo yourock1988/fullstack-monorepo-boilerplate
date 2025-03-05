@@ -1,9 +1,9 @@
 <script>
-import SelectAttributes from './SelectAttributes.vue'
-import SelectPriceRanges from './SelectPriceRanges.vue'
+import PickerAttributes from './pickers/PickerAttributes.vue'
+import PickerPriceRanges from './pickers/PickerPriceRanges.vue'
 
 export default {
-  components: { SelectPriceRanges, SelectAttributes },
+  components: { PickerPriceRanges, PickerAttributes },
 
   props: [
     'modelValue',
@@ -30,7 +30,7 @@ export default {
     @click="$emit('update:modelValue', false)"
   >
     <div class="offcanvas" @click.stop>
-      <SelectPriceRanges
+      <PickerPriceRanges
         :price-min="priceMin"
         :price-max="priceMax"
         :price-from="priceFrom"
@@ -39,7 +39,7 @@ export default {
         @update:price-to="$emit('update:price-to', $event)"
       />
 
-      <SelectAttributes
+      <PickerAttributes
         :model-value="attributes"
         @update:model-value="$emit('update:attributes', $event)"
       />

@@ -1,17 +1,13 @@
 <script>
-import UiLogo from '@/ui/UiLogo.vue'
-import SelectSearchQuery from './SelectSearchQuery.vue'
+import UiLogo from '@/ui/page-products/UiLogo.vue'
+import PickerSearchQuery from './pickers/PickerSearchQuery.vue'
 
 export default {
-  components: { SelectSearchQuery, UiLogo },
+  components: { PickerSearchQuery, UiLogo },
 
-  emits: ['search-query-changed'],
+  props: ['modelValue'],
 
-  methods: {
-    changeSearchQuery(searchQuery) {
-      this.$emit('search-query-changed', searchQuery)
-    },
-  },
+  emits: ['update:modelValue'],
 }
 </script>
 
@@ -31,7 +27,10 @@ export default {
         </button>
       </div>
 
-      <SelectSearchQuery @search-query-changed="changeSearchQuery" />
+      <PickerSearchQuery
+        :model-value="modelValue"
+        @update:model-value="$emit('update:modelValue', $event)"
+      />
 
       <div class="wrap-select-lang">
         <select id="" name="">

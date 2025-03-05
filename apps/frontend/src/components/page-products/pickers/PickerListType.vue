@@ -1,6 +1,8 @@
 <script>
 export default {
-  emits: ['list-type-updated'],
+  props: ['modelValue'],
+
+  emits: ['update:modelValue'],
 
   data() {
     return {
@@ -9,18 +11,24 @@ export default {
         Table: 'fa-solid fa-table',
         Wall: 'fa-solid fa-water',
       },
-      listType: 'Pave',
     }
   },
 
   watch: {
-    listType(newValue) {
-      this.$emit('list-type-updated', newValue)
+    modelValue(newValue) {
+      this.validate(newValue)
     },
   },
 
   mounted() {
-    this.$emit('list-type-updated', this.listType)
+    this.validate(this.modelValue)
+  },
+
+  methods: {
+    validate(listType) {
+      if (!Object.keys(this.availableListTypes).includes(listType))
+        throw new Error(`${listType} is bad list type`)
+    },
   },
 }
 </script>
@@ -31,10 +39,11 @@ export default {
       <span v-for="(icon, type) in availableListTypes" :key="type">
         <input
           :id="type"
-          v-model="listType"
-          :value="type"
           type="radio"
           name="tile-style"
+          :value="type"
+          :checked="type === modelValue"
+          @change="$emit('update:modelValue', $event.target.value)"
         />
         <label :for="type">
           <i :class="icon"></i>

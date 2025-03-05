@@ -1,8 +1,8 @@
 <script>
-import TileProduct from '@/components/TileProduct.vue'
+import ItemTile from './items/ItemTile.vue'
 
 export default {
-  components: { TileProduct },
+  components: { ItemTile },
 
   props: ['products'],
 }
@@ -10,7 +10,7 @@ export default {
 
 <template>
   <ul class="products">
-    <TileProduct
+    <ItemTile
       v-for="product of products"
       :key="product.id"
       :product="product"

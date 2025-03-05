@@ -1,44 +1,112 @@
-import * as apiProducts from '../api/products'
+import * as apiProducts from '@/api/products'
+import convertProductsPrice from '@/functions/convertProductsPrice'
+import harvestAttributes from '@/functions/harvestAttributes'
+
+import searchProducts from '@/functions/searchProducts'
+import rangeProducts from '@/functions/rangeProducts'
+import attributeProducts from '@/functions/attributeProducts'
+import sortProducts from '@/functions/sortProducts'
+import paginateProducts from '@/functions/paginateProducts'
 
 export default {
   namespaced: true,
 
   state() {
     return {
+      searchQuery: '',
+      priceFrom: 0,
+      priceTo: 0,
+      attributes: [],
+      sortingType: 'expensiveFirst',
+      currentPage: 0,
+      pageSize: 10,
+
       products: [],
+      ccy: { usdUah: 42 },
     }
   },
 
   getters: {
-    getProducts(state) {
-      return state.products.toSorted(({ id }, { id: prevId }) => id - prevId)
+    searchedProducts(s) {
+      return searchProducts(s.products, s.searchQuery)
     },
 
-    getCountProducts(state) {
-      return state.products.length
+    rangedProducts(s, g) {
+      return rangeProducts(g.searchedProducts, s.priceFrom, s.priceTo)
     },
 
-    getBudgetProducts(state) {
-      return state.products.filter(product => product.price < 200)
+    attributedProducts(s, g) {
+      return attributeProducts(g.rangedProducts, s.attributes)
     },
 
-    getCountBudgetProducts(_, getters) {
-      return getters.getBudgetProducts.length
+    sortedProducts(s, g) {
+      return sortProducts(g.attributedProducts, s.sortingType)
+    },
+
+    paginatedProducts(s, g) {
+      return paginateProducts(g.sortedProducts, s.currentPage, s.pageSize)
+    },
+
+    filtratedCount(_, g) {
+      return g.sortedProducts.length
+    },
+
+    pagesTotal(s, g) {
+      return Math.ceil(g.filtratedCount / s.pageSize)
+    },
+
+    priceMin(_, g) {
+      const min = Math.min(...g.searchedProducts.map(sp => sp.priceUah))
+      return Number.isFinite(min) ? min : 0
+    },
+
+    priceMax(_, g) {
+      const max = Math.max(...g.searchedProducts.map(sp => sp.priceUah))
+      return Number.isFinite(max) ? max : Number.MAX_SAFE_INTEGER
     },
   },
 
   mutations: {
-    SET_PRODUCTS(state, products) {
-      state.products = products
+    SET_SEARCH_QUERY(state, newValue) {
+      state.searchQuery = newValue
+    },
+
+    SET_PRICE_FROM(state, newValue) {
+      state.priceFrom = newValue
+    },
+
+    SET_PRICE_TO(state, newValue) {
+      state.priceTo = newValue
+    },
+
+    SET_ATTRIBUTES(state, newValue) {
+      state.attributes = newValue
+    },
+
+    SET_SORTING_TYPE(state, newValue) {
+      state.sortingType = newValue
+    },
+
+    SET_CURRENT_PAGE(state, newValue) {
+      state.currentPage = newValue
+    },
+
+    SET_PAGE_SIZE(state, newValue) {
+      state.pageSize = newValue
     },
 
     ADD_PRODUCT(state, product) {
       state.products.push(product)
     },
 
-    UPDATE_PRODUCT_BY_ID(state, id, updatedProduct) {
+    SET_PRODUCTS(state, products) {
+      state.products = products
+      convertProductsPrice(state.products, state.ccy)
+    },
+
+    UPDATE_PRODUCT_BY_ID(state, id, updatableData) {
       const findedProduct = state.products.find(product => product.id === id)
-      if (findedProduct) Object.assign(findedProduct, updatedProduct)
+      if (findedProduct) Object.assign(findedProduct, updatableData)
     },
 
     REMOVE_PRODUCT_BY_ID(state, id) {
@@ -47,14 +115,20 @@ export default {
   },
 
   actions: {
+    setSearchQuery({ commit, getters }, searchQuery) {
+      commit('SET_SEARCH_QUERY', searchQuery)
+      commit('SET_ATTRIBUTES', harvestAttributes(getters.searchedProducts))
+    },
+
     async createProduct({ commit }, product) {
       const createdProduct = await apiProducts.postProduct(product)
       commit('ADD_PRODUCT', createdProduct)
     },
 
-    async readProducts({ commit }) {
+    async readProducts({ commit, dispatch }) {
       const readedProducts = await apiProducts.getProducts()
       commit('SET_PRODUCTS', readedProducts)
+      dispatch('setSearchQuery', '')
     },
 
     async updateProductById({ commit }, { id, product }) {
