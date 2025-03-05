@@ -1,39 +1,37 @@
-import * as apiProducts from '../api/products'
+import * as apiProducts from '@/api/products'
+import searchProducts from '@/functions/searchProducts'
+import convertProductsPrice from '@/functions/convertProductsPrice'
 
 export default {
   namespaced: true,
 
   state() {
     return {
+      searchQuery: '',
+
       products: [],
+      ccy: { usdUah: 42 },
     }
   },
 
   getters: {
-    getProducts(state) {
-      return state.products.toSorted(({ id }, { id: prevId }) => id - prevId)
-    },
-
-    getCountProducts(state) {
-      return state.products.length
-    },
-
-    getBudgetProducts(state) {
-      return state.products.filter(product => product.price < 200)
-    },
-
-    getCountBudgetProducts(_, getters) {
-      return getters.getBudgetProducts.length
+    searchedProducts(state) {
+      return searchProducts(state.products, state.searchQuery)
     },
   },
 
   mutations: {
-    SET_PRODUCTS(state, products) {
-      state.products = products
+    SET_SEARCH_QUERY(state, newValue) {
+      state.searchQuery = newValue
     },
 
     ADD_PRODUCT(state, product) {
       state.products.push(product)
+    },
+
+    SET_PRODUCTS(state, products) {
+      state.products = products
+      convertProductsPrice(state.products, state.ccy)
     },
 
     UPDATE_PRODUCT_BY_ID(state, id, updatedProduct) {

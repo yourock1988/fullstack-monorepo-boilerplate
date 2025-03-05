@@ -26,12 +26,14 @@ import harvestAttributes from '@/functions/harvestAttributes'
 
 import attributeProducts from '@/functions/attributeProducts'
 import paginateProducts from '@/functions/paginateProducts'
-import searchProducts from '@/functions/searchProducts'
+
 import rangeProducts from '@/functions/rangeProducts'
 import sortProducts from '@/functions/sortProducts'
 
 import { getWatchedProducts } from '@/api/watchedProducts'
-import { getProducts } from '@/api/products'
+
+import { mapGetters } from 'vuex'
+import interlinkedWithin from '@/functions/interlinkedWithin'
 
 export default {
   components: {
@@ -60,7 +62,6 @@ export default {
 
   data() {
     return {
-      searchQuery: '',
       priceFrom: 0,
       priceTo: 0,
       sortingType: 'expensiveFirst',
@@ -70,19 +71,17 @@ export default {
 
       listType: 'Pave',
       isOffcanvasOpen: false,
-
       isScrollingDisabled: true,
-      ccy: { usdUah: 42 },
 
+      ccy: { usdUah: 42 },
       watchedProducts: [],
-      products: [],
     }
   },
 
   computed: {
-    searchedProducts() {
-      return searchProducts(this.products, this.searchQuery)
-    },
+    ...interlinkedWithin('products', [{ searchQuery: 'SET_SEARCH_QUERY' }]),
+
+    ...mapGetters('products', ['searchedProducts']),
 
     rangedProducts() {
       return rangeProducts(this.searchedProducts, this.priceFrom, this.priceTo)
@@ -142,8 +141,7 @@ export default {
     },
 
     async loadProducts() {
-      this.products = await getProducts()
-      convertProductsPrice(this.products, this.ccy)
+      await this.$store.dispatch('products/readProducts')
       setTimeout(() => {
         this.isScrollingDisabled = false
       }, 100)
