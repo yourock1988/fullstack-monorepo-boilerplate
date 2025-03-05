@@ -1,4 +1,4 @@
-import normalizeProducts from '@/functions/normalizeProducts'
+import normalizeProducts from './utils/normalizeProducts'
 import sendRequest from './sendRequest'
 import { getProductById } from './products'
 import auth from './auth'

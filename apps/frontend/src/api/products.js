@@ -1,4 +1,4 @@
-import normalizeProducts from '@/functions/normalizeProducts'
+import normalizeProducts from './utils/normalizeProducts'
 import sendRequest from './sendRequest'
 
 const url = 'https://pc-shop.web-app.click/api/v0/products/'
