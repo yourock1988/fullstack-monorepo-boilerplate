@@ -82,17 +82,9 @@ export default {
       'paginatedProducts',
       'filtratedCount',
       'pagesTotal',
+      'priceMin',
+      'priceMax',
     ]),
-
-    priceMin() {
-      const min = Math.min(...this.searchedProducts.map(sp => sp.priceUah))
-      return Number.isFinite(min) ? min : 0
-    },
-
-    priceMax() {
-      const max = Math.max(...this.searchedProducts.map(sp => sp.priceUah))
-      return Number.isFinite(max) ? max : Number.MAX_SAFE_INTEGER
-    },
   },
 
   watch: {

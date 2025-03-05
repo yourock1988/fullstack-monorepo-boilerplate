@@ -53,6 +53,16 @@ export default {
     pagesTotal(s, g) {
       return Math.ceil(g.filtratedCount / s.pageSize)
     },
+
+    priceMin(_, g) {
+      const min = Math.min(...g.searchedProducts.map(sp => sp.priceUah))
+      return Number.isFinite(min) ? min : 0
+    },
+
+    priceMax(_, g) {
+      const max = Math.max(...g.searchedProducts.map(sp => sp.priceUah))
+      return Number.isFinite(max) ? max : Number.MAX_SAFE_INTEGER
+    },
   },
 
   mutations: {
