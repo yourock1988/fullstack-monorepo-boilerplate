@@ -21,9 +21,7 @@ import UiTapbar from '@/ui/page-products/UiTapbar.vue'
 import UiLinks from '@/ui/page-products/UiLinks.vue'
 import UiTags from '@/ui/page-products/UiTags.vue'
 
-import convertProductsPrice from '@/functions/convertProductsPrice'
 import state from '@/functions/state'
-import { getWatchedProducts } from '@/api/watchedProducts'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -55,10 +53,7 @@ export default {
     return {
       listType: 'Pave',
       isOffcanvasOpen: false,
-      isScrollingDisabled: true,
-
-      ccy: { usdUah: 42 },
-      watchedProducts: [],
+      isScrollingEnabled: false,
     }
   },
 
@@ -71,6 +66,8 @@ export default {
     pageSize: state('products', 'pageSize', 'SET_PAGE_SIZE'),
     priceTo: state('products', 'priceTo', 'SET_PRICE_TO'),
 
+    ...mapGetters('watchedProducts', ['watchedProducts']),
+
     ...mapGetters('products', [
       'paginatedProducts',
       'filtratedCount',
@@ -81,31 +78,24 @@ export default {
   },
 
   watch: {
+    // eslint-disable-next-line vue/no-undef-properties
+    paginatedProducts(newValue) {
+      if (newValue.length > 0) this.isScrollingEnabled = true
+    },
+
     attributes() {
       this.scrollToAsideBottom()
     },
   },
 
   mounted() {
-    this.loadProducts()
-    this.loadWatchedProducts()
+    this.$store.dispatch('products/readProducts')
+    this.$store.dispatch('watchedProducts/readWatchedProducts')
   },
 
   methods: {
-    async loadWatchedProducts() {
-      this.watchedProducts = await getWatchedProducts()
-      convertProductsPrice(this.watchedProducts, this.ccy)
-    },
-
-    async loadProducts() {
-      await this.$store.dispatch('products/readProducts')
-      setTimeout(() => {
-        this.isScrollingDisabled = false
-      }, 100)
-    },
-
     scrollToAsideBottom() {
-      if (this.isScrollingDisabled) return
+      if (!this.isScrollingEnabled) return
       this.$refs.aside.scrollIntoView({
         behavior: 'smooth',
         block: 'end',
