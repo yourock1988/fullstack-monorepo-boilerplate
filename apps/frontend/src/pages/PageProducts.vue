@@ -80,6 +80,7 @@ export default {
       'attributedProducts',
       'sortedProducts',
       'paginatedProducts',
+      'filtratedCount',
     ]),
 
     pagesTotal() {
@@ -94,10 +95,6 @@ export default {
     priceMax() {
       const max = Math.max(...this.searchedProducts.map(sp => sp.priceUah))
       return Number.isFinite(max) ? max : Number.MAX_SAFE_INTEGER
-    },
-
-    filtratedCount() {
-      return this.sortedProducts.length
     },
   },
 

@@ -45,6 +45,10 @@ export default {
     paginatedProducts(s, g) {
       return paginateProducts(g.sortedProducts, s.currentPage, s.pageSize)
     },
+
+    filtratedCount(_, g) {
+      return g.sortedProducts.length
+    },
   },
 
   mutations: {
