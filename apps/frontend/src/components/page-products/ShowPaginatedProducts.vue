@@ -6,7 +6,7 @@ import ListTable from './lists/ListTable.vue'
 export default {
   components: { ListPave, ListWall, ListTable },
 
-  props: ['products', 'listType'],
+  props: ['paginatedProducts', 'listType'],
 
   data() {
     return {
@@ -16,16 +16,16 @@ export default {
   },
 
   computed: {
-    listProducts() {
+    listComponent() {
       if (!this.availableListTypes.includes(this.listType)) {
-        throw new Error(`Bad ListProducts Component Name: ${this.listType}`)
+        throw new Error(`Bad listComponent Name: ${this.listType}`)
       }
       return `List${this.listType}`
     },
   },
 
   watch: {
-    products(newValue) {
+    paginatedProducts(newValue) {
       if (newValue.length > 0) this.canShowHint = true
     },
   },
@@ -34,9 +34,9 @@ export default {
 
 <template>
   <Component
-    :is="listProducts"
-    v-if="products.length"
-    :products="products"
+    :is="listComponent"
+    v-if="paginatedProducts.length"
+    :products="paginatedProducts"
   ></Component>
 
   <div v-else class="no-goods">

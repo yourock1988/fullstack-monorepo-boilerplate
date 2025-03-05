@@ -159,7 +159,7 @@ export default {
               />
 
               <ShowPaginatedProducts
-                :products="paginatedProducts"
+                :paginated-products="paginatedProducts"
                 :list-type="listType"
               />
             </div>
