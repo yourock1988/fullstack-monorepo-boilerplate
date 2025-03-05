@@ -4,6 +4,7 @@ import convertProductsPrice from '@/functions/convertProductsPrice'
 import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
 import attributeProducts from '@/functions/attributeProducts'
+import sortProducts from '@/functions/sortProducts'
 
 export default {
   namespaced: true,
@@ -14,6 +15,7 @@ export default {
       priceFrom: 0,
       priceTo: 0,
       attributes: [],
+      sortingType: 'expensiveFirst',
 
       products: [],
       ccy: { usdUah: 42 },
@@ -32,6 +34,10 @@ export default {
     attributedProducts(s, g) {
       return attributeProducts(g.rangedProducts, s.attributes)
     },
+
+    sortedProducts(s, g) {
+      return sortProducts(g.attributedProducts, s.sortingType)
+    },
   },
 
   mutations: {
@@ -49,6 +55,10 @@ export default {
 
     SET_ATTRIBUTES(state, newValue) {
       state.attributes = newValue
+    },
+
+    SET_SORTING_TYPE(state, newValue) {
+      state.sortingType = newValue
     },
 
     ADD_PRODUCT(state, product) {

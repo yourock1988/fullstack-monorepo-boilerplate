@@ -26,8 +26,6 @@ import harvestAttributes from '@/functions/harvestAttributes'
 
 import paginateProducts from '@/functions/paginateProducts'
 
-import sortProducts from '@/functions/sortProducts'
-
 import { getWatchedProducts } from '@/api/watchedProducts'
 
 import { mapGetters } from 'vuex'
@@ -60,7 +58,6 @@ export default {
 
   data() {
     return {
-      sortingType: 'expensiveFirst',
       currentPage: 0,
       pageSize: 10,
 
@@ -79,17 +76,15 @@ export default {
       { priceFrom: 'SET_PRICE_FROM' },
       { priceTo: 'SET_PRICE_TO' },
       { attributes: 'SET_ATTRIBUTES' },
+      { sortingType: 'SET_SORTING_TYPE' },
     ]),
 
     ...mapGetters('products', [
       'searchedProducts',
       'rangedProducts',
       'attributedProducts',
+      'sortedProducts',
     ]),
-
-    sortedProducts() {
-      return sortProducts(this.attributedProducts, this.sortingType)
-    },
 
     paginatedProducts() {
       const { sortedProducts, currentPage, pageSize } = this
