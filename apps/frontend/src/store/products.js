@@ -5,6 +5,7 @@ import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
 import attributeProducts from '@/functions/attributeProducts'
 import sortProducts from '@/functions/sortProducts'
+import paginateProducts from '@/functions/paginateProducts'
 
 export default {
   namespaced: true,
@@ -16,6 +17,8 @@ export default {
       priceTo: 0,
       attributes: [],
       sortingType: 'expensiveFirst',
+      currentPage: 0,
+      pageSize: 10,
 
       products: [],
       ccy: { usdUah: 42 },
@@ -38,6 +41,10 @@ export default {
     sortedProducts(s, g) {
       return sortProducts(g.attributedProducts, s.sortingType)
     },
+
+    paginatedProducts(s, g) {
+      return paginateProducts(g.sortedProducts, s.currentPage, s.pageSize)
+    },
   },
 
   mutations: {
@@ -59,6 +66,14 @@ export default {
 
     SET_SORTING_TYPE(state, newValue) {
       state.sortingType = newValue
+    },
+
+    SET_CURRENT_PAGE(state, newValue) {
+      state.currentPage = newValue
+    },
+
+    SET_PAGE_SIZE(state, newValue) {
+      state.pageSize = newValue
     },
 
     ADD_PRODUCT(state, product) {

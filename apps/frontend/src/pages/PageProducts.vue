@@ -23,13 +23,9 @@ import UiTags from '@/ui/page-products/UiTags.vue'
 
 import convertProductsPrice from '@/functions/convertProductsPrice'
 import harvestAttributes from '@/functions/harvestAttributes'
-
-import paginateProducts from '@/functions/paginateProducts'
-
-import { getWatchedProducts } from '@/api/watchedProducts'
-
-import { mapGetters } from 'vuex'
 import interlinkedWithin from '@/functions/interlinkedWithin'
+import { getWatchedProducts } from '@/api/watchedProducts'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -58,9 +54,6 @@ export default {
 
   data() {
     return {
-      currentPage: 0,
-      pageSize: 10,
-
       listType: 'Pave',
       isOffcanvasOpen: false,
       isScrollingDisabled: true,
@@ -77,6 +70,8 @@ export default {
       { priceTo: 'SET_PRICE_TO' },
       { attributes: 'SET_ATTRIBUTES' },
       { sortingType: 'SET_SORTING_TYPE' },
+      { currentPage: 'SET_CURRENT_PAGE' },
+      { pageSize: 'SET_PAGE_SIZE' },
     ]),
 
     ...mapGetters('products', [
@@ -84,12 +79,8 @@ export default {
       'rangedProducts',
       'attributedProducts',
       'sortedProducts',
+      'paginatedProducts',
     ]),
-
-    paginatedProducts() {
-      const { sortedProducts, currentPage, pageSize } = this
-      return paginateProducts(sortedProducts, currentPage, pageSize)
-    },
 
     pagesTotal() {
       return Math.ceil(this.filtratedCount / this.pageSize)
