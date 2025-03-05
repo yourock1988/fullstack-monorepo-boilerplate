@@ -1,17 +1,18 @@
 <script>
+import PickerPageSize from '~/page-products/pickers/PickerPageSize.vue'
+import PickerListType from '~/page-products/pickers/PickerListType.vue'
 import PickerAttributes from '~/page-products/pickers/PickerAttributes.vue'
 import PickerCurrentPage from '~/page-products/pickers/PickerCurrentPage.vue'
 import PickerPriceRanges from '~/page-products/pickers/PickerPriceRanges.vue'
-import ShowWatchedProducts from '~/page-products/ShowWatchedProducts.vue'
+import PickerSortingType from '~/page-products/pickers/PickerSortingType.vue'
+import PickerAttributesReset from '~/page-products/pickers/PickerAttributesReset.vue'
+import PickerIsOffcanvasOpen from '~/page-products/pickers/PickerIsOffcanvasOpen.vue'
+
 import ShowPaginatedProducts from '~/page-products/ShowPaginatedProducts.vue'
+import ShowWatchedProducts from '~/page-products/ShowWatchedProducts.vue'
+import ShowFiltratedCount from '~/page-products/ShowFiltratedCount.vue'
 import WidgetHeader from '~/page-products/WidgetHeader.vue'
 import OffCanvas from '~/page-products/OffCanvas.vue'
-
-import PickerSortingType from '~/page-products/pickers/PickerSortingType.vue'
-import PickerPageSize from '~/page-products/pickers/PickerPageSize.vue'
-import PickerListType from '~/page-products/pickers/PickerListType.vue'
-import PickerAttributesReset from '~/page-products/pickers/PickerAttributesReset.vue'
-import ShowFiltratedCount from '~/page-products/ShowFiltratedCount.vue'
 
 import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
 import UiCopyright from '@/ui/page-products/UiCopyright.vue'
@@ -32,25 +33,23 @@ import sortProducts from '@/functions/sortProducts'
 import { getWatchedProducts } from '@/api/watchedProducts'
 import { getProducts } from '@/api/products'
 
-import PickerIsOffcanvasOpen from '~/page-products/pickers/PickerIsOffcanvasOpen.vue'
-
 export default {
   components: {
-    PickerIsOffcanvasOpen,
-
-    PickerSortingType,
-    PickerListType,
     PickerPageSize,
-    ShowFiltratedCount,
-    PickerAttributesReset,
-
+    PickerListType,
     PickerAttributes,
     PickerCurrentPage,
     PickerPriceRanges,
-    ShowWatchedProducts,
+    PickerSortingType,
+    PickerAttributesReset,
+    PickerIsOffcanvasOpen,
+
     ShowPaginatedProducts,
+    ShowWatchedProducts,
+    ShowFiltratedCount,
     WidgetHeader,
     OffCanvas,
+
     UiCategoryNavigation,
     UiCopyright,
     UiLinetop,
