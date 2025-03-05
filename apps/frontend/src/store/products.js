@@ -1,12 +1,12 @@
 import * as apiProducts from '@/api/products'
-import convertProductsPrice from '@/functions/convertProductsPrice'
-import harvestAttributes from '@/functions/harvestAttributes'
+import convertProductsPrice from './utils/convertProductsPrice'
+import harvestAttributes from './utils/harvestAttributes'
 
-import searchProducts from '@/functions/searchProducts'
-import rangeProducts from '@/functions/rangeProducts'
-import attributeProducts from '@/functions/attributeProducts'
-import sortProducts from '@/functions/sortProducts'
-import paginateProducts from '@/functions/paginateProducts'
+import searchProducts from './utils/searchProducts'
+import rangeProducts from './utils/rangeProducts'
+import attributeProducts from './utils/attributeProducts'
+import sortProducts from './utils/sortProducts'
+import paginateProducts from './utils/paginateProducts'
 
 export default {
   namespaced: true,

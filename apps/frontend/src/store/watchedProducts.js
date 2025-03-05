@@ -1,5 +1,5 @@
 import * as api from '@/api/watchedProducts'
-import convertProductsPrice from '@/functions/convertProductsPrice'
+import convertProductsPrice from './utils/convertProductsPrice'
 
 export default {
   namespaced: true,
