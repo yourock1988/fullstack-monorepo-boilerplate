@@ -24,7 +24,6 @@ import UiTags from '@/ui/page-products/UiTags.vue'
 import convertProductsPrice from '@/functions/convertProductsPrice'
 import harvestAttributes from '@/functions/harvestAttributes'
 
-import attributeProducts from '@/functions/attributeProducts'
 import paginateProducts from '@/functions/paginateProducts'
 
 import sortProducts from '@/functions/sortProducts'
@@ -64,7 +63,6 @@ export default {
       sortingType: 'expensiveFirst',
       currentPage: 0,
       pageSize: 10,
-      attributes: [],
 
       listType: 'Pave',
       isOffcanvasOpen: false,
@@ -80,13 +78,14 @@ export default {
       { searchQuery: 'SET_SEARCH_QUERY' },
       { priceFrom: 'SET_PRICE_FROM' },
       { priceTo: 'SET_PRICE_TO' },
+      { attributes: 'SET_ATTRIBUTES' },
     ]),
 
-    ...mapGetters('products', ['searchedProducts', 'rangedProducts']),
-
-    attributedProducts() {
-      return attributeProducts(this.rangedProducts, this.attributes)
-    },
+    ...mapGetters('products', [
+      'searchedProducts',
+      'rangedProducts',
+      'attributedProducts',
+    ]),
 
     sortedProducts() {
       return sortProducts(this.attributedProducts, this.sortingType)

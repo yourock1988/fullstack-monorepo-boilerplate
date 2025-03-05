@@ -3,6 +3,7 @@ import convertProductsPrice from '@/functions/convertProductsPrice'
 
 import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
+import attributeProducts from '@/functions/attributeProducts'
 
 export default {
   namespaced: true,
@@ -12,6 +13,7 @@ export default {
       searchQuery: '',
       priceFrom: 0,
       priceTo: 0,
+      attributes: [],
 
       products: [],
       ccy: { usdUah: 42 },
@@ -26,6 +28,10 @@ export default {
     rangedProducts(s, g) {
       return rangeProducts(g.searchedProducts, s.priceFrom, s.priceTo)
     },
+
+    attributedProducts(s, g) {
+      return attributeProducts(g.rangedProducts, s.attributes)
+    },
   },
 
   mutations: {
@@ -39,6 +45,10 @@ export default {
 
     SET_PRICE_TO(state, newValue) {
       state.priceTo = newValue
+    },
+
+    SET_ATTRIBUTES(state, newValue) {
+      state.attributes = newValue
     },
 
     ADD_PRODUCT(state, product) {
