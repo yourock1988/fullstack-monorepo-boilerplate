@@ -27,7 +27,6 @@ import harvestAttributes from '@/functions/harvestAttributes'
 import attributeProducts from '@/functions/attributeProducts'
 import paginateProducts from '@/functions/paginateProducts'
 
-import rangeProducts from '@/functions/rangeProducts'
 import sortProducts from '@/functions/sortProducts'
 
 import { getWatchedProducts } from '@/api/watchedProducts'
@@ -62,8 +61,6 @@ export default {
 
   data() {
     return {
-      priceFrom: 0,
-      priceTo: 0,
       sortingType: 'expensiveFirst',
       currentPage: 0,
       pageSize: 10,
@@ -79,13 +76,13 @@ export default {
   },
 
   computed: {
-    ...interlinkedWithin('products', [{ searchQuery: 'SET_SEARCH_QUERY' }]),
+    ...interlinkedWithin('products', [
+      { searchQuery: 'SET_SEARCH_QUERY' },
+      { priceFrom: 'SET_PRICE_FROM' },
+      { priceTo: 'SET_PRICE_TO' },
+    ]),
 
-    ...mapGetters('products', ['searchedProducts']),
-
-    rangedProducts() {
-      return rangeProducts(this.searchedProducts, this.priceFrom, this.priceTo)
-    },
+    ...mapGetters('products', ['searchedProducts', 'rangedProducts']),
 
     attributedProducts() {
       return attributeProducts(this.rangedProducts, this.attributes)

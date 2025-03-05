@@ -1,6 +1,8 @@
 import * as apiProducts from '@/api/products'
-import searchProducts from '@/functions/searchProducts'
 import convertProductsPrice from '@/functions/convertProductsPrice'
+
+import searchProducts from '@/functions/searchProducts'
+import rangeProducts from '@/functions/rangeProducts'
 
 export default {
   namespaced: true,
@@ -8,6 +10,8 @@ export default {
   state() {
     return {
       searchQuery: '',
+      priceFrom: 0,
+      priceTo: 0,
 
       products: [],
       ccy: { usdUah: 42 },
@@ -15,14 +19,26 @@ export default {
   },
 
   getters: {
-    searchedProducts(state) {
-      return searchProducts(state.products, state.searchQuery)
+    searchedProducts(s) {
+      return searchProducts(s.products, s.searchQuery)
+    },
+
+    rangedProducts(s, g) {
+      return rangeProducts(g.searchedProducts, s.priceFrom, s.priceTo)
     },
   },
 
   mutations: {
     SET_SEARCH_QUERY(state, newValue) {
       state.searchQuery = newValue
+    },
+
+    SET_PRICE_FROM(state, newValue) {
+      state.priceFrom = newValue
+    },
+
+    SET_PRICE_TO(state, newValue) {
+      state.priceTo = newValue
     },
 
     ADD_PRODUCT(state, product) {
