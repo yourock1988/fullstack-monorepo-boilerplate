@@ -49,6 +49,10 @@ export default {
     filtratedCount(_, g) {
       return g.sortedProducts.length
     },
+
+    pagesTotal(s, g) {
+      return Math.ceil(g.filtratedCount / s.pageSize)
+    },
   },
 
   mutations: {

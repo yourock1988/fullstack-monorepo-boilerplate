@@ -81,11 +81,8 @@ export default {
       'sortedProducts',
       'paginatedProducts',
       'filtratedCount',
+      'pagesTotal',
     ]),
-
-    pagesTotal() {
-      return Math.ceil(this.filtratedCount / this.pageSize)
-    },
 
     priceMin() {
       const min = Math.min(...this.searchedProducts.map(sp => sp.priceUah))
