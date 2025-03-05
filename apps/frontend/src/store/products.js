@@ -1,5 +1,6 @@
 import * as apiProducts from '@/api/products'
 import convertProductsPrice from '@/functions/convertProductsPrice'
+import harvestAttributes from '@/functions/harvestAttributes'
 
 import searchProducts from '@/functions/searchProducts'
 import rangeProducts from '@/functions/rangeProducts'
@@ -103,9 +104,9 @@ export default {
       convertProductsPrice(state.products, state.ccy)
     },
 
-    UPDATE_PRODUCT_BY_ID(state, id, updatedProduct) {
+    UPDATE_PRODUCT_BY_ID(state, id, updatableData) {
       const findedProduct = state.products.find(product => product.id === id)
-      if (findedProduct) Object.assign(findedProduct, updatedProduct)
+      if (findedProduct) Object.assign(findedProduct, updatableData)
     },
 
     REMOVE_PRODUCT_BY_ID(state, id) {
@@ -114,14 +115,20 @@ export default {
   },
 
   actions: {
+    setSearchQuery({ commit, getters }, searchQuery) {
+      commit('SET_SEARCH_QUERY', searchQuery)
+      commit('SET_ATTRIBUTES', harvestAttributes(getters.searchedProducts))
+    },
+
     async createProduct({ commit }, product) {
       const createdProduct = await apiProducts.postProduct(product)
       commit('ADD_PRODUCT', createdProduct)
     },
 
-    async readProducts({ commit }) {
+    async readProducts({ commit, dispatch }) {
       const readedProducts = await apiProducts.getProducts()
       commit('SET_PRODUCTS', readedProducts)
+      dispatch('setSearchQuery', '')
     },
 
     async updateProductById({ commit }, { id, product }) {

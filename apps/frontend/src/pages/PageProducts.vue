@@ -22,8 +22,7 @@ import UiLinks from '@/ui/page-products/UiLinks.vue'
 import UiTags from '@/ui/page-products/UiTags.vue'
 
 import convertProductsPrice from '@/functions/convertProductsPrice'
-import harvestAttributes from '@/functions/harvestAttributes'
-import interlinkedWithin from '@/functions/interlinkedWithin'
+import state from '@/functions/state'
 import { getWatchedProducts } from '@/api/watchedProducts'
 import { mapGetters } from 'vuex'
 
@@ -64,21 +63,15 @@ export default {
   },
 
   computed: {
-    ...interlinkedWithin('products', [
-      { searchQuery: 'SET_SEARCH_QUERY' },
-      { priceFrom: 'SET_PRICE_FROM' },
-      { priceTo: 'SET_PRICE_TO' },
-      { attributes: 'SET_ATTRIBUTES' },
-      { sortingType: 'SET_SORTING_TYPE' },
-      { currentPage: 'SET_CURRENT_PAGE' },
-      { pageSize: 'SET_PAGE_SIZE' },
-    ]),
+    searchQuery: state('products', 'searchQuery', 'setSearchQuery', true),
+    sortingType: state('products', 'sortingType', 'SET_SORTING_TYPE'),
+    currentPage: state('products', 'currentPage', 'SET_CURRENT_PAGE'),
+    attributes: state('products', 'attributes', 'SET_ATTRIBUTES'),
+    priceFrom: state('products', 'priceFrom', 'SET_PRICE_FROM'),
+    pageSize: state('products', 'pageSize', 'SET_PAGE_SIZE'),
+    priceTo: state('products', 'priceTo', 'SET_PRICE_TO'),
 
     ...mapGetters('products', [
-      'searchedProducts',
-      'rangedProducts',
-      'attributedProducts',
-      'sortedProducts',
       'paginatedProducts',
       'filtratedCount',
       'pagesTotal',
@@ -88,10 +81,6 @@ export default {
   },
 
   watch: {
-    searchedProducts() {
-      this.attributes = harvestAttributes(this.searchedProducts)
-    },
-
     attributes() {
       this.scrollToAsideBottom()
     },
