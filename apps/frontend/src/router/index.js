@@ -1,10 +1,25 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
 import PageProducts from '@/pages/PageProducts.vue'
+import PageFaceMain from '../pages/PageFaceMain.vue'
+import PageProduct from '../pages/PageProduct.vue'
 
 const routes = [
-  // { path: '/', component: HomeView },
-  { path: '/products', component: PageProducts },
+  {
+    path: '/',
+    component: PageFaceMain,
+    children: [
+      {
+        path: 'products',
+        component: PageProducts,
+      },
+      {
+        path: 'product/:id',
+        component: PageProduct,
+        props: true,
+      },
+    ],
+  },
 ]
 
 const router = createRouter({

@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <tr class="product-row">
+  <tr class="product-row" @click="$router.push(`/product/${product.id}`)">
     <th>{{ product.id }}</th>
     <td><img height="50" :src="urlToPhoto + product.photos[0]" /></td>
     <td class="td-caption">

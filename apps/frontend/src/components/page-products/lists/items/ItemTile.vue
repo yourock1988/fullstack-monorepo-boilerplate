@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <li class="product">
+  <li class="product" @click="$router.push(`/product/${product.id}`)">
     <div class="wrap-sale"><span>АКЦИЯ</span></div>
     <div class="box">
       <div class="top">

@@ -1,6 +1,5 @@
 <script>
 import state from '@/functions/state'
-import PageProducts from '@/pages/PageProducts.vue'
 import WidgetHeader from '~/page-products/WidgetHeader.vue'
 import UiCopyright from '@/ui/page-products/UiCopyright.vue'
 import UiLinetop from '@/ui/page-products/UiLinetop.vue'
@@ -10,19 +9,12 @@ import UiTags from '@/ui/page-products/UiTags.vue'
 
 export default {
   components: {
-    PageProducts,
     WidgetHeader,
     UiCopyright,
     UiLinetop,
     UiTapbar,
     UiLinks,
     UiTags,
-  },
-
-  data() {
-    return {
-      PageProducts,
-    }
   },
 
   computed: {
@@ -37,7 +29,7 @@ export default {
 
     <WidgetHeader v-model="searchQuery" />
 
-    <component :is="PageProducts"></component>
+    <RouterView />
 
     <div class="layout-footer">
       <div class="line-downloads"></div>

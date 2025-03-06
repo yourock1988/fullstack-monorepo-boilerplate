@@ -21,7 +21,7 @@ export default {
       <UiLogo />
 
       <div class="wrap-button-catalog">
-        <button>
+        <button @click="$router.push('/products')">
           <i class="fa-solid fa-table-cells-large"></i>
           <span>Каталог</span>
         </button>

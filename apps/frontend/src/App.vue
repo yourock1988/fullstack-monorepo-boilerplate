@@ -1,11 +1,7 @@
 <script>
-import PageFaceMain from '@/pages/PageFaceMain.vue'
-
-export default {
-  components: { PageFaceMain },
-}
+export default {}
 </script>
 
 <template>
-  <PageFaceMain></PageFaceMain>
+  <RouterView />
 </template>
