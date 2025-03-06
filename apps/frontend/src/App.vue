@@ -1,11 +1,11 @@
 <script>
-import PageCatalog from '@/pages/PageProducts.vue'
+import PageFaceMain from '@/pages/PageFaceMain.vue'
 
 export default {
-  components: { PageCatalog },
+  components: { PageFaceMain },
 }
 </script>
 
 <template>
-  <PageCatalog></PageCatalog>
+  <PageFaceMain></PageFaceMain>
 </template>

@@ -11,15 +11,9 @@ import PickerIsOffcanvasOpen from '~/page-products/pickers/PickerIsOffcanvasOpen
 import ShowPaginatedProducts from '~/page-products/ShowPaginatedProducts.vue'
 import ShowWatchedProducts from '~/page-products/ShowWatchedProducts.vue'
 import ShowFiltratedCount from '~/page-products/ShowFiltratedCount.vue'
-import WidgetHeader from '~/page-products/WidgetHeader.vue'
-import OffCanvas from '~/page-products/OffCanvas.vue'
 
+import OffCanvas from '~/page-products/OffCanvas.vue'
 import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
-import UiCopyright from '@/ui/page-products/UiCopyright.vue'
-import UiLinetop from '@/ui/page-products/UiLinetop.vue'
-import UiTapbar from '@/ui/page-products/UiTapbar.vue'
-import UiLinks from '@/ui/page-products/UiLinks.vue'
-import UiTags from '@/ui/page-products/UiTags.vue'
 
 import state from '@/functions/state'
 import { mapGetters } from 'vuex'
@@ -38,15 +32,9 @@ export default {
     ShowPaginatedProducts,
     ShowWatchedProducts,
     ShowFiltratedCount,
-    WidgetHeader,
-    OffCanvas,
 
+    OffCanvas,
     UiCategoryNavigation,
-    UiCopyright,
-    UiLinetop,
-    UiTapbar,
-    UiLinks,
-    UiTags,
   },
 
   data() {
@@ -58,7 +46,6 @@ export default {
   },
 
   computed: {
-    searchQuery: state('products', 'searchQuery', 'setSearchQuery', true),
     sortingType: state('products', 'sortingType', 'SET_SORTING_TYPE'),
     currentPage: state('products', 'currentPage', 'SET_CURRENT_PAGE'),
     attributes: state('products', 'attributes', 'SET_ATTRIBUTES'),
@@ -106,82 +93,62 @@ export default {
 </script>
 
 <template>
-  <div class="layout-wrapper">
-    <UiLinetop />
+  <div class="layout-main">
+    <div class="layout-centralize">
+      <main>
+        <UiCategoryNavigation />
 
-    <WidgetHeader v-model="searchQuery" />
+        <div class="layout-verbose-filtration">
+          <PickerIsOffcanvasOpen v-model="isOffcanvasOpen" />
 
-    <div class="layout-main">
-      <div class="layout-centralize">
-        <main>
-          <UiCategoryNavigation />
+          <ShowFiltratedCount :filtrated-count="filtratedCount" />
 
-          <div class="layout-verbose-filtration">
-            <PickerIsOffcanvasOpen v-model="isOffcanvasOpen" />
+          <PickerAttributesReset v-model="attributes" />
 
-            <ShowFiltratedCount :filtrated-count="filtratedCount" />
+          <PickerSortingType v-model="sortingType" />
 
-            <PickerAttributesReset v-model="attributes" />
+          <PickerPageSize v-model="pageSize" />
 
-            <PickerSortingType v-model="sortingType" />
+          <PickerListType v-model="listType" />
+        </div>
 
-            <PickerPageSize v-model="pageSize" />
+        <div class="layout-catalog">
+          <aside ref="aside" class="catalog-filter">
+            <PickerPriceRanges
+              v-model:price-from="priceFrom"
+              v-model:price-to="priceTo"
+              :price-min="priceMin"
+              :price-max="priceMax"
+            />
 
-            <PickerListType v-model="listType" />
+            <PickerAttributes v-model="attributes" />
+          </aside>
+
+          <div class="catalog-content">
+            <PickerCurrentPage
+              v-model="currentPage"
+              :pages-total="pagesTotal"
+            />
+
+            <ShowPaginatedProducts
+              :paginated-products="paginatedProducts"
+              :list-type="listType"
+            />
           </div>
+        </div>
+      </main>
 
-          <div class="layout-catalog">
-            <aside ref="aside" class="catalog-filter">
-              <PickerPriceRanges
-                v-model:price-from="priceFrom"
-                v-model:price-to="priceTo"
-                :price-min="priceMin"
-                :price-max="priceMax"
-              />
-
-              <PickerAttributes v-model="attributes" />
-            </aside>
-
-            <div class="catalog-content">
-              <PickerCurrentPage
-                v-model="currentPage"
-                :pages-total="pagesTotal"
-              />
-
-              <ShowPaginatedProducts
-                :paginated-products="paginatedProducts"
-                :list-type="listType"
-              />
-            </div>
-          </div>
-        </main>
-
-        <ShowWatchedProducts :products="watchedProducts" />
-      </div>
-
-      <OffCanvas
-        v-model:attributes="attributes"
-        v-model:price-from="priceFrom"
-        v-model:price-to="priceTo"
-        v-model="isOffcanvasOpen"
-        :price-min="priceMin"
-        :price-max="priceMax"
-      />
+      <ShowWatchedProducts :products="watchedProducts" />
     </div>
 
-    <div class="layout-footer">
-      <div class="line-downloads"></div>
-
-      <div class="layout-centralize">
-        <footer>
-          <UiLinks />
-
-          <UiTags />
-
-          <UiCopyright />
-        </footer>
-      </div>
-    </div>
+    <OffCanvas
+      v-model:attributes="attributes"
+      v-model:price-from="priceFrom"
+      v-model:price-to="priceTo"
+      v-model="isOffcanvasOpen"
+      :price-min="priceMin"
+      :price-max="priceMax"
+    />
   </div>
 
   <UiTapbar />
