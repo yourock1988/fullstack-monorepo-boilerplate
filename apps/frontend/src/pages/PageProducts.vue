@@ -158,6 +158,15 @@ export default {
 
         <ShowWatchedProducts :products="watchedProducts" />
       </div>
+
+      <OffCanvas
+        v-model:attributes="attributes"
+        v-model:price-from="priceFrom"
+        v-model:price-to="priceTo"
+        v-model="isOffcanvasOpen"
+        :price-min="priceMin"
+        :price-max="priceMax"
+      />
     </div>
 
     <div class="layout-footer">
@@ -174,15 +183,6 @@ export default {
       </div>
     </div>
   </div>
-
-  <OffCanvas
-    v-model:attributes="attributes"
-    v-model:price-from="priceFrom"
-    v-model:price-to="priceTo"
-    v-model="isOffcanvasOpen"
-    :price-min="priceMin"
-    :price-max="priceMax"
-  />
 
   <UiTapbar />
 </template>
