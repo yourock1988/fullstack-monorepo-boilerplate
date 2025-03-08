@@ -16,18 +16,30 @@
   height: 60vh;
   img {
     max-width: 100%;
-    min-height: 100%;
+    max-height: 100%;
   }
 }
 .slider-photos .photos {
   overflow-x: scroll;
   div {
+    padding: 5px;
+    overflow: hidden;
     display: inline-block;
-    border: 1px solid #678;
+    vertical-align: top;
+    border: 1px solid #abc;
     height: 70px;
     width: 70px;
     margin: 5px;
   }
+}
+
+.slider-photos .photos::-webkit-scrollbar {
+  height: 8px;
+  background-color: var(--color-white-1);
+}
+.slider-photos .photos::-webkit-scrollbar-thumb {
+  background-color: var(--color-white-2);
+  border-radius: 8px;
 }
 
 .about-text > div {

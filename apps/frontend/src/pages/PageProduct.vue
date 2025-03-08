@@ -2,27 +2,48 @@
 import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
 import ShowWatchedProducts from '~/page-products/ShowWatchedProducts.vue'
 
-import '@/assets/css/product-card.css'
-import imgComputer from '@/assets/img/computer.webp'
 import { mapGetters } from 'vuex'
+import '@/assets/css/product-card.css'
+
+const PATH_TO_PHOTO = 'https://web-app.click/pc-shop/photos/products/computers/'
 
 export default {
   components: { UiCategoryNavigation, ShowWatchedProducts },
 
-  props: ['id'],
-
-  data() {
-    return {
-      imgComputer,
-    }
+  beforeRouteUpdate(to) {
+    this.$store.commit('product/SET_PRODUCT', null)
+    this.loadProductCard(to.params.id)
   },
 
+  props: ['id'],
+
   computed: {
+    ...mapGetters('product', ['product']),
     ...mapGetters('watchedProducts', ['watchedProducts']),
+
+    urlPhoto() {
+      return this.product ? PATH_TO_PHOTO + this.product.photos[0] : ''
+    },
   },
 
   mounted() {
+    this.loadProductCard(this.id)
     this.$store.dispatch('watchedProducts/readWatchedProducts')
+  },
+
+  unmounted() {
+    this.$store.commit('product/SET_PRODUCT', null)
+  },
+
+  methods: {
+    loadProductCard(id) {
+      window.scrollTo(0, 0)
+      this.$store.dispatch('product/readProductById', +id)
+    },
+
+    pathToPhoto(photo) {
+      return PATH_TO_PHOTO + photo
+    },
   },
 }
 </script>
@@ -36,21 +57,17 @@ export default {
           <div class="product-card">
             <div class="slider-photos">
               <div class="photo">
-                <img :src="imgComputer" alt="" />
+                <img :src="urlPhoto" alt="" />
               </div>
               <div class="photos">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div v-for="(photo, idx) of product?.photos" :key="idx">
+                  <img :src="pathToPhoto(photo)" alt="" height="50" />
+                </div>
               </div>
             </div>
             <div class="about-text">
               <div class="caption">
-                <h2>this is template for product card {{ id }}</h2>
+                <h2>{{ product?.caption }}</h2>
               </div>
               <div class="feedback">
                 <span> Оставить отзыв </span>
@@ -59,7 +76,7 @@ export default {
                 <span> Есть в наличии </span>
               </div>
               <div class="price">
-                <span> 123 456 ₴ </span>
+                <span> {{ product?.priceUah }}₴ </span>
               </div>
               <div class="buy">
                 <button>Купить</button>
