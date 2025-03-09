@@ -2,6 +2,7 @@
 import CategoryNavigation from '~/CategoryNavigation.vue'
 import ShowWatchedProducts from '~/page-products/ShowWatchedProducts.vue'
 
+import store from '@/store'
 import { mapGetters } from 'vuex'
 import '@/assets/css/product-card.css'
 
@@ -10,15 +11,19 @@ const PATH_TO_PHOTO = 'https://web-app.click/pc-shop/photos/products/computers/'
 export default {
   components: { CategoryNavigation, ShowWatchedProducts },
 
-  beforeRouteUpdate(to) {
-    this.$store.commit('product/SET_PRODUCT', null)
-    this.updateProduct(to.params.id)
+  beforeRouteEnter() {
+    store.dispatch('watchedProducts/readWatchedProducts')
+  },
+
+  beforeRouteLeave() {
+    setTimeout(() => this.$store.commit('product/SET_PRODUCT', null), 150)
   },
 
   props: ['id'],
 
   computed: {
     ...mapGetters('product', ['product']),
+
     ...mapGetters('watchedProducts', ['watchedProducts']),
 
     mainPhoto() {
@@ -30,22 +35,22 @@ export default {
     },
   },
 
-  mounted() {
-    this.$store.dispatch('watchedProducts/readWatchedProducts')
-  },
-
   activated() {
     this.updateProduct(this.id)
   },
 
-  deactivated() {
-    this.$store.commit('product/SET_PRODUCT', null)
-  },
-
   methods: {
     updateProduct(id) {
+      this.$store.commit('product/SET_PRODUCT', null)
       this.$store.dispatch('product/readProductById', +id)
-      window.scrollTo(0, 0)
+      this.scrollToMainTop()
+    },
+
+    scrollToMainTop() {
+      document.body.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      })
     },
   },
 }
