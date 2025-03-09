@@ -12,7 +12,7 @@ export default {
 
   beforeRouteUpdate(to) {
     this.$store.commit('product/SET_PRODUCT', null)
-    this.loadProductCard(to.params.id)
+    this.updateProduct(to.params.id)
   },
 
   props: ['id'],
@@ -21,28 +21,31 @@ export default {
     ...mapGetters('product', ['product']),
     ...mapGetters('watchedProducts', ['watchedProducts']),
 
-    urlPhoto() {
+    mainPhoto() {
       return this.product ? PATH_TO_PHOTO + this.product.photos[0] : ''
+    },
+
+    photos() {
+      return this.product?.photos.map(photo => PATH_TO_PHOTO + photo) ?? []
     },
   },
 
   mounted() {
-    this.loadProductCard(this.id)
     this.$store.dispatch('watchedProducts/readWatchedProducts')
   },
 
-  unmounted() {
+  activated() {
+    this.updateProduct(this.id)
+  },
+
+  deactivated() {
     this.$store.commit('product/SET_PRODUCT', null)
   },
 
   methods: {
-    loadProductCard(id) {
-      window.scrollTo(0, 0)
+    updateProduct(id) {
       this.$store.dispatch('product/readProductById', +id)
-    },
-
-    pathToPhoto(photo) {
-      return PATH_TO_PHOTO + photo
+      window.scrollTo(0, 0)
     },
   },
 }
@@ -57,11 +60,11 @@ export default {
           <div class="product-card">
             <div class="slider-photos">
               <div class="photo">
-                <img :src="urlPhoto" alt="" />
+                <img :src="mainPhoto" alt="" />
               </div>
               <div class="photos">
-                <div v-for="(photo, idx) of product?.photos" :key="idx">
-                  <img :src="pathToPhoto(photo)" alt="" height="50" />
+                <div v-for="(photo, idx) of photos" :key="idx">
+                  <img :src="photo" alt="" height="50" />
                 </div>
               </div>
             </div>

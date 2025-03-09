@@ -29,7 +29,11 @@ export default {
 
     <WidgetHeader v-model="searchQuery" />
 
-    <RouterView />
+    <RouterView v-slot="{ Component }">
+      <KeepAlive>
+        <Component :is="Component" />
+      </KeepAlive>
+    </RouterView>
 
     <div class="layout-footer">
       <div class="line-downloads"></div>
