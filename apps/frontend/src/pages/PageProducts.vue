@@ -13,7 +13,7 @@ import ShowWatchedProducts from '~/page-products/ShowWatchedProducts.vue'
 import ShowFiltratedCount from '~/page-products/ShowFiltratedCount.vue'
 
 import OffCanvas from '~/page-products/OffCanvas.vue'
-import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
+import CategoryNavigation from '~/CategoryNavigation.vue'
 
 import state from '@/functions/state'
 import { mapGetters } from 'vuex'
@@ -34,7 +34,7 @@ export default {
     ShowFiltratedCount,
 
     OffCanvas,
-    UiCategoryNavigation,
+    CategoryNavigation,
   },
 
   data() {
@@ -96,7 +96,7 @@ export default {
   <div class="layout-main">
     <div class="layout-centralize">
       <main>
-        <UiCategoryNavigation />
+        <CategoryNavigation />
 
         <div class="layout-verbose-filtration">
           <PickerIsOffcanvasOpen v-model="isOffcanvasOpen" />

@@ -1,5 +1,5 @@
 <script>
-import UiCategoryNavigation from '@/ui/page-products/UiCategoryNavigation.vue'
+import CategoryNavigation from '~/CategoryNavigation.vue'
 import ShowWatchedProducts from '~/page-products/ShowWatchedProducts.vue'
 
 import { mapGetters } from 'vuex'
@@ -8,7 +8,7 @@ import '@/assets/css/product-card.css'
 const PATH_TO_PHOTO = 'https://web-app.click/pc-shop/photos/products/computers/'
 
 export default {
-  components: { UiCategoryNavigation, ShowWatchedProducts },
+  components: { CategoryNavigation, ShowWatchedProducts },
 
   beforeRouteUpdate(to) {
     this.$store.commit('product/SET_PRODUCT', null)
@@ -56,7 +56,7 @@ export default {
     <div class="layout-main">
       <div class="layout-centralize">
         <main>
-          <UiCategoryNavigation />
+          <CategoryNavigation />
           <div class="product-card">
             <div class="slider-photos">
               <div class="photo">
