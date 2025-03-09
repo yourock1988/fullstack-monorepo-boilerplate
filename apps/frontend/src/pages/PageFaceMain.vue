@@ -1,11 +1,11 @@
 <script>
 import state from '@/functions/state'
-import WidgetHeader from '~/page-products/WidgetHeader.vue'
-import UiCopyright from '@/ui/page-products/UiCopyright.vue'
-import UiLinetop from '@/ui/page-products/UiLinetop.vue'
-import UiTapbar from '@/ui/page-products/UiTapbar.vue'
-import UiLinks from '@/ui/page-products/UiLinks.vue'
-import UiTags from '@/ui/page-products/UiTags.vue'
+import WidgetHeader from '~/WidgetHeader.vue'
+import UiCopyright from '@/ui/page-face-main/UiCopyright.vue'
+import UiLinetop from '@/ui/page-face-main/UiLinetop.vue'
+import UiTapbar from '@/ui/page-face-main/UiTapbar.vue'
+import UiLinks from '@/ui/page-face-main/UiLinks.vue'
+import UiTags from '@/ui/page-face-main/UiTags.vue'
 
 export default {
   components: {
