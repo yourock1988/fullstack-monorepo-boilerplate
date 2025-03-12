@@ -1,8 +1,9 @@
 import { createWebHistory, createRouter } from 'vue-router'
 
 import PageProducts from '@/pages/PageProducts.vue'
-import PageFaceMain from '../pages/PageFaceMain.vue'
-import PageProduct from '../pages/PageProduct.vue'
+import PageFaceMain from '@/pages/PageFaceMain.vue'
+import PageProduct from '@/pages/PageProduct.vue'
+import PageCart from '@/pages/PageCart.vue'
 
 const routes = [
   {
@@ -16,6 +17,11 @@ const routes = [
       {
         path: 'product/:id',
         component: PageProduct,
+        props: true,
+      },
+      {
+        path: 'cart',
+        component: PageCart,
         props: true,
       },
     ],

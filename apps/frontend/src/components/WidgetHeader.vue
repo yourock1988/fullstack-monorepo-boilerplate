@@ -57,7 +57,10 @@ export default {
           <i class="fa-regular fa-heart"></i>
         </div>
         <div class="wrap-icon-cart">
-          <i class="fa-solid fa-cart-shopping"></i>
+          <i
+            class="fa-solid fa-cart-shopping"
+            @click="$router.push('/cart')"
+          ></i>
         </div>
       </div>
     </header>
