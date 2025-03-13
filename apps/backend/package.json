@@ -6,9 +6,9 @@
   "license": "MIT",
   "main": "./src/app.js",
   "scripts": {
-    "dev": "nodemon ./dev.js",
-    "look": "nodemon ../../build/server/app.js",
-    "start": "node ../../dist/server/app.js",
+    "dev": "nodemon --env-file=../../.env.dev ./dev.js",
+    "look": "nodemon --env-file=../../.env.dev ../../build/server/app.js",
+    "start": "node --env-file=../../.env.prod ../../dist/server/app.js",
     "deploy": "npm run build:prod && npm start",
     "sql:dev": "cp -R ./src/sql ../../build/server/sql",
     "sql:prod": "cp -R ./src/sql ../../dist/server/sql",
