@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge')
 const webpackBaseConfig = require('./base')
 const PATHS = require('./paths')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = merge(webpackBaseConfig, {
   mode: 'development',
@@ -16,4 +17,10 @@ module.exports = merge(webpackBaseConfig, {
   output: {
     path: PATHS.build,
   },
+
+  plugins: [
+    new Dotenv({
+      path: '../../.env.dev',
+    }),
+  ],
 })

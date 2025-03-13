@@ -14,6 +14,8 @@ import '@fortawesome/fontawesome-free/css/all.css'
 
 const app = Vue.createApp(App)
 
+global.console.log(process.env.APP_FE_COMMENT)
+
 app.use(store)
 app.use(router)
 
