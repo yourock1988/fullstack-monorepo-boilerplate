@@ -9,7 +9,6 @@
     "dev": "nodemon --env-file=../../.env.dev ./dev.js",
     "look": "nodemon --env-file=../../.env.dev ../../build/server/app.js",
     "start": "node --env-file=../../.env.prod ../../dist/server/app.js",
-    "deploy": "npm run build:prod && npm start",
     "sql:dev": "cp -R ./src/sql ../../build/server/sql",
     "sql:prod": "cp -R ./src/sql ../../dist/server/sql",
     "babel:dev": "babel -d ../../build/server ./src --delete-dir-on-start -s",
