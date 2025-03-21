@@ -11,5 +11,7 @@ global.console.log(publicStatic)
 
 app.use('/', express.static(publicStatic, { index: 'index.html' }))
 app.use('/products', express.static(publicStatic, { index: 'index.html' }))
+app.use('/product', express.static(publicStatic, { index: 'index.html' }))
+app.use('/cart', express.static(publicStatic, { index: 'index.html' }))
 
 module.exports = app
