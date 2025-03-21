@@ -10,14 +10,20 @@
 git clone https://github.com/yourock1988/fullstack-monorepo-boilerplate/
 ```
 
-### Install all dependencies:
+### Install system dependencies:
 
 ```console
-npm install
+bash ./setup/init-system.sh
 ```
 
-### Then you can start the application:
+### Full deploy:
 
 ```console
-npm run start
+bash deploy-app-full
+```
+
+### Dev:
+
+```console
+npm run dev
 ```
