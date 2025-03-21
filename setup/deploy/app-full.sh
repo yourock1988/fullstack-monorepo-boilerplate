@@ -36,7 +36,7 @@ server {
     }
 }
 EOF
-ln -s -f /etc/nginx/sites-available/$DOMAIN/etc/nginx/sites-enabled/
+ln -s -f /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/$DOMAIN
 nginx -s reload
 echo "Nginx успешно настроен."
 
@@ -48,6 +48,8 @@ echo "Certbot успешно настроен."
 
 
 echo "Настройка сервиса..."
+systemctl stop $APP.service || true
+systemctl disable $APP.service || true
 cat << EOF > /etc/systemd/system/$APP.service 
 [Unit]
 After=network-online.target
