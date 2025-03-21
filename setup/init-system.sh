@@ -13,6 +13,8 @@ GROUP=developers
 
 echo "SHELL=/bin/bash" >> /etc/default/useradd
 echo -e '\nexport NVM_DIR="$HOME/.nvm"\n[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> /home/webmaster/.profile
+echo "SystemMaxUse=50M" >> /etc/systemd/journald.conf
+systemctl restart systemd-journald
 
 
 useradd -m -s /bin/bash $USER

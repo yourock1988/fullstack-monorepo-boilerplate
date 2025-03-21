@@ -22,8 +22,3 @@ sudo -iu webmaster npm config list -g
 sudo -iu webmaster npm config get prefix
 sudo -iu webmaster node -v
 sudo -iu webmaster npm -v
-
-
-echo 'yo!!'
-
-source ./setup/deploy/yo.sh

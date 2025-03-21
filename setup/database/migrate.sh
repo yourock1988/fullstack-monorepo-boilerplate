@@ -12,13 +12,13 @@ echo "Начинаю миграцию базы данных..."
 
 DB=pc_shop_v0
 DB_USER=postgres
-SERVICE=pc-shopV03
+APP=boilerplate
 PATH_BACKUP=/var/lib/postgresql/backup
 BACKUP=$DB-$(date +%Y-%m-%d).sql
-MIGRATION=/srv/boilerplate/database.sql
+MIGRATION=/srv/$APP/database.sql
 
-systemctl stop $SERVICE.service
-echo "service $SERVICE stopped"
+systemctl stop $APP.service
+echo "service $APP stopped"
 
 sudo -iu $DB_USER pg_dump $DB > $PATH_BACKUP/$BACKUP
 echo "backup $DB-$(date +%Y-%m-%d) dumped"
@@ -32,5 +32,5 @@ echo "database $DB created"
 sudo -iu $DB_USER psql -d $DB -f $MIGRATION > /dev/null
 echo "database $DB deploy"
 
-systemctl start $SERVICE.service
-echo "service $SERVICE started"
+systemctl start $APP.service
+echo "service $APP started"

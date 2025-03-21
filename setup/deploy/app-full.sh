@@ -8,9 +8,9 @@ set -e
 
 
 USER=webmaster
-APP=spa
+APP=boilerplate
 DOMAIN=$APP.web-app.click
-
+PORT=8801
 
 echo "Настройка nginx..."
 cat << EOF > /etc/nginx/sites-available/$DOMAIN
@@ -22,8 +22,13 @@ server {
         add_header Cache-Control "public, max-age=31536000";
         try_files \$uri \$uri/ =404;
     }
+    location /static/ {
+        alias /srv/$APP/dist/server/static/;
+        add_header Cache-Control "public, max-age=31536000";
+        try_files \$uri \$uri/ =404;
+    }
     location / {
-        proxy_pass http://127.0.0.1:8836;
+        proxy_pass http://127.0.0.1:$PORT;
         proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;
         proxy_set_header Connection "Upgrade";

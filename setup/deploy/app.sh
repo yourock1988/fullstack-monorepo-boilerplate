@@ -8,7 +8,7 @@ set -e
 
 
 USER=webmaster
-APP=spa
+APP=boilerplate
 DOMAIN=$APP.web-app.click
 
 

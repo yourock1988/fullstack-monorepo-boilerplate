@@ -9,12 +9,12 @@ set -e
 
 DB=pc_shop_v0
 DB_USER=postgres
-SERVICE=pc-shopV03
+APP=boilerplate
 PATH_BACKUP=/var/lib/postgresql/backup
 BACKUP=$DB-$(date +%Y-%m-%d).sql
 
-systemctl stop $SERVICE.service
-echo "service $SERVICE stopped"
+systemctl stop $APP.service
+echo "service $APP stopped"
 
 sudo -iu $DB_USER dropdb $DB
 echo "database $DB dropped"
@@ -25,5 +25,5 @@ echo "database $DB created"
 sudo -iu $DB_USER psql -d $DB -f $PATH_BACKUP/$BACKUP > /dev/null
 echo "database $DB restored"
 
-systemctl start $SERVICE.service
-echo "service $SERVICE started"
+systemctl start $APP.service
+echo "service $APP started"
