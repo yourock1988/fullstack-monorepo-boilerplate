@@ -7,9 +7,6 @@ fi
 set -e
 
 
-echo "Начинаю миграцию базы данных..."
-
-
 DB=pc_shop_v0
 DB_USER=postgres
 APP=boilerplate
@@ -17,8 +14,8 @@ PATH_BACKUP=/var/lib/postgresql/backup
 BACKUP=$DB-$(date +%Y-%m-%d).sql
 MIGRATION=/srv/$APP/database.sql
 
-systemctl stop $APP.service
-echo "service $APP stopped"
+
+echo "Начинаю миграцию базы данных..."
 
 sudo -iu $DB_USER pg_dump $DB > $PATH_BACKUP/$BACKUP
 echo "backup $DB-$(date +%Y-%m-%d) dumped"
@@ -31,6 +28,3 @@ echo "database $DB created"
 
 sudo -iu $DB_USER psql -d $DB -f $MIGRATION > /dev/null
 echo "database $DB deploy"
-
-systemctl start $APP.service
-echo "service $APP started"

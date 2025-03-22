@@ -12,9 +12,8 @@ APP=boilerplate
 DOMAIN=$APP.web-app.click
 
 
-systemctl disable $APP.service || true
-systemctl daemon-reload
-systemctl stop $APP.service || true
+systemctl disable $APP.service
+systemctl stop $APP.service
 systemctl daemon-reload
 
 source ./setup/database/migrate.sh

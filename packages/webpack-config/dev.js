@@ -33,7 +33,6 @@ module.exports = merge(webpackBaseConfig, {
   plugins: [
     new Dotenv({
       path: '../../.env.dev',
-      safe: true,
     }),
 
     new DoneMessage(`Webpack dev server: http://localhost:${devPort}/products`),

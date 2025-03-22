@@ -48,10 +48,8 @@ echo "Certbot успешно настроен."
 
 
 echo "Настройка сервиса..."
-systemctl disable $APP.service || true
-systemctl daemon-reload
-systemctl stop $APP.service || true
-systemctl daemon-reload
+systemctl disable $APP.service
+systemctl stop $APP.service
 cat << EOF > /etc/systemd/system/$APP.service 
 [Unit]
 After=network-online.target
