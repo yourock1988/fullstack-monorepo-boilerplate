@@ -1,10 +1,12 @@
 <script>
+const { APP_ORIGIN } = process.env
+
 export default {
   props: ['product'],
 
   data() {
     return {
-      urlToPhoto: 'https://web-app.click/pc-shop/photos/products/computers/',
+      urlToPhoto: `${APP_ORIGIN}/static/photos/products/computers/`,
     }
   },
 }

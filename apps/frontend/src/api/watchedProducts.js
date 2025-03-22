@@ -3,7 +3,8 @@ import sendRequest from './sendRequest'
 import { getProductById } from './products'
 import auth from './auth'
 
-const url = 'https://pc-shop.web-app.click/api/v0/customers/3/watched/'
+const { APP_ORIGIN } = process.env
+const url = `${APP_ORIGIN}/api/v0/customers/3/watched/`
 
 export async function getWatchedProducts() {
   const responce = await getWatchedProductsDraft()

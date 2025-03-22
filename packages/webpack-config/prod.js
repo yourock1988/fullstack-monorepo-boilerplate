@@ -14,6 +14,7 @@ module.exports = merge(webpackBaseConfig, {
   plugins: [
     new Dotenv({
       path: '../../.env.prod',
+      safe: true,
     }),
   ],
 })

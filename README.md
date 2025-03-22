@@ -13,16 +13,16 @@ git clone https://github.com/yourock1988/fullstack-monorepo-boilerplate/
 ### Install system dependencies:
 
 ```console
-bash ./setup/init-system.sh
+sudo bash ./setup/init-system.sh
 ```
 
 ### Full deploy:
 
 ```console
-bash deploy-app-full
+sudo bash deploy-app-full
 ```
 
-### Dev:
+### Start development mode:
 
 ```console
 npm run dev

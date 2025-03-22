@@ -6,7 +6,8 @@ import store from '@/store'
 import { mapGetters } from 'vuex'
 import '@/assets/css/product-card.css'
 
-const PATH_TO_PHOTO = 'https://web-app.click/pc-shop/photos/products/computers/'
+const { APP_ORIGIN } = process.env
+const PATH_TO_PHOTO = `${APP_ORIGIN}/static/photos/products/computers/`
 
 export default {
   components: { CategoryNavigation, ShowWatchedProducts },

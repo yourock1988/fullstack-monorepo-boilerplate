@@ -1,7 +1,8 @@
 import sendRequest from './sendRequest'
 
 async function auth() {
-  const url = 'https://pc-shop.web-app.click/api/v0/auth'
+  const { APP_ORIGIN } = process.env
+  const url = `${APP_ORIGIN}/api/v0/auth`
   await sendRequest(url)
 }
 

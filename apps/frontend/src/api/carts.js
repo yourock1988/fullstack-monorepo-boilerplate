@@ -1,6 +1,7 @@
 import sendRequest from './sendRequest'
 
-const url = 'https://pc-shop.web-app.click/api/v0/customers/3/carts/'
+const { APP_ORIGIN } = process.env
+const url = `${APP_ORIGIN}/api/v0/customers/3/carts/`
 
 export async function getCarts() {
   const response = await sendRequest(url)

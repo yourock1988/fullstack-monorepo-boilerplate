@@ -14,7 +14,11 @@ import '@fortawesome/fontawesome-free/css/all.css'
 
 const app = Vue.createApp(App)
 
-global.console.log(process.env.APP_FE_COMMENT)
+const { APP_ORIGIN } = process.env
+const { APP_FE_COMMENT } = process.env
+
+global.console.log(APP_FE_COMMENT)
+global.console.log(APP_ORIGIN)
 
 app.use(store)
 app.use(router)
