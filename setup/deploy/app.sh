@@ -12,7 +12,10 @@ APP=boilerplate
 DOMAIN=$APP.web-app.click
 
 
-systemctl stop $APP
+systemctl disable $APP.service || true
+systemctl daemon-reload
+systemctl stop $APP.service || true
+systemctl daemon-reload
 
 source ./setup/database/migrate.sh
 
@@ -21,4 +24,5 @@ sudo -iu $USER npm --prefix /srv/$APP run deploy
 echo "Развертывание завершено."
 echo "Запускаю сервис..."
 systemctl start $APP.service
+systemctl enable $APP.service
 echo "Приложение $APP запущено!"

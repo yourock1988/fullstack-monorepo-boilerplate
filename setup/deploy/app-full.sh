@@ -48,8 +48,10 @@ echo "Certbot успешно настроен."
 
 
 echo "Настройка сервиса..."
-systemctl stop $APP.service || true
 systemctl disable $APP.service || true
+systemctl daemon-reload
+systemctl stop $APP.service || true
+systemctl daemon-reload
 cat << EOF > /etc/systemd/system/$APP.service 
 [Unit]
 After=network-online.target
@@ -68,7 +70,6 @@ Environment=NODE_ENV=production
 WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
-systemctl enable $APP.service
 echo "Сервис успешно настроен."
 
 
