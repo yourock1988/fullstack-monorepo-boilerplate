@@ -57,12 +57,12 @@ After=network-online.target
 Description=app $APP for domain $DOMAIN
 [Service]
 WorkingDirectory=/srv/$APP
-Environment=PATH=/home/$USER/.nvm/versions/node/v22.11.0/bin:/usr/local/bin:/usr/bin
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
 Group=$USER
 User=$USER
 ###
 Restart=always
-ExecStart=npm start
+ExecStart=bash -c '. ~/.nvm/nvm.sh; npm start'
 Environment=NODE_ENV=production
 [Install]
 WantedBy=multi-user.target
