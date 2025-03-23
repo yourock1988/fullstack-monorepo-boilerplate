@@ -27,6 +27,7 @@ chmod -R 775 /srv
 apt update
 apt upgrade
 systemctl daemon-reload
+apt install -y git
 apt install -y nginx
 apt install -y postgresql
 apt install -y snapd
@@ -39,8 +40,16 @@ sudo -iu webmaster nvm alias default 22.11.0
 ln -s -f /snap/bin/certbot /usr/bin/certbot
 sudo -iu postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres1';"
 
+cd /srv
 
+git clone https://github.com/yourock1988/fullstack-monorepo-boilerplate.git
 
+mv /srv/fullstack-monorepo-boilerplate /srv/boilerplate
 
+chown -R $USER /srv
+chgrp -R $GROUP /srv
+chmod -R 775 /srv 
 
+cd /srv/boilerplate
 
+bash deploy-app.sh
